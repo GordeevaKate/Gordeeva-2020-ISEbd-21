@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyshiBarView", "SyshiBarView\SyshiBarView.csproj", "{D3AFFD52-B784-4207-990F-0ED91EB1E8D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractSyshiBarBusinessLogic", "AbstractSyshiBarBusinessLogic\AbstractSyshiBarBusinessLogic.csproj", "{51E28D04-3A36-4398-9C91-5C13DDEEDCCB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D3AFFD52-B784-4207-990F-0ED91EB1E8D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3AFFD52-B784-4207-990F-0ED91EB1E8D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3AFFD52-B784-4207-990F-0ED91EB1E8D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51E28D04-3A36-4398-9C91-5C13DDEEDCCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51E28D04-3A36-4398-9C91-5C13DDEEDCCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51E28D04-3A36-4398-9C91-5C13DDEEDCCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51E28D04-3A36-4398-9C91-5C13DDEEDCCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

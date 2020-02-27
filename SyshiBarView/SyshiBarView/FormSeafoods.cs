@@ -1,20 +1,20 @@
 ﻿using AbstractSyshiBarBusinessLogic.Interfaces;
 using System;
 using System.Windows.Forms;
-using Unity;
+using Unity;using AbstractSyshiBarBusinessLogic.BindingModels;
 namespace SyshiBarView
 {
-    public partial class FormComponents : Form
+    public partial class FormSeafoods : Form
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly IComponentLogic logic;
-        public FormComponents(IComponentLogic logic)
+        private readonly ISeafoodLogic logic;
+        public FormSeafoods(ISeafoodLogic logic)
         {
             InitializeComponent();
             this.logic = logic;
         }
-        private void FormComponents_Load(object sender, EventArgs e)
+        private void FormSeafoods_Load(object sender, EventArgs e)
         {
             LoadData();
         }
@@ -22,13 +22,14 @@ namespace SyshiBarView
         {
             try
             {
-                var list = logic.GetList();
+                var list = logic.Read(null);
                 if (list != null)
                 {
                     dataGridView.DataSource = list;
                     dataGridView.Columns[0].Visible = false;
-                    dataGridView.Columns[1].AutoSizeMode =
-                DataGridViewAutoSizeColumnMode.Fill;
+                  
+                dataGridView.Columns[1].AutoSizeMode =
+DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
             catch (Exception ex)
@@ -39,7 +40,7 @@ namespace SyshiBarView
         }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormComponent>();
+            var form = Container.Resolve<FormSeafood>();
             if (form.ShowDialog() == DialogResult.OK)
             {
                 LoadData();
@@ -49,7 +50,7 @@ namespace SyshiBarView
         {
             if (dataGridView.SelectedRows.Count == 1)
             {
-                var form = Container.Resolve<FormComponent>();
+                var form = Container.Resolve<FormSeafood>();
                 form.Id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
@@ -68,7 +69,7 @@ namespace SyshiBarView
                    Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
                     try
                     {
-                        logic.DelElement(id);
+                        logic.Delete(new SeafoodBindingModel { Id = id });
                     }
                     catch (Exception ex)
                     {

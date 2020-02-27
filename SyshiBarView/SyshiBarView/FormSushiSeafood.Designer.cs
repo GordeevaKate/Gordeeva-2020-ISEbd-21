@@ -1,6 +1,6 @@
 ﻿namespace SyshiBarView
 {
-    partial class FormProductComponent
+    partial class FormSushiSeafood
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@
             this.textBoxCount = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxComponent = new System.Windows.Forms.ComboBox();
+            this.comboBoxSeafood = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // buttonSave
@@ -81,28 +81,27 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Компонент:";
             // 
-            // comboBoxComponent
+            // comboBoxSeafood
             // 
-            this.comboBoxComponent.FormattingEnabled = true;
-            this.comboBoxComponent.Location = new System.Drawing.Point(169, 6);
-            this.comboBoxComponent.Name = "comboBoxComponent";
-            this.comboBoxComponent.Size = new System.Drawing.Size(250, 21);
-            this.comboBoxComponent.TabIndex = 5;
+            this.comboBoxSeafood.FormattingEnabled = true;
+            this.comboBoxSeafood.Location = new System.Drawing.Point(169, 6);
+            this.comboBoxSeafood.Name = "comboBoxSeafood";
+            this.comboBoxSeafood.Size = new System.Drawing.Size(250, 21);
+            this.comboBoxSeafood.TabIndex = 5;
             // 
-            // FormProductComponent
+            // FormSushiSeafood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(429, 122);
-            this.Controls.Add(this.comboBoxComponent);
+            this.Controls.Add(this.comboBoxSeafood);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxCount);
             this.Controls.Add(this.buttonCansel);
             this.Controls.Add(this.buttonSave);
-            this.Name = "FormProductComponent";
+            this.Name = "FormSushiSeafood";
             this.Text = "Компонент изделия";
-            this.Load += new System.EventHandler(this.FormProductComponent_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,6 +114,6 @@
         private System.Windows.Forms.TextBox textBoxCount;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBoxComponent;
+        private System.Windows.Forms.ComboBox comboBoxSeafood;
     }
 }

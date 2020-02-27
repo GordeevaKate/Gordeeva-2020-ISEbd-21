@@ -2,13 +2,13 @@
 using System.ComponentModel;
 namespace AbstractSyshiBarBusinessLogic.ViewModels
 {
-   public class ProductViewModel
+   public class SushiViewModel
     {
         public int Id { get; set; }
-        [DisplayName("Название изделия")]
-        public string ProductName { get; set; }
+        [DisplayName("Название суши")]
+        public string SushiName { get; set; }
         [DisplayName("Цена")]
         public decimal Price { get; set; }
-        public List<ProductComponentViewModel> ProductComponents { get; set; }
+        public Dictionary<int, (string, int)> SushiSeafoods { get; set; }
     }
 }

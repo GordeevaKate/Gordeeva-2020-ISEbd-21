@@ -1,6 +1,6 @@
 ﻿namespace SyshiBarView
 {
-    partial class FormComponents
+    partial class FormSeafoods
     {
         /// <summary>
         /// Required designer variable.
@@ -44,7 +44,7 @@
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.Text = "добавить";
             this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonUpd
             // 
@@ -97,7 +97,7 @@
             this.Controls.Add(this.buttonAdd);
             this.Name = "FormComponents";
             this.Text = "Компоненты";
-            this.Load += new System.EventHandler(this.FormComponents_Load);
+            this.Load += new System.EventHandler(this.FormSeafoods_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 

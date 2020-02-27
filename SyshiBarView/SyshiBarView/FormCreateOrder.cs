@@ -1,4 +1,5 @@
 ﻿using AbstractSyshiBarBusinessLogic.BindingModels;
+using AbstractSyshiBarBusinessLogic.BusinessLogics;
 using AbstractSyshiBarBusinessLogic.Interfaces;
 using AbstractSyshiBarBusinessLogic.ViewModels;
 using System;
@@ -11,49 +12,52 @@ namespace SyshiBarView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly IProductLogic logicP;
-        private readonly IMainLogic logicM;
-        public FormCreateOrder(IProductLogic logicP, IMainLogic logicM)
+        private readonly ISushiLogic logicP;
+        private readonly MainLogic logicM;
+        public FormCreateOrder(ISushiLogic logicP, MainLogic logicM)
         {
             InitializeComponent();
             this.logicP = logicP;
             this.logicM = logicM;
-        }
+        }
 
         private void FormCreateOrder_Load(object sender, EventArgs e)
         {
             try
             {
-                    //ProductViewModel view = logic.GetElement(id.Value);
                 var list = logicP.Read(null);
-                comboBoxProduct.DataSource = list;
-                comboBoxProduct.DisplayMember = "SnackName";
-                comboBoxProduct.ValueMember = "Id";
+                comboBoxSushi.DataSource = list;
+                comboBoxSushi.DisplayMember = "SnackName";
+                comboBoxSushi.ValueMember = "Id";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
                MessageBoxIcon.Error);
-            }
+            }
         }
         private void CalcSum()
         {
-            if (comboBoxProduct.SelectedValue != null &&
-           !string.IsNullOrEmpty(textBoxCount.Text))
+            if (comboBoxSushi.SelectedValue != null &&
+   !string.IsNullOrEmpty(textBoxCount.Text))
             {
                 try
                 {
-                    int id = Convert.ToInt32(comboBoxProduct.SelectedValue);
-                    ProductViewModel product = logicP.GetElement(id);
+                    int id = Convert.ToInt32(comboBoxSushi.SelectedValue);
+                    SushiViewModel product = logicP.Read(new SushiBindingModel
+                    {
+                        Id =
+                    id
+                    })?[0];
                     int count = Convert.ToInt32(textBoxCount.Text);
-                    textBoxSum.Text = (count * product.Price).ToString();
+                    textBoxSum.Text = (count * product?.Price ?? 0).ToString();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
                 }
-            }
+            }
         }
         private void textBoxCount_TextChanged(object sender, EventArgs e)
         {
@@ -71,7 +75,7 @@ namespace SyshiBarView
                MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (comboBoxProduct.SelectedValue == null)
+            if (comboBoxSushi.SelectedValue == null)
             {
                 MessageBox.Show("Выберите изделие", "Ошибка", MessageBoxButtons.OK,
                MessageBoxIcon.Error);
@@ -79,9 +83,9 @@ namespace SyshiBarView
             }
             try
             {
-                logicM.CreateOrder(new OrderBindingModel
+                logicM.CreateOrder(new CreateOrderBindingModel
                 {
-                    ProductId = Convert.ToInt32(comboBoxProduct.SelectedValue),
+                    SushiId = Convert.ToInt32(comboBoxSushi.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text),
                     Sum = Convert.ToDecimal(textBoxSum.Text)
                 });
@@ -94,8 +98,7 @@ namespace SyshiBarView
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
                MessageBoxIcon.Error);
-                
-            }
+            }
         }
         private void buttonCancel_Click(object sender, EventArgs e)
         {

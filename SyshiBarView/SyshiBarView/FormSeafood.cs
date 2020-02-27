@@ -5,14 +5,14 @@ using System.Windows.Forms;
 using Unity;
 namespace SyshiBarView
 {
-    public partial class FormComponent : Form
+    public partial class FormSeafood : Form
     {
        [ Dependency]
  public new IUnityContainer Container { get; set; }
         public int Id { set { id = value; } }
-        private readonly IComponentLogic logic;
+        private readonly ISeafoodLogic logic;
         private int? id;
-        public FormComponent(IComponentLogic logic)
+        public FormSeafood(ISeafoodLogic logic)
         {
             InitializeComponent();
             this.logic = logic;
@@ -23,10 +23,10 @@ namespace SyshiBarView
             {
                 try
                 {
-                    var view = logic.GetElement(id.Value);
+                    var view = logic.Read(new SeafoodBindingModel { Id = id })?[0];
                     if (view != null)
                     {
-                        textBoxName.Text = view.ComponentName;
+                        textBoxName.Text = view.SeafoodName;
                     }
                 }
                 catch (Exception ex)
@@ -36,7 +36,7 @@ namespace SyshiBarView
                 }
             }
         }
-        private void buttonSave_Click(object sender, EventArgs e)
+        private void ButtonSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxName.Text))
             {
@@ -46,21 +46,11 @@ namespace SyshiBarView
             }
             try
             {
-                if (id.HasValue)
+                logic.CreateOrUpdate(new SeafoodBindingModel
                 {
-                    logic.UpdElement(new ComponentBindingModel
-                    {
-                        Id = id.Value,
-                        ComponentName = textBoxName.Text
-                    });
-                }
-                else
-                {
-                    logic.AddElement(new ComponentBindingModel
-                    {
-                        ComponentName = textBoxName.Text
-                    });
-                }
+                    Id = id,
+                    SeafoodName = textBoxName.Text
+                });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
@@ -72,7 +62,7 @@ namespace SyshiBarView
                MessageBoxIcon.Error);
             }
         }
-        private void buttonCancel_Click(object sender, EventArgs e)
+        private void ButtonCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();

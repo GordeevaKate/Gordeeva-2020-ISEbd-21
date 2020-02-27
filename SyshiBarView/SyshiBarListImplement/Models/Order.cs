@@ -1,10 +1,11 @@
 ﻿using AbstractSyshiBarBusinessLogic.Enums;
 using System;
-namespace AbstractSyshiBarBusinessLogic.BindingModels
+
+namespace SyshiBarListImplement.Models
 {
-    public class OrderBindingModel
+    public class Order
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public int SushiId { get; set; }
         public int Count { get; set; }
         public decimal Sum { get; set; }

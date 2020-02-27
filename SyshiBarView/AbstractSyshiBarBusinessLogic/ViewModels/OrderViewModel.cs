@@ -6,9 +6,9 @@ namespace AbstractSyshiBarBusinessLogic.ViewModels
     public class OrderViewModel
     {
         public int Id { get; set; }
-        public int ProductId { get; set; }
-        [DisplayName("Изделие")]
-        public string ProductName { get; set; }
+        public int SushiId { get; set; }
+        [DisplayName("Суши")]
+        public string SushiName { get; set; }
         [DisplayName("Количество")]
         public int Count { get; set; }
         [DisplayName("Сумма")]

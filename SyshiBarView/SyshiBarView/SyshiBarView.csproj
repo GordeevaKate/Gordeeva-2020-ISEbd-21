@@ -55,23 +55,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormComponent.cs">
+    <Compile Include="FormSeafood.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormComponent.Designer.cs">
-      <DependentUpon>FormComponent.cs</DependentUpon>
+    <Compile Include="FormSeafood.Designer.cs">
+      <DependentUpon>FormSeafood.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormComponents.cs">
+    <Compile Include="FormSeafoods.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormComponents.Designer.cs">
-      <DependentUpon>FormComponents.cs</DependentUpon>
+    <Compile Include="FormSeafoods.Designer.cs">
+      <DependentUpon>FormSeafoods.cs</DependentUpon>
     </Compile>
     <Compile Include="FormCreateOrder.cs">
       <SubType>Form</SubType>
@@ -79,34 +79,46 @@
     <Compile Include="FormCreateOrder.Designer.cs">
       <DependentUpon>FormCreateOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormProduct.cs">
+    <Compile Include="FormSushi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormProduct.Designer.cs">
-      <DependentUpon>FormProduct.cs</DependentUpon>
+    <Compile Include="FormSushi.Designer.cs">
+      <DependentUpon>FormSushi.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormProductComponent.cs">
+    <Compile Include="FormSushis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormProductComponent.Designer.cs">
-      <DependentUpon>FormProductComponent.cs</DependentUpon>
+    <Compile Include="FormSushis.Designer.cs">
+      <DependentUpon>FormSushis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSushiSeafood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSushiSeafood.Designer.cs">
+      <DependentUpon>FormSushiSeafood.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormComponent.resx">
-      <DependentUpon>FormComponent.cs</DependentUpon>
+    <EmbeddedResource Include="FormSeafood.resx">
+      <DependentUpon>FormSeafood.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormComponents.resx">
-      <DependentUpon>FormComponents.cs</DependentUpon>
+    <EmbeddedResource Include="FormSeafoods.resx">
+      <DependentUpon>FormSeafoods.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCreateOrder.resx">
       <DependentUpon>FormCreateOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormProduct.resx">
-      <DependentUpon>FormProduct.cs</DependentUpon>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormProductComponent.resx">
-      <DependentUpon>FormProductComponent.cs</DependentUpon>
+    <EmbeddedResource Include="FormSushi.resx">
+      <DependentUpon>FormSushi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSushis.resx">
+      <DependentUpon>FormSushis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSushiSeafood.resx">
+      <DependentUpon>FormSushiSeafood.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -135,6 +147,10 @@
     <ProjectReference Include="..\AbstractSyshiBarBusinessLogic\AbstractSyshiBarBusinessLogic.csproj">
       <Project>{51e28d04-3a36-4398-9c91-5c13ddeedccb}</Project>
       <Name>AbstractSyshiBarBusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SyshiBarListImplement\SyshiBarListImplement.csproj">
+      <Project>{361d67d7-bb03-4a1a-9bad-54c28a1b7eff}</Project>
+      <Name>SyshiBarListImplement</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

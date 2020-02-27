@@ -28,62 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.buttonCansel = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.labelСуши = new System.Windows.Forms.Label();
+            this.labelPrice = new System.Windows.Forms.Label();
+            this.labelCount = new System.Windows.Forms.Label();
             this.textBoxCount = new System.Windows.Forms.TextBox();
-            this.comboBoxProduct = new System.Windows.Forms.ComboBox();
+            this.comboBoxSushi = new System.Windows.Forms.ComboBox();
             this.textBoxSum = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // buttonCansel
             // 
-            this.button1.Location = new System.Drawing.Point(203, 114);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 25);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Отмена";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.buttonCansel.Location = new System.Drawing.Point(203, 114);
+            this.buttonCansel.Name = "buttonCansel";
+            this.buttonCansel.Size = new System.Drawing.Size(93, 25);
+            this.buttonCansel.TabIndex = 0;
+            this.buttonCansel.Text = "Отмена";
+            this.buttonCansel.UseVisualStyleBackColor = true;
+            this.buttonCansel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // button
+            // buttonSave
             // 
-            this.button.Location = new System.Drawing.Point(104, 114);
-            this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(93, 25);
-            this.button.TabIndex = 1;
-            this.button.Text = "Сохранить";
-            this.button.UseVisualStyleBackColor = true;
-            this.button.Click += new System.EventHandler(this.buttonSave_Click);
+            this.buttonSave.Location = new System.Drawing.Point(104, 114);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(93, 25);
+            this.buttonSave.TabIndex = 1;
+            this.buttonSave.Text = "Сохранить";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // label1
+            // labelСуши
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Изделия:";
+            this.labelСуши.AutoSize = true;
+            this.labelСуши.Location = new System.Drawing.Point(22, 22);
+            this.labelСуши.Name = "labelСуши";
+            this.labelСуши.Size = new System.Drawing.Size(36, 13);
+            this.labelСуши.TabIndex = 2;
+            this.labelСуши.Text = "Суши:";
             // 
-            // label2
+            // labelPrice
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 77);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Сумма:";
+            this.labelPrice.AutoSize = true;
+            this.labelPrice.Location = new System.Drawing.Point(22, 77);
+            this.labelPrice.Name = "labelPrice";
+            this.labelPrice.Size = new System.Drawing.Size(44, 13);
+            this.labelPrice.TabIndex = 3;
+            this.labelPrice.Text = "Сумма:";
             // 
-            // label3
+            // labelCount
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 49);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Количевство:";
+            this.labelCount.AutoSize = true;
+            this.labelCount.Location = new System.Drawing.Point(22, 49);
+            this.labelCount.Name = "labelCount";
+            this.labelCount.Size = new System.Drawing.Size(75, 13);
+            this.labelCount.TabIndex = 4;
+            this.labelCount.Text = "Количевство:";
             // 
             // textBoxCount
             // 
@@ -93,14 +93,14 @@
             this.textBoxCount.TabIndex = 5;
             this.textBoxCount.TextChanged += new System.EventHandler(this.textBoxCount_TextChanged);
             // 
-            // comboBoxProduct
+            // comboBoxSushi
             // 
-            this.comboBoxProduct.FormattingEnabled = true;
-            this.comboBoxProduct.Location = new System.Drawing.Point(102, 19);
-            this.comboBoxProduct.Name = "comboBoxProduct";
-            this.comboBoxProduct.Size = new System.Drawing.Size(194, 21);
-            this.comboBoxProduct.TabIndex = 6;
-            this.comboBoxProduct.SelectedIndexChanged += new System.EventHandler(this.comboBoxProduct_SelectedIndexChanged);
+            this.comboBoxSushi.FormattingEnabled = true;
+            this.comboBoxSushi.Location = new System.Drawing.Point(102, 19);
+            this.comboBoxSushi.Name = "comboBoxSushi";
+            this.comboBoxSushi.Size = new System.Drawing.Size(194, 21);
+            this.comboBoxSushi.TabIndex = 6;
+            this.comboBoxSushi.SelectedIndexChanged += new System.EventHandler(this.comboBoxProduct_SelectedIndexChanged);
             // 
             // textBoxSum
             // 
@@ -116,13 +116,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(325, 157);
             this.Controls.Add(this.textBoxSum);
-            this.Controls.Add(this.comboBoxProduct);
+            this.Controls.Add(this.comboBoxSushi);
             this.Controls.Add(this.textBoxCount);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.labelCount);
+            this.Controls.Add(this.labelPrice);
+            this.Controls.Add(this.labelСуши);
+            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.buttonCansel);
             this.Name = "FormCreateOrder";
             this.Text = "Заказ";
             this.Load += new System.EventHandler(this.FormCreateOrder_Load);
@@ -133,13 +133,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button buttonCansel;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Label labelСуши;
+        private System.Windows.Forms.Label labelPrice;
+        private System.Windows.Forms.Label labelCount;
         private System.Windows.Forms.TextBox textBoxCount;
-        private System.Windows.Forms.ComboBox comboBoxProduct;
+        private System.Windows.Forms.ComboBox comboBoxSushi;
         private System.Windows.Forms.TextBox textBoxSum;
     }
 }

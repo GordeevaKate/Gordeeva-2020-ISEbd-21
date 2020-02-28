@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
-using System.Xml.Serialization;using AbstractShopBusinessLogic.Enums;
-using AbstractShopFileImplement.Models;
+using System.Xml.Serialization;using AbstractSyshiBarBusinessLogic.Enums;
+using SushiBarFileImplement.Models;
 namespace SushiBarFileImplement
 {
     public class FileDataListSingleton
@@ -16,14 +16,14 @@ namespace SushiBarFileImplement
         private readonly string SushiSeafoodFileName = "SushiSeafood.xml";
         public List<Seafood> Seafoods { get; set; }
         public List<Order> Orders { get; set; }
-        public List<Product> Products { get; set; }
-        public List<ProductComponent> ProductComponents { get; set; }
+        public List<Sushi> Sushis { get; set; }
+        public List<SushiSeafood> SushiSeafoods { get; set; }
         private FileDataListSingleton()
         {
-            Components = LoadComponents();
+            Seafoods = LoadSeafoods();
             Orders = LoadOrders();
-            Products = LoadProducts();
-            ProductComponents = LoadProductComponents();
+            Sushis = LoadSushis();
+            SushiSeafoods = LoadSushiSeafoods();
         }
         public static FileDataListSingleton GetInstance()
         {
@@ -35,25 +35,25 @@ namespace SushiBarFileImplement
         }
         ~FileDataListSingleton()
         {
-            SaveComponents();
+            SaveSeafoods();
             SaveOrders();
-            SaveProducts();
-            SaveProductComponents();
-            49
+            SaveSushis();
+            SaveSushiSeafoods();
+          
         }
-        private List<Component> LoadComponents()
+        private List<Seafood> LoadSeafoods()
         {
-            var list = new List<Component>();
-            if (File.Exists(ComponentFileName))
+            var list = new List<Seafood>();
+            if (File.Exists(SeafoodFileName))
             {
-                XDocument xDocument = XDocument.Load(ComponentFileName);
-                var xElements = xDocument.Root.Elements("Component").ToList();
+                XDocument xDocument = XDocument.Load(SeafoodFileName);
+                var xElements = xDocument.Root.Elements("Seafood").ToList();
                 foreach (var elem in xElements)
                 {
-                    list.Add(new Component
+                    list.Add(new Seafood
                     {
                         Id = Convert.ToInt32(elem.Attribute("Id").Value),
-                        ComponentName = elem.Element("ComponentName").Value
+                        SeafoodName = elem.Element("SeafoodName").Value
                     });
                 }
             }
@@ -71,7 +71,7 @@ namespace SushiBarFileImplement
                     list.Add(new Order
                     {
                         Id = Convert.ToInt32(elem.Attribute("Id").Value),
-                        ProductId = Convert.ToInt32(elem.Element("ProductId").Value),
+                        SushiId = Convert.ToInt32(elem.Element("SushiId").Value),
                         Count = Convert.ToInt32(elem.Element("Count").Value),
                         Sum = Convert.ToDecimal(elem.Element("Sum").Value),
                         Status = (OrderStatus)Enum.Parse(typeof(OrderStatus),
@@ -86,72 +86,72 @@ namespace SushiBarFileImplement
             }
             return list;
         }
-        private List<Product> LoadProducts()
+        private List<Sushi> LoadSushis()
         {
-            var list = new List<Product>();
-            if (File.Exists(ProductFileName))
+            var list = new List<Sushi>();
+            if (File.Exists(SushiFileName))
             {
-                XDocument xDocument = XDocument.Load(ProductFileName);
-                50
-            var xElements = xDocument.Root.Elements("Product").ToList();
+                XDocument xDocument = XDocument.Load(SushiFileName);
+                
+            var xElements = xDocument.Root.Elements("Sushi").ToList();
                 foreach (var elem in xElements)
                 {
-                    list.Add(new Product
+                    list.Add(new Sushi
                     {
                         Id = Convert.ToInt32(elem.Attribute("Id").Value),
-                        ProductName = elem.Element("ProductName").Value,
+                        SushiName = elem.Element("SushiName").Value,
                         Price = Convert.ToDecimal(elem.Element("Price").Value)
                     });
                 }
             }
             return list;
         }
-        private List<ProductComponent> LoadProductComponents()
+        private List<SushiSeafood> LoadSushiSeafoods()
         {
-            var list = new List<ProductComponent>();
-            if (File.Exists(ProductComponentFileName))
+            var list = new List<SushiSeafood>();
+            if (File.Exists(SushiSeafoodFileName))
             {
-                XDocument xDocument = XDocument.Load(ProductComponentFileName);
-                var xElements = xDocument.Root.Elements("ProductComponent").ToList();
+                XDocument xDocument = XDocument.Load(SushiSeafoodFileName);
+                var xElements = xDocument.Root.Elements("SushiSeafood").ToList();
                 foreach (var elem in xElements)
                 {
-                    list.Add(new ProductComponent
+                    list.Add(new SushiSeafood
                     {
                         Id = Convert.ToInt32(elem.Attribute("Id").Value),
-                        ProductId = Convert.ToInt32(elem.Element("ProductId").Value),
-                        ComponentId = Convert.ToInt32(elem.Element("ComponentId").Value),
+                        SushiId = Convert.ToInt32(elem.Element("SushiId").Value),
+                        SeafoodId = Convert.ToInt32(elem.Element("SeafoodId").Value),
                         Count = Convert.ToInt32(elem.Element("Count").Value)
                     });
                 }
             }
             return list;
         }
-        private void SaveComponents()
+        private void SaveSeafoods()
         {
-            if (Components != null)
+            if (Seafoods != null)
             {
-                var xElement = new XElement("Components");
-                foreach (var component in Components)
+                var xElement = new XElement("Seafoods");
+                foreach (var seafood in Seafoods)
                 {
-                    xElement.Add(new XElement("Component",
-                    new XAttribute("Id", component.Id),
-                    new XElement("ComponentName", component.ComponentName)));
+                    xElement.Add(new XElement("Seafood",
+                    new XAttribute("Id", seafood.Id),
+                    new XElement("SeafoodName", seafood.SeafoodName)));
                 }
                 XDocument xDocument = new XDocument(xElement);
-                xDocument.Save(ComponentFileName);
+                xDocument.Save(SeafoodFileName);
             }
         }
         private void SaveOrders()
         {
             if (Orders != null)
             {
-                51
+
             var xElement = new XElement("Orders");
                 foreach (var order in Orders)
                 {
                     xElement.Add(new XElement("Order",
                     new XAttribute("Id", order.Id),
-                    new XElement("ProductId", order.ProductId),
+                    new XElement("SushiId", order.SushiId),
                     new XElement("Count", order.Count),
                     new XElement("Sum", order.Sum),
                     new XElement("Status", order.Status),
@@ -162,39 +162,39 @@ namespace SushiBarFileImplement
                 xDocument.Save(OrderFileName);
             }
         }
-        private void SaveProducts()
+        private void SaveSushis()
         {
-            if (Products != null)
+            if (Sushis != null)
             {
-                var xElement = new XElement("Products");
-                foreach (var product in Products)
+                var xElement = new XElement("Sushis");
+                foreach (var sushi in Sushis)
                 {
-                    xElement.Add(new XElement("Product",
-                    new XAttribute("Id", product.Id),
-                    new XElement("ProductName", product.ProductName),
-                    new XElement("Price", product.Price)));
+                    xElement.Add(new XElement("Sushi",
+                    new XAttribute("Id", sushi.Id),
+                    new XElement("SushiName", sushi.SushiName),
+                    new XElement("Price", sushi.Price)));
                 }
                 XDocument xDocument = new XDocument(xElement);
-                xDocument.Save(ProductFileName);
+                xDocument.Save(SushiFileName);
             }
         }
-        private void SaveProductComponents()
+        private void SaveSushiSeafoods()
         {
-            if (ProductComponents != null)
+            if (SushiSeafoods != null)
             {
-                var xElement = new XElement("ProductComponents");
-                foreach (var productComponent in ProductComponents)
+                var xElement = new XElement("SushiSeafoods");
+                foreach (var sushiSeafood in SushiSeafoods)
                 {
-                    xElement.Add(new XElement("ProductComponent",
-                    new XAttribute("Id", productComponent.Id),
-                    new XElement("ProductId", productComponent.ProductId),
-                    new XElement("ComponentId", productComponent.ComponentId),
-                    new XElement("Count", productComponent.Count)));
+                    xElement.Add(new XElement("SushiSeafood",
+                    new XAttribute("Id", sushiSeafood.Id),
+                    new XElement("SushiId", sushiSeafood.SushiId),
+                    new XElement("SeafoodId", sushiSeafood.SeafoodId),
+                    new XElement("Count", sushiSeafood.Count)));
                 }
                 XDocument xDocument = new XDocument(xElement);
-                xDocument.Save(ProductComponentFileName);
+                xDocument.Save(SushiSeafoodFileName);
             }
         }
     }
 }
-}
+

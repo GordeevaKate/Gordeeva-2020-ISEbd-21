@@ -148,6 +148,10 @@
       <Project>{51e28d04-3a36-4398-9c91-5c13ddeedccb}</Project>
       <Name>AbstractSyshiBarBusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SushiBarFileImplement\SushiBarFileImplement.csproj">
+      <Project>{15099e2e-c349-4d7c-a236-2f7c3c5ef4db}</Project>
+      <Name>SushiBarFileImplement</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SyshiBarListImplement\SyshiBarListImplement.csproj">
       <Project>{361d67d7-bb03-4a1a-9bad-54c28a1b7eff}</Project>
       <Name>SyshiBarListImplement</Name>

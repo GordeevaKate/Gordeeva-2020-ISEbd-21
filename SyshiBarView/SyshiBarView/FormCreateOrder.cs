@@ -16,6 +16,7 @@ namespace SyshiBarView
         private readonly MainLogic logicM;
         public FormCreateOrder(ISushiLogic logicP, MainLogic logicM)
         {
+            //List<SeafoodViewModel> list = logic.Read(null);
             InitializeComponent();
             this.logicP = logicP;
             this.logicM = logicM;
@@ -25,9 +26,10 @@ namespace SyshiBarView
         {
             try
             {
+              
                 var list = logicP.Read(null);
                 comboBoxSushi.DataSource = list;
-                comboBoxSushi.DisplayMember = "SnackName";
+                comboBoxSushi.DisplayMember = "SushiName";
                 comboBoxSushi.ValueMember = "Id";
             }
             catch (Exception ex)

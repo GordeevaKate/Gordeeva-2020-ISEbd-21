@@ -108,5 +108,7 @@ namespace SyshiBarView
             DialogResult = DialogResult.Cancel;
             Close();
         }
+
+      
     }
 }

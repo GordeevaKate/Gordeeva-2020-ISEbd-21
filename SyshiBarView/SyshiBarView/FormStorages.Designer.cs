@@ -123,6 +123,7 @@
             this.Controls.Add(this.buttonAdd);
             this.Name = "FormStorages";
             this.Text = "Создать склад";
+            this.Load += new System.EventHandler(this.FormStorages_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 

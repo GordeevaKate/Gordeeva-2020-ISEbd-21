@@ -22,6 +22,10 @@ namespace SyshiBarView
             InitializeComponent();
             this.logic = logic;
         }
+        private void FormStorages_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
         private void LoadData()
         {
             try

@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractSyshiBarBusinessLog
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SyshiBarListImplement", "SyshiBarListImplement\SyshiBarListImplement.csproj", "{361D67D7-BB03-4A1A-9BAD-54C28A1B7EFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SushiBarFileImplement", "SushiBarFileImplement\SushiBarFileImplement.csproj", "{15099E2E-C349-4D7C-A236-2F7C3C5EF4DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SushiBarFileImplement", "SushiBarFileImplement\SushiBarFileImplement.csproj", "{15099E2E-C349-4D7C-A236-2F7C3C5EF4DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SushiBarDatabaseImplement", "SushiBarDatabaseImplement\SushiBarDatabaseImplement.csproj", "{07ABFB88-1095-457E-8A2A-7F00D6AAF2D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{15099E2E-C349-4D7C-A236-2F7C3C5EF4DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15099E2E-C349-4D7C-A236-2F7C3C5EF4DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15099E2E-C349-4D7C-A236-2F7C3C5EF4DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07ABFB88-1095-457E-8A2A-7F00D6AAF2D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07ABFB88-1095-457E-8A2A-7F00D6AAF2D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07ABFB88-1095-457E-8A2A-7F00D6AAF2D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07ABFB88-1095-457E-8A2A-7F00D6AAF2D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -98,14 +98,9 @@
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Склад";
-            this.Column2.Name = "Column2";
             // 
             // Column3
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "Количество";
-            this.Column3.Name = "Column3";
             // 
             // FormStorage
             // 

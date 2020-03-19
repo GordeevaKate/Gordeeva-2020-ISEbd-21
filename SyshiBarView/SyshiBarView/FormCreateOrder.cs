@@ -25,6 +25,7 @@ namespace SyshiBarView
         {
             try
             {
+              
                 var list = logicP.Read(null);
                 comboBoxSushi.DataSource = list;
                 comboBoxSushi.DisplayMember = "SushiName";

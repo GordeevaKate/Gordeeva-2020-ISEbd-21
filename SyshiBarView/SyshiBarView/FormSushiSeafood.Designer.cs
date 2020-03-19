@@ -77,9 +77,10 @@
             this.labelSeafood.AutoSize = true;
             this.labelSeafood.Location = new System.Drawing.Point(12, 9);
             this.labelSeafood.Name = "labelSeafood";
-            this.labelSeafood.Size = new System.Drawing.Size(85, 13);
+            this.labelSeafood.Size = new System.Drawing.Size(77, 13);
             this.labelSeafood.TabIndex = 4;
-            this.labelSeafood.Text = "Морепродукты:";
+            this.labelSeafood.Text = "Морепродукт:";
+
             // 
             // comboBoxSeafood
             // 
@@ -101,7 +102,7 @@
             this.Controls.Add(this.buttonCansel);
             this.Controls.Add(this.buttonSave);
             this.Name = "FormSushiSeafood";
-            this.Text = "Компонент изделия";
+            this.Text = "Морепродукты в суши";
             this.ResumeLayout(false);
             this.PerformLayout();
 

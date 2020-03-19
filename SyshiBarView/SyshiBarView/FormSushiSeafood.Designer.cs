@@ -80,6 +80,7 @@
             this.labelSeafood.Size = new System.Drawing.Size(85, 13);
             this.labelSeafood.TabIndex = 4;
             this.labelSeafood.Text = "Морепродукты:";
+
             // 
             // comboBoxSeafood
             // 

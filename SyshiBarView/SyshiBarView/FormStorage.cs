@@ -40,17 +40,17 @@ namespace SyshiBarView
 
                     var storageList = logic.GetList();
 
-                    var storageSushis = storageList[0].StorageSushis;
+                    var storageSeafoods = storageList[0].StorageSeafoods;
                     for (int i = 0; i < storageList.Count; ++i)
                     {
                         if (storageList[i].Id == id)
                         {
-                            storageSushis = storageList[i].StorageSushis;
+                            storageSeafoods = storageList[i].StorageSeafoods;
                         }
                     }
-                    if (storageSushis != null)
+                    if (storageSeafoods != null)
                     {
-                        dataGridView.DataSource = storageSushis;
+                        dataGridView.DataSource = storageSeafoods;
                         dataGridView.Columns[0].Visible = false;
                         dataGridView.Columns[1].Visible = false;
                         dataGridView.Columns[2].Visible = false;
@@ -103,7 +103,7 @@ namespace SyshiBarView
                MessageBoxIcon.Error);
             }
         }
-        private void buttonCancel_Click(object sender, EventArgs e)
+       private void buttonCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();

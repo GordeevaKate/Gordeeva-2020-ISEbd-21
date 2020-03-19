@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SyshiBarListImplement.Models
+namespace AbstractSyshiBarBusinessLogic.BindingModels
 {
-    public class StorageSushi
+    public class StorageSeafoodBindingModel
     {
         public int Id { get; set; }
         public int StorageId { get; set; }
-        public int SushiId { get; set; }
+        public int SeafoodId { get; set; }
         public int Count { get; set; }
     }
 }

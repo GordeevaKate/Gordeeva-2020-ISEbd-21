@@ -10,6 +10,6 @@ namespace AbstractSyshiBarBusinessLogic.ViewModels
         public int Id { get; set; }
         [DisplayName("Название склада")]
         public string StorageName { get; set; }
-        public List<StorageSushiViewModel> StorageSushis { get; set; }
+        public List<StorageSeafoodViewModel> StorageSeafoods { get; set; }
     }
 }

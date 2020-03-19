@@ -38,7 +38,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(428, 43);
+            this.buttonAdd.Location = new System.Drawing.Point(770, 23);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(75, 23);
             this.buttonAdd.TabIndex = 0;
@@ -48,7 +48,7 @@
             // 
             // buttonUpd
             // 
-            this.buttonUpd.Location = new System.Drawing.Point(428, 82);
+            this.buttonUpd.Location = new System.Drawing.Point(770, 62);
             this.buttonUpd.Name = "buttonUpd";
             this.buttonUpd.Size = new System.Drawing.Size(75, 23);
             this.buttonUpd.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(428, 130);
+            this.buttonDel.Location = new System.Drawing.Point(770, 110);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(75, 23);
             this.buttonDel.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             // buttonRef
             // 
-            this.buttonRef.Location = new System.Drawing.Point(428, 178);
+            this.buttonRef.Location = new System.Drawing.Point(770, 158);
             this.buttonRef.Name = "buttonRef";
             this.buttonRef.Size = new System.Drawing.Size(75, 23);
             this.buttonRef.TabIndex = 3;
@@ -82,20 +82,20 @@
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(12, 12);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(401, 343);
+            this.dataGridView.Size = new System.Drawing.Size(681, 343);
             this.dataGridView.TabIndex = 4;
             // 
-            // FormComponents
+            // FormSeafoods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 406);
+            this.ClientSize = new System.Drawing.Size(870, 406);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.buttonRef);
             this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.buttonUpd);
             this.Controls.Add(this.buttonAdd);
-            this.Name = "FormComponents";
+            this.Name = "FormSeafoods";
             this.Text = "Компоненты";
             this.Load += new System.EventHandler(this.FormSeafoods_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();

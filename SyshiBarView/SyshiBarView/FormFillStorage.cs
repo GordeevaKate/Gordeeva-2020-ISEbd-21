@@ -18,10 +18,10 @@ namespace SyshiBarView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly ISushiLogic logicSu;
+        private readonly ISeafoodLogic logicSu;
         private readonly MainLogic logicM;
         private readonly IStorageLogic logicS;
-        public FormFillStorage(ISushiLogic logicSu, MainLogic logicM, IStorageLogic logicS)
+        public FormFillStorage(ISeafoodLogic logicSu, MainLogic logicM, IStorageLogic logicS)
         {
             InitializeComponent();
             this.logicSu = logicSu;
@@ -37,10 +37,10 @@ namespace SyshiBarView
                 comboBoxStorage.DisplayMember = "StorageName";
                 comboBoxStorage.ValueMember = "Id";
 
-                var sushiList = logicSu.Read(null);
-                comboBoxSushi.DataSource = sushiList;
-                comboBoxSushi.DisplayMember = "SushiName";
-                comboBoxSushi.ValueMember = "Id";
+                var seafoodList = logicSu.Read(null);
+                comboBoxSeafood.DataSource = seafoodList;
+                comboBoxSeafood.DisplayMember = "SeafoodName";
+                comboBoxSeafood.ValueMember = "Id";
             }
             catch (Exception ex)
             {
@@ -63,9 +63,9 @@ namespace SyshiBarView
 MessageBoxIcon.Error);
                 return;
             }
-            if (comboBoxSushi.SelectedValue == null)
+            if (comboBoxSeafood.SelectedValue == null)
             {
-                MessageBox.Show("Выберите суши", "Ошибка", MessageBoxButtons.OK,
+                MessageBox.Show("Выберите морепродукты", "Ошибка", MessageBoxButtons.OK,
 MessageBoxIcon.Error);
                 return;
             }
@@ -73,13 +73,13 @@ MessageBoxIcon.Error);
             try
             {
                 int storageId = Convert.ToInt32(comboBoxStorage.SelectedValue);
-                int sushiId = Convert.ToInt32(comboBoxSushi.SelectedValue);
+                int seafoodId = Convert.ToInt32(comboBoxSeafood.SelectedValue);
                 int count = Convert.ToInt32(textBoxCount.Text);
 
-                this.logicM.FillStorage(new StorageSushiBindingModel
+                this.logicM.FillStorage(new StorageSeafoodBindingModel
                 {
                     StorageId = storageId,
-                    SushiId = sushiId,
+                    SeafoodId = seafoodId,
                     Count = count
                 });
                 MessageBox.Show("Склад успешно пополнен", "Сообщение",

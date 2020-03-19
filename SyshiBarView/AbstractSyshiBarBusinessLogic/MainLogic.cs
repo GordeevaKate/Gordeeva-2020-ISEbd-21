@@ -90,7 +90,7 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
                 Status = OrderStatus.Оплачен
             });
         }
-        public void FillStorage(StorageSushiBindingModel model)
+        public void FillStorage(StorageSeafoodBindingModel model)
         {
             storageLogic.FillStorage(model);
         }

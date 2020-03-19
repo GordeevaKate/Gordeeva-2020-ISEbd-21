@@ -8,6 +8,6 @@ namespace AbstractSyshiBarBusinessLogic.BindingModels
     {
             public int Id { get; set; }
             public string StorageName { get; set; }
-            public List<StorageSushiBindingModel> StorageFlowers { get; set; }
+            public List<StorageSeafoodBindingModel> StorageSeafoods { get; set; }
         }
 }

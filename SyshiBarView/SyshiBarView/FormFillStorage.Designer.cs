@@ -30,11 +30,11 @@
         {
             this.buttonSave = new System.Windows.Forms.Button();
             this.comboBoxStorage = new System.Windows.Forms.ComboBox();
-            this.comboBoxSushi = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxSeafood = new System.Windows.Forms.ComboBox();
+            this.labelStorage = new System.Windows.Forms.Label();
+            this.labelSeafood = new System.Windows.Forms.Label();
             this.textBoxCount = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelCount = new System.Windows.Forms.Label();
             this.buttonCansel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -56,31 +56,31 @@
             this.comboBoxStorage.Size = new System.Drawing.Size(296, 21);
             this.comboBoxStorage.TabIndex = 1;
             // 
-            // comboBoxSushi
+            // comboBoxSeafood
             // 
-            this.comboBoxSushi.FormattingEnabled = true;
-            this.comboBoxSushi.Location = new System.Drawing.Point(123, 58);
-            this.comboBoxSushi.Name = "comboBoxSushi";
-            this.comboBoxSushi.Size = new System.Drawing.Size(296, 21);
-            this.comboBoxSushi.TabIndex = 2;
+            this.comboBoxSeafood.FormattingEnabled = true;
+            this.comboBoxSeafood.Location = new System.Drawing.Point(123, 58);
+            this.comboBoxSeafood.Name = "comboBoxSeafood";
+            this.comboBoxSeafood.Size = new System.Drawing.Size(296, 21);
+            this.comboBoxSeafood.TabIndex = 2;
             // 
-            // label1
+            // labelStorage
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Склад";
+            this.labelStorage.AutoSize = true;
+            this.labelStorage.Location = new System.Drawing.Point(14, 18);
+            this.labelStorage.Name = "labelStorage";
+            this.labelStorage.Size = new System.Drawing.Size(38, 13);
+            this.labelStorage.TabIndex = 3;
+            this.labelStorage.Text = "Склад";
             // 
-            // label2
+            // labelSeafood
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Суши";
+            this.labelSeafood.AutoSize = true;
+            this.labelSeafood.Location = new System.Drawing.Point(14, 61);
+            this.labelSeafood.Name = "labelSeafood";
+            this.labelSeafood.Size = new System.Drawing.Size(82, 13);
+            this.labelSeafood.TabIndex = 4;
+            this.labelSeafood.Text = "Морепродукты";
             // 
             // textBoxCount
             // 
@@ -89,14 +89,14 @@
             this.textBoxCount.Size = new System.Drawing.Size(295, 20);
             this.textBoxCount.TabIndex = 5;
             // 
-            // label3
+            // labelCount
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 104);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "количевство";
+            this.labelCount.AutoSize = true;
+            this.labelCount.Location = new System.Drawing.Point(19, 104);
+            this.labelCount.Name = "labelCount";
+            this.labelCount.Size = new System.Drawing.Size(71, 13);
+            this.labelCount.TabIndex = 6;
+            this.labelCount.Text = "количевство";
             // 
             // buttonCansel
             // 
@@ -114,11 +114,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(481, 223);
             this.Controls.Add(this.buttonCansel);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelCount);
             this.Controls.Add(this.textBoxCount);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBoxSushi);
+            this.Controls.Add(this.labelSeafood);
+            this.Controls.Add(this.labelStorage);
+            this.Controls.Add(this.comboBoxSeafood);
             this.Controls.Add(this.comboBoxStorage);
             this.Controls.Add(this.buttonSave);
             this.Name = "FormFillStorage";
@@ -133,11 +133,11 @@
 
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.ComboBox comboBoxStorage;
-        private System.Windows.Forms.ComboBox comboBoxSushi;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBoxSeafood;
+        private System.Windows.Forms.Label labelStorage;
+        private System.Windows.Forms.Label labelSeafood;
         private System.Windows.Forms.TextBox textBoxCount;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelCount;
         private System.Windows.Forms.Button buttonCansel;
     }
 }

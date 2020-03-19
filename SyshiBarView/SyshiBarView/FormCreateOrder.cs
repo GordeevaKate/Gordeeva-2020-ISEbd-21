@@ -16,7 +16,6 @@ namespace SyshiBarView
         private readonly MainLogic logicM;
         public FormCreateOrder(ISushiLogic logicP, MainLogic logicM)
         {
-            //List<SeafoodViewModel> list = logic.Read(null);
             InitializeComponent();
             this.logicP = logicP;
             this.logicM = logicM;

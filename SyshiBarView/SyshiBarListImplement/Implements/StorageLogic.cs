@@ -20,28 +20,28 @@ namespace SyshiBarListImplement.Implements
             List<StorageViewModel> result = new List<StorageViewModel>();
             for (int i = 0; i < source.Storages.Count; ++i)
             {
-                List<StorageSushiViewModel> StorageSushis = new List<StorageSushiViewModel>();
-                for (int j = 0; j < source.StorageSushis.Count; ++j)
+                List<StorageSeafoodViewModel> StorageSeafoods = new List<StorageSeafoodViewModel>();
+                for (int j = 0; j < source.StorageSeafoods.Count; ++j)
                 {
-                    if (source.StorageSushis[j].StorageId == source.Storages[i].Id)
+                    if (source.StorageSeafoods[j].StorageId == source.Storages[i].Id)
                     {
-                        string SushiName = string.Empty;
-                        for (int k = 0; k < source.Sushis.Count; ++k)
+                        string SeafoodName = string.Empty;
+                        for (int k = 0; k < source.Seafoods.Count; ++k)
                         {
-                            if (source.StorageSushis[j].SushiId ==
-                           source.Sushis[k].Id)
+                            if (source.StorageSeafoods[j].SeafoodId ==
+                           source.Seafoods[k].Id)
                             {
-                                SushiName = source.Sushis[k].SushiName;
+                                SeafoodName = source.Seafoods[k].SeafoodName;
                                 break;
                             }
                         }
-                        StorageSushis.Add(new StorageSushiViewModel
+                        StorageSeafoods.Add(new StorageSeafoodViewModel
                         {
-                            Id = source.StorageSushis[j].Id,
-                            StorageId = source.StorageSushis[j].StorageId,
-                            SushiId = source.StorageSushis[j].SushiId,
-                            SushiName = SushiName,
-                            Count = source.StorageSushis[j].Count
+                            Id = source.StorageSeafoods[j].Id,
+                            StorageId = source.StorageSeafoods[j].StorageId,
+                            SeafoodId = source.StorageSeafoods[j].SeafoodId,
+                            SeafoodName = SeafoodName,
+                            Count = source.StorageSeafoods[j].Count
                         });
                     }
                 }
@@ -49,7 +49,7 @@ namespace SyshiBarListImplement.Implements
                 {
                     Id = source.Storages[i].Id,
                     StorageName = source.Storages[i].StorageName,
-                    StorageSushis = StorageSushis
+                    StorageSeafoods = StorageSeafoods
                 });
             }
             return result;
@@ -58,29 +58,29 @@ namespace SyshiBarListImplement.Implements
         {
             for (int i = 0; i < source.Storages.Count; ++i)
             {
-                List<StorageSushiViewModel> StorageSushis = new
-    List<StorageSushiViewModel>();
-                for (int j = 0; j < source.StorageSushis.Count; ++j)
+                List<StorageSeafoodViewModel> StorageSeafoods = new
+    List<StorageSeafoodViewModel>();
+                for (int j = 0; j < source.StorageSeafoods.Count; ++j)
                 {
-                    if (source.StorageSushis[j].StorageId == source.Storages[i].Id)
+                    if (source.StorageSeafoods[j].StorageId == source.Storages[i].Id)
                     {
-                        string SushiName = string.Empty;
+                        string SeafoodName = string.Empty;
                         for (int k = 0; k < source.Sushis.Count; ++k)
                         {
-                            if (source.StorageSushis[j].SushiId ==
-                           source.Sushis[k].Id)
+                            if (source.StorageSeafoods[j].SeafoodId ==
+                           source.Seafoods[k].Id)
                             {
-                                SushiName = source.Sushis[k].SushiName;
+                                SeafoodName = source.Seafoods[k].SeafoodName;
                                 break;
                             }
                         }
-                        StorageSushis.Add(new StorageSushiViewModel
+                        StorageSeafoods.Add(new StorageSeafoodViewModel
                         {
-                            Id = source.StorageSushis[j].Id,
-                            StorageId = source.StorageSushis[j].StorageId,
-                            SushiId = source.StorageSushis[j].SushiId,
-                            SushiName = SushiName,
-                            Count = source.StorageSushis[j].Count
+                            Id = source.StorageSeafoods[j].Id,
+                            StorageId = source.StorageSeafoods[j].StorageId,
+                            SeafoodId = source.StorageSeafoods[j].SeafoodId,
+                            SeafoodName = SeafoodName,
+                            Count = source.StorageSeafoods[j].Count
                         });
                     }
                 }
@@ -90,7 +90,7 @@ namespace SyshiBarListImplement.Implements
                     {
                         Id = source.Storages[i].Id,
                         StorageName = source.Storages[i].StorageName,
-                        StorageSushis = StorageSushis
+                        StorageSeafoods = StorageSeafoods
                     };
                 }
             }
@@ -140,11 +140,11 @@ namespace SyshiBarListImplement.Implements
         }
         public void DelElement(int id)
         {
-            for (int i = 0; i < source.StorageSushis.Count; ++i)
+            for (int i = 0; i < source.StorageSeafoods.Count; ++i)
             {
-                if (source.StorageSushis[i].StorageId == id)
+                if (source.StorageSeafoods[i].StorageId == id)
                 {
-                    source.StorageSushis.RemoveAt(i--);
+                    source.StorageSeafoods.RemoveAt(i--);
                 }
             }
             for (int i = 0; i < source.Storages.Count; ++i)
@@ -158,13 +158,13 @@ namespace SyshiBarListImplement.Implements
             throw new Exception("Элемент не найден");
         }
 
-        public void FillStorage(StorageSushiBindingModel model)
+        public void FillStorage(StorageSeafoodBindingModel model)
         {
             int foundItemIndex = -1;
-            for (int i = 0; i < source.StorageSushis.Count; ++i)
+            for (int i = 0; i < source.StorageSeafoods.Count; ++i)
             {
-                if (source.StorageSushis[i].SushiId == model.SushiId
-                    && source.StorageSushis[i].StorageId == model.StorageId)
+                if (source.StorageSeafoods[i].SeafoodId == model.SeafoodId
+                    && source.StorageSeafoods[i].StorageId == model.StorageId)
                 {
                     foundItemIndex = i;
                     break;
@@ -172,24 +172,24 @@ namespace SyshiBarListImplement.Implements
             }
             if (foundItemIndex != -1)
             {
-                source.StorageSushis[foundItemIndex].Count =
-                    source.StorageSushis[foundItemIndex].Count + model.Count;
+                source.StorageSeafoods[foundItemIndex].Count =
+                    source.StorageSeafoods[foundItemIndex].Count + model.Count;
             }
             else
             {
                 int maxId = 0;
-                for (int i = 0; i < source.StorageSushis.Count; ++i)
+                for (int i = 0; i < source.StorageSeafoods.Count; ++i)
                 {
-                    if (source.StorageSushis[i].Id > maxId)
+                    if (source.StorageSeafoods[i].Id > maxId)
                     {
-                        maxId = source.StorageSushis[i].Id;
+                        maxId = source.StorageSeafoods[i].Id;
                     }
                 }
-                source.StorageSushis.Add(new StorageSushi
+                source.StorageSeafoods.Add(new StorageSeafood
                 {
                     Id = maxId + 1,
                     StorageId = model.StorageId,
-                    SushiId = model.SushiId,
+                    SeafoodId = model.SeafoodId,
                     Count = model.Count
                 });
             }

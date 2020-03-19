@@ -77,9 +77,10 @@
             this.labelSeafood.AutoSize = true;
             this.labelSeafood.Location = new System.Drawing.Point(12, 9);
             this.labelSeafood.Name = "labelSeafood";
-            this.labelSeafood.Size = new System.Drawing.Size(66, 13);
+            this.labelSeafood.Size = new System.Drawing.Size(85, 13);
             this.labelSeafood.TabIndex = 4;
-            this.labelSeafood.Text = "Компонент:";
+            this.labelSeafood.Text = "Морепродукты:";
+
             // 
             // comboBoxSeafood
             // 

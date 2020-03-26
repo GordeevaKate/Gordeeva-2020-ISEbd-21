@@ -8,7 +8,6 @@ namespace SushiBarDatabaseImplement.Models
 {
     public class Seafood
     {
-
             public int Id { get; set; }
             [Required]
             public string SeafoodName { get; set; }

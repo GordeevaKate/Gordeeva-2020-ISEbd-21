@@ -81,7 +81,9 @@ namespace SushiBarDatabaseImplement.Implements
                     }
                     catch (Exception mx)
                     {
-
+                       
+                        if (mx.InnerException != null)
+                            Console.WriteLine("Inner exception: {0}", mx.InnerException);
                         transaction.Rollback();
                         throw;
                     }

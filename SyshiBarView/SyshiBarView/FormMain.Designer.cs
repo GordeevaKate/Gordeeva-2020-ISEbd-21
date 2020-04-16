@@ -38,6 +38,8 @@
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.морепродуктыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сушиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.пополнитьСкладыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.складыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -115,7 +117,9 @@
             // 
             this.справочникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.морепродуктыToolStripMenuItem,
-            this.сушиToolStripMenuItem});
+            this.сушиToolStripMenuItem,
+            this.пополнитьСкладыToolStripMenuItem,
+            this.складыToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.справочникиToolStripMenuItem.Text = "Справочники";
@@ -133,6 +137,20 @@
             this.сушиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.сушиToolStripMenuItem.Text = "Суши";
             this.сушиToolStripMenuItem.Click += new System.EventHandler(this.SushiToolStripMenuItem_Click);
+            // 
+            // пополнитьСкладыToolStripMenuItem
+            // 
+            this.пополнитьСкладыToolStripMenuItem.Name = "пополнитьСкладыToolStripMenuItem";
+            this.пополнитьСкладыToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.пополнитьСкладыToolStripMenuItem.Text = "Пополнить Склады";
+            this.пополнитьСкладыToolStripMenuItem.Click += new System.EventHandler(this.ПополнитьСкладыToolStripMenuItem_Click);
+            // 
+            // складыToolStripMenuItem
+            // 
+            this.складыToolStripMenuItem.Name = "складыToolStripMenuItem";
+            this.складыToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.складыToolStripMenuItem.Text = "Склады";
+            this.складыToolStripMenuItem.Click += new System.EventHandler(this.СкладыToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -170,6 +188,8 @@
         private System.Windows.Forms.ToolStripMenuItem справочникиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem морепродуктыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сушиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem пополнитьСкладыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem складыToolStripMenuItem;
     }
 }
 

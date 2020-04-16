@@ -41,10 +41,8 @@ namespace SushiBarFileImplement.Implements
             }
             element.SushiName = model.SushiName;
             element.Price = model.Price;
-            // удалили те, которых нет в модели
             source.SushiSeafoods.RemoveAll(rec => rec.SushiId == model.Id &&
            !model.SushiSeafoods.ContainsKey(rec.SeafoodId));
-            // обновили количество у существующих записей
             var updateSeafoods = source.SushiSeafoods.Where(rec => rec.SushiId ==
            model.Id && model.SushiSeafoods.ContainsKey(rec.SeafoodId));
             foreach (var updateSeafood in updateSeafoods)
@@ -53,7 +51,6 @@ namespace SushiBarFileImplement.Implements
                model.SushiSeafoods[updateSeafood.SeafoodId].Item2;
                 model.SushiSeafoods.Remove(updateSeafood.SeafoodId);
             }
-            // добавили новые
             int maxFSId = source.SushiSeafoods.Count > 0 ?
            source.SushiSeafoods.Max(rec => rec.Id) : 0;
             foreach (var pc in model.SushiSeafoods)
@@ -69,7 +66,6 @@ namespace SushiBarFileImplement.Implements
         }
         public void Delete(SushiBindingModel model)
         {
-            // удаяем записи по компонентам при удалении изделия
             source.SushiSeafoods.RemoveAll(rec => rec.SushiId == model.Id);
             Sushi element = source.Sushis.FirstOrDefault(rec => rec.Id == model.Id);
             if (element != null)

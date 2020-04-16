@@ -60,7 +60,8 @@ namespace SushiBarFileImplement.Implements
                 .Select(rec => new OrderViewModel
                 {
                     Id = rec.Id,
-                    SushiName = GetSushiName(rec.SushiId),
+                    SushiId = rec.SushiId,
+                    SushiName = source.Sushis.FirstOrDefault(x => x.Id == rec.SushiId)?.SushiName,
                     Count = rec.Count,
                     Sum = rec.Sum,
                     Status = rec.Status,
@@ -68,14 +69,6 @@ namespace SushiBarFileImplement.Implements
                     DateImplement = rec.DateImplement
                 })
                 .ToList();
-            }
-
-            private string GetSushiName(int id)
-            {
-                string name = "";
-                var Sushi = source.Sushis.FirstOrDefault(x => x.Id == id);
-                name = Sushi != null ? Sushi.SushiName : "";
-                return name;
             }
         }
     }

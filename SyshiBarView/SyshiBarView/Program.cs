@@ -28,6 +28,8 @@ namespace SyshiBarView
         private static IUnityContainer BuildUnityContainer()
         {
             var currentContainer = new UnityContainer();
+            currentContainer.RegisterType<IStorageLogic, StorageLogic>(new
+          HierarchicalLifetimeManager());
             currentContainer.RegisterType<ISeafoodLogic, SeafoodLogic>(new
            HierarchicalLifetimeManager());
             currentContainer.RegisterType<ISushiLogic, SushiLogic>(new

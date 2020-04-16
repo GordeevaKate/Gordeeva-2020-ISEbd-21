@@ -55,6 +55,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormFillStorage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFillStorage.Designer.cs">
+      <DependentUpon>FormFillStorage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,18 @@
     <Compile Include="FormCreateOrder.Designer.cs">
       <DependentUpon>FormCreateOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormStorage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStorage.Designer.cs">
+      <DependentUpon>FormStorage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStorages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStorages.Designer.cs">
+      <DependentUpon>FormStorages.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSushi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +117,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormFillStorage.resx">
+      <DependentUpon>FormFillStorage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSeafood.resx">
       <DependentUpon>FormSeafood.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,6 +131,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStorage.resx">
+      <DependentUpon>FormStorage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStorages.resx">
+      <DependentUpon>FormStorages.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSushi.resx">
       <DependentUpon>FormSushi.cs</DependentUpon>

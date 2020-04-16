@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 using System.Xml.Serialization;using AbstractSyshiBarBusinessLogic.Enums;
-using SushiBarFileImplement.Models;
+using SushiBarFileImplement.Models;using System.Xml.Serialization;
 namespace SushiBarFileImplement
 {
     public class FileDataListSingleton
@@ -14,9 +14,13 @@ namespace SushiBarFileImplement
         private readonly string OrderFileName = "Order.xml";
         private readonly string SushiFileName = "Sushi.xml";
         private readonly string SushiSeafoodFileName = "SushiSeafood.xml";
+        private readonly string StorageFileName = "Storage.xml";
+        private readonly string StorageSeafoodFileName = "StorageSeafood.xml";
         public List<Seafood> Seafoods { get; set; }
         public List<Order> Orders { get; set; }
         public List<Sushi> Sushis { get; set; }
+        public List<Storage> Storages { set; get; }
+        public List<StorageSeafood> StorageSeafoods { set; get; }
         public List<SushiSeafood> SushiSeafoods { get; set; }
         private FileDataListSingleton()
         {
@@ -24,6 +28,8 @@ namespace SushiBarFileImplement
             Orders = LoadOrders();
             Sushis = LoadSushis();
             SushiSeafoods = LoadSushiSeafoods();
+            Storages = LoadStorages();
+            StorageSeafoods = LoadStorageSeafoods();
         }
         public static FileDataListSingleton GetInstance()
         {
@@ -39,7 +45,9 @@ namespace SushiBarFileImplement
             SaveOrders();
             SaveSushis();
             SaveSushiSeafoods();
-          
+            SaveStorages();
+            SaveStorageSeafoods();
+
         }
         private List<Seafood> LoadSeafoods()
         {
@@ -176,6 +184,77 @@ namespace SushiBarFileImplement
                 }
                 XDocument xDocument = new XDocument(xElement);
                 xDocument.Save(SushiFileName);
+            }
+        }
+        private List<Storage> LoadStorages()
+        {
+            var list = new List<Storage>();
+            if (File.Exists(StorageFileName))
+            {
+                XDocument xDocument = XDocument.Load(StorageFileName);
+                var xElements = xDocument.Root.Elements("Storage").ToList();
+                foreach (var elem in xElements)
+                {
+                    list.Add(new Storage()
+                    {
+                        Id = Convert.ToInt32(elem.Attribute("Id").Value),
+                        StorageName = elem.Element("StorageName").Value.ToString()
+                    });
+                }
+            }
+            return list;
+        }
+
+        private List<StorageSeafood> LoadStorageSeafoods()
+        {
+            var list = new List<StorageSeafood>();
+            if (File.Exists(StorageSeafoodFileName))
+            {
+                XDocument xDocument = XDocument.Load(StorageSeafoodFileName);
+                var xElements = xDocument.Root.Elements("StorageSeafood").ToList();
+                foreach (var elem in xElements)
+                {
+                    list.Add(new StorageSeafood()
+                    {
+                        Id = Convert.ToInt32(elem.Attribute("Id").Value),
+                        SeafoodId = Convert.ToInt32(elem.Element("SeafoodId").Value),
+                        StorageId = Convert.ToInt32(elem.Element("StorageId").Value),
+                        Count = Convert.ToInt32(elem.Element("Count").Value)
+                    });
+                }
+            }
+            return list;
+        }
+        private void SaveStorages()
+        {
+            if (Storages != null)
+            {
+                var xElement = new XElement("Storages");
+                foreach (var elem in Storages)
+                {
+                    xElement.Add(new XElement("Storage",
+                        new XAttribute("Id", elem.Id),
+                        new XElement("StorageName", elem.StorageName)));
+                }
+                XDocument xDocument = new XDocument(xElement);
+                xDocument.Save(StorageFileName);
+            }
+        }
+        private void SaveStorageSeafoods()
+        {
+            if (StorageSeafoods != null)
+            {
+                var xElement = new XElement("StorageSeafoods");
+                foreach (var elem in StorageSeafoods)
+                {
+                    xElement.Add(new XElement("StorageSeafood",
+                        new XAttribute("Id", elem.Id),
+                        new XElement("SeafoodId", elem.SeafoodId),
+                        new XElement("StorageId", elem.StorageId),
+                        new XElement("Count", elem.Count)));
+                }
+                XDocument xDocument = new XDocument(xElement);
+                xDocument.Save(StorageSeafoodFileName);
             }
         }
         private void SaveSushiSeafoods()

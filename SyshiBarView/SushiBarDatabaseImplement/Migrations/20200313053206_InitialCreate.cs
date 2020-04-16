@@ -59,7 +59,7 @@ namespace SushiBarDatabaseImplement.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductSeafoods",
+                name: "SushiSeafoods",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -70,15 +70,15 @@ namespace SushiBarDatabaseImplement.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductSeafoods", x => x.Id);
+                    table.PrimaryKey("PK_SushiSeafoods", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProductSeafoods_Seafoods_SeafoodId",
+                        name: "FK_SushiSeafoods_Seafoods_SeafoodId",
                         column: x => x.SeafoodId,
                         principalTable: "Seafoods",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProductSeafoods_Sushis_SushiId",
+                        name: "FK_SushiSeafoods_Sushis_SushiId",
                         column: x => x.SushiId,
                         principalTable: "Sushis",
                         principalColumn: "Id",
@@ -91,13 +91,13 @@ namespace SushiBarDatabaseImplement.Migrations
                 column: "SushiId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductSeafoods_SeafoodId",
-                table: "ProductSeafoods",
+                name: "IX_SushiSeafoods_SeafoodId",
+                table: "SushiSeafoods",
                 column: "SeafoodId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductSeafoods_SushiId",
-                table: "ProductSeafoods",
+                name: "IX_SushiSeafoods_SushiId",
+                table: "SushiSeafoods",
                 column: "SushiId");
         }
 

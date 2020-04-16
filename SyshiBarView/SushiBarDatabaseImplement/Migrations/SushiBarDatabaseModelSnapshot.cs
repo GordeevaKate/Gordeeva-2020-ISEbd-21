@@ -108,7 +108,7 @@ namespace SushiBarDatabaseImplement.Migrations
 
                     b.HasIndex("SushiId");
 
-                    b.ToTable("ProductSeafoods");
+                    b.ToTable("SushiSeafoods");
                 });
 
             modelBuilder.Entity("SushiBarDatabaseImplement.Models.Order", b =>

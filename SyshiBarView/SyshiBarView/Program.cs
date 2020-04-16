@@ -1,11 +1,8 @@
-﻿using AbstractSyshiBarBusinessLogic;
+﻿
 using AbstractSyshiBarBusinessLogic.BusinessLogics;
 using AbstractSyshiBarBusinessLogic.Interfaces;
 using SushiBarDatabaseImplement.Implements;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
 using Unity.Lifetime;
@@ -32,6 +29,8 @@ namespace SyshiBarView
             currentContainer.RegisterType<IOrderLogic, OrderLogic>(new
            HierarchicalLifetimeManager());
             currentContainer.RegisterType<MainLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<ReportLogic>(new
+           HierarchicalLifetimeManager());
             return currentContainer;
         }
     }

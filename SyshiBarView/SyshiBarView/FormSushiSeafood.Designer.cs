@@ -77,6 +77,7 @@
             this.labelSeafood.AutoSize = true;
             this.labelSeafood.Location = new System.Drawing.Point(12, 9);
             this.labelSeafood.Name = "labelSeafood";
+
             this.labelSeafood.Size = new System.Drawing.Size(77, 13);
             this.labelSeafood.TabIndex = 4;
             this.labelSeafood.Text = "Морепродукт:";

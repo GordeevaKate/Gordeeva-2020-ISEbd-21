@@ -1,7 +1,7 @@
 ﻿using AbstractSyshiBarBusinessLogic;
 using AbstractSyshiBarBusinessLogic.BusinessLogics;
 using AbstractSyshiBarBusinessLogic.Interfaces;
-using SushiBarFileImplement.Implements;
+using SushiBarDatabaseImplement.Implements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +14,6 @@ namespace SyshiBarView
 {
     static class Program
     {
-        /// <summary>
-        /// Главная точка входа для приложения.
-        /// </summary>
         [STAThread]
         static void Main()
         {

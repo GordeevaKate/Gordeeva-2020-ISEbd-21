@@ -8,44 +8,39 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
 {
     public class ReportLogic
     {
-        private readonly ISeafoodLogic seafoodLogic;
-        private readonly ISushiLogic sushiLogic;
+        private readonly ISeafoodLogic SeafoodLogic;
+        private readonly ISushiLogic SushiLogic;
         private readonly IOrderLogic orderLogic;
-        public ReportLogic(ISushiLogic sushiLogic, ISeafoodLogic seafoodLogic,
-       IOrderLogic orderLLogic)
+        public ReportLogic(ISushiLogic SushiLogic, ISeafoodLogic SeafoodLogic,
+       IOrderLogic orderLogic)
         {
-        this.seafoodLogic = seafoodLogic;
-            this.sushiLogic = sushiLogic;
-            this.orderLogic = orderLLogic;
+            this.SushiLogic = SushiLogic;
+            this.SeafoodLogic = SeafoodLogic;
+            this.orderLogic = orderLogic;
         }
         public List<ReportSushiSeafoodViewModel> GetSushiSeafood()
         {
-            var seafoods = seafoodLogic.Read(null);
-            var sushis = sushiLogic.Read(null);
+            var Seafoods = SeafoodLogic.Read(null);
+            var Sushis = SushiLogic.Read(null);
             var list = new List<ReportSushiSeafoodViewModel>();
-            foreach (var seafood in seafoods)
+            foreach (var seafood in Seafoods)
             {
-                var record = new ReportSushiSeafoodViewModel
-                {
-                    SeafoodName = seafood.SeafoodName,
-                    Sushis = new List<Tuple<string, int>>(),
-                    TotalCount = 0
-                };
-                foreach (var sushi in sushis)
+                foreach (var sushi in Sushis)
                 {
                     if (sushi.SushiSeafoods.ContainsKey(seafood.Id))
                     {
-                        record.Sushis.Add(new Tuple<string, int>(sushi.SushiName,
-                       sushi.SushiSeafoods[seafood.Id].Item2));
-                        record.TotalCount +=
-                       sushi.SushiSeafoods[seafood.Id].Item2;
+                        var record = new ReportSushiSeafoodViewModel
+                        {
+                            SushiName = sushi.SushiName,
+                            SeafoodName = seafood.SeafoodName,
+                            Count = sushi.SushiSeafoods[seafood.Id].Item2
+                        };
+                        list.Add(record);
                     }
                 }
-                list.Add(record);
             }
             return list;
         }
-
         public List<ReportOrdersViewModel> GetOrders(ReportBindingModel model)
         {
             return orderLogic.Read(new OrderBindingModel
@@ -61,37 +56,39 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
                 Sum = x.Sum,
                 Status = x.Status
             })
-           .ToList();
+            .ToList();
         }
-
- public void SaveSeafoodsToWordFile(ReportBindingModel model)
+    
+        public void SaveSushisToWordFile(ReportBindingModel model)
         {
             SaveToWord.CreateDoc(new WordInfo
             {
                 FileName = model.FileName,
-                Title = "Список морепродуктов",
-                Seafoods = seafoodLogic.Read(null)
+                Title = "Список суши",
+                Sushis = SushiLogic.Read(null)
             });
         }
-        public void SaveSushiSeafoodToExcelFile(ReportBindingModel model)
+
+        public void SaveOrdersToExcelFile(ReportBindingModel model)
         {
             SaveToExcel.CreateDoc(new ExcelInfo
             {
+                DateFrom = model.DateFrom.Value,
+                DateTo = model.DateTo.Value,
                 FileName = model.FileName,
-                Title = "Список морепродуктов",
-                SushiSeafoods = GetSushiSeafood()
+                Title = "Список заказов",
+                Orders = GetOrders(model)
             });
         }
-        public void SaveOrdersToPdfFile(ReportBindingModel model)
+
+        public void SaveSushisToPdfFile(ReportBindingModel model)
         {
             SaveToPdf.CreateDoc(new PdfInfo
             {
                 FileName = model.FileName,
-                Title = "Список заказов",
-                DateFrom = model.DateFrom.Value,
-                DateTo = model.DateTo.Value,
-                Orders = GetOrders(model)
+                Title = "Список закусок по продуктам",
+                SushiSeafoods = GetSushiSeafood(),
             });
         }
     }
-}
+}

@@ -25,11 +25,11 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
                         JustificationValues = JustificationValues.Center
                     }
                 }));
-            foreach (var seafood in info.Seafoods)
+            foreach (var seafood in info.Sushis)
                 {
                     docBody.AppendChild(CreateParagraph(new WordParagraph
                     {
-                        Texts = new List<string> { seafood.SeafoodName },
+                        Texts = new List<string> { seafood.SushiName },
                         TextProperties = new WordParagraphProperties
                         {
                             Size = "24",

@@ -128,14 +128,14 @@
             // морепродуктыToolStripMenuItem
             // 
             this.морепродуктыToolStripMenuItem.Name = "морепродуктыToolStripMenuItem";
-            this.морепродуктыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.морепродуктыToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.морепродуктыToolStripMenuItem.Text = "Морепродукты";
             this.морепродуктыToolStripMenuItem.Click += new System.EventHandler(this.SeafoodToolStripMenuItem_Click);
             // 
             // сушиToolStripMenuItem
             // 
             this.сушиToolStripMenuItem.Name = "сушиToolStripMenuItem";
-            this.сушиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сушиToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.сушиToolStripMenuItem.Text = "Суши";
             this.сушиToolStripMenuItem.Click += new System.EventHandler(this.SushiToolStripMenuItem_Click);
             // 
@@ -154,18 +154,21 @@
             this.списокМорепродуктовToolStripMenuItem.Name = "списокМорепродуктовToolStripMenuItem";
             this.списокМорепродуктовToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.списокМорепродуктовToolStripMenuItem.Text = "список морепродуктов";
+            this.списокМорепродуктовToolStripMenuItem.Click += new System.EventHandler(this.SeafoodsToolStripMenuItem_Click);
             // 
             // компонентыПоСушиToolStripMenuItem
             // 
             this.компонентыПоСушиToolStripMenuItem.Name = "компонентыПоСушиToolStripMenuItem";
             this.компонентыПоСушиToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.компонентыПоСушиToolStripMenuItem.Text = "Компоненты по суши";
+            this.компонентыПоСушиToolStripMenuItem.Click += new System.EventHandler(this.SeafoodSushisToolStripMenuItem_Click);
             // 
             // списокЗаказовToolStripMenuItem
             // 
             this.списокЗаказовToolStripMenuItem.Name = "списокЗаказовToolStripMenuItem";
             this.списокЗаказовToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.списокЗаказовToolStripMenuItem.Text = "список заказов";
+            this.списокЗаказовToolStripMenuItem.Click += new System.EventHandler(this.OrdersToolStripMenuItem_Click);
             // 
             // FormMain
             // 

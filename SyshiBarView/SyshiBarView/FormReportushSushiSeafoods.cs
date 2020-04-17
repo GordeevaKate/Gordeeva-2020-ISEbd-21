@@ -1,9 +1,16 @@
 ﻿using AbstractSyshiBarBusinessLogic.BindingModels;
 using AbstractSyshiBarBusinessLogic.BusinessLogics;
+using Microsoft.Reporting.WinForms;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
-
 namespace SyshiBarView
 {
     public partial class FormReportushSushiSeafoods : Form
@@ -18,28 +25,14 @@ namespace SyshiBarView
             InitializeComponent();
             this.logic = logic;
         }
-        private void FormReportSushiSeafoods_Load(object sender, EventArgs e)
+        private void ButtonMake_Click(object sender, EventArgs e)
         {
             try
             {
-                var dict = logic.GetSushiSeafood();
-                if (dict != null)
-                {
-                    dataGridView.Rows.Clear();
-                    foreach (var elem in dict)
-                    {
-                        dataGridView.Rows.Add(new object[] { elem.SeafoodName, "", ""
-});
-                        foreach (var listElem in elem.Sushis)
-                        {
-                            dataGridView.Rows.Add(new object[] { "", listElem.Item1,
-listElem.Item2 });
-                        }
-                        dataGridView.Rows.Add(new object[] { "Итого", "", elem.TotalCount
-});
-                        dataGridView.Rows.Add(new object[] { });
-                    }
-                }
+                var dataSource = logic.GetSushiSeafood();
+                ReportDataSource source = new ReportDataSource("DataSetSushiSeafood", dataSource);
+                reportViewer.LocalReport.DataSources.Add(source);
+                reportViewer.RefreshReport();
             }
             catch (Exception ex)
             {
@@ -47,28 +40,35 @@ listElem.Item2 });
                MessageBoxIcon.Error);
             }
         }
-        private void ButtonSaveToExcel_Click(object sender, EventArgs e)
+        private void ButtonToPdf_Click(object sender, EventArgs e)
         {
-            using (var dialog = new SaveFileDialog { Filter = "xlsx|*.xlsx" })
+            using (var dialog = new SaveFileDialog { Filter = "pdf|*.pdf" })
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     try
                     {
-                        logic.SaveSushiSeafoodToExcelFile(new ReportBindingModel
+                        logic.SaveSushisToPdfFile(new ReportBindingModel
                         {
-                            FileName = dialog.FileName
+                            FileName = dialog.FileName,
                         });
-                        MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                        MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
-                       MessageBoxIcon.Error);
+                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
         }
+
+        private void FormReportushSushiSeafoods_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer.RefreshReport();
+         
+        }
+
     }
 }
+      

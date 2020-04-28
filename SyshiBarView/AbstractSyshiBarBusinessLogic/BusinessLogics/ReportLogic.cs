@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;using AbstractSyshiBarBusinessLogic.BindingModels;
 using AbstractSyshiBarBusinessLogic.HelperModels;
 using AbstractSyshiBarBusinessLogic.Interfaces;
-using AbstractSyshiBarBusinessLogic.ViewModels;
+using AbstractSyshiBarBusinessLogic.ViewModels;using AbstractSyshiBarBusinessLogic.Enums;using DocumentFormat.OpenXml.Office2010.ExcelAc;
+
 namespace AbstractSyshiBarBusinessLogic.BusinessLogics
 {
     public class ReportLogic
@@ -35,30 +36,28 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
                             SeafoodName = seafood.SeafoodName,
                             Count = sushi.SushiSeafoods[seafood.Id].Item2
                         };
+                        Console.WriteLine(record);
                         list.Add(record);
                     }
                 }
             }
             return list;
         }
-        public List<ReportOrdersViewModel> GetOrders(ReportBindingModel model)
+        public List<IGrouping<DateTime, OrderViewModel>> GetOrders(ReportBindingModel model)
         {
-            return orderLogic.Read(new OrderBindingModel
-            {
-                DateFrom = model.DateFrom,
-                DateTo = model.DateTo
-            })
-            .Select(x => new ReportOrdersViewModel
-            {
-                DateCreate = x.DateCreate,
-                SushiName = x.SushiName,
-                Count = x.Count,
-                Sum = x.Sum,
-                Status = x.Status
-            })
-            .ToList();
+            var list = orderLogic
+              .Read(new OrderBindingModel
+              {
+                  DateFrom = model.DateFrom,
+                  DateTo = model.DateTo
+              })
+              .GroupBy(rec => rec.DateCreate.Date)
+              .OrderBy(recG => recG.Key)
+              .ToList();
+     
+            return list;
         }
-    
+
         public void SaveSushisToWordFile(ReportBindingModel model)
         {
             SaveToWord.CreateDoc(new WordInfo
@@ -73,14 +72,11 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
         {
             SaveToExcel.CreateDoc(new ExcelInfo
             {
-                DateFrom = model.DateFrom.Value,
-                DateTo = model.DateTo.Value,
                 FileName = model.FileName,
                 Title = "Список заказов",
                 Orders = GetOrders(model)
             });
         }
-
         public void SaveSushisToPdfFile(ReportBindingModel model)
         {
             SaveToPdf.CreateDoc(new PdfInfo

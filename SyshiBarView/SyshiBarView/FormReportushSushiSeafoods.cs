@@ -2,13 +2,6 @@
 using AbstractSyshiBarBusinessLogic.BusinessLogics;
 using Microsoft.Reporting.WinForms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
 namespace SyshiBarView
@@ -30,8 +23,9 @@ namespace SyshiBarView
             try
             {
                 var dataSource = logic.GetSushiSeafood();
-                ReportDataSource source = new ReportDataSource("DataSetSushiSeafood", dataSource);
+                ReportDataSource source = new ReportDataSource("DataSetSeafood", dataSource);
                 reportViewer.LocalReport.DataSources.Add(source);
+             
                 reportViewer.RefreshReport();
             }
             catch (Exception ex)
@@ -60,13 +54,6 @@ namespace SyshiBarView
                     }
                 }
             }
-        }
-
-        private void FormReportushSushiSeafoods_Load(object sender, EventArgs e)
-        {
-
-            this.reportViewer.RefreshReport();
-         
         }
 
     }

@@ -52,12 +52,12 @@
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(2, 25);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(517, 423);
+            this.dataGridView.Size = new System.Drawing.Size(723, 423);
             this.dataGridView.TabIndex = 0;
             // 
             // buttonCreateOrder
             // 
-            this.buttonCreateOrder.Location = new System.Drawing.Point(543, 43);
+            this.buttonCreateOrder.Location = new System.Drawing.Point(744, 47);
             this.buttonCreateOrder.Name = "buttonCreateOrder";
             this.buttonCreateOrder.Size = new System.Drawing.Size(133, 20);
             this.buttonCreateOrder.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             // buttonRef
             // 
-            this.buttonRef.Location = new System.Drawing.Point(543, 147);
+            this.buttonRef.Location = new System.Drawing.Point(744, 151);
             this.buttonRef.Name = "buttonRef";
             this.buttonRef.Size = new System.Drawing.Size(133, 20);
             this.buttonRef.TabIndex = 2;
@@ -77,7 +77,7 @@
             // 
             // buttonPayOrder
             // 
-            this.buttonPayOrder.Location = new System.Drawing.Point(543, 121);
+            this.buttonPayOrder.Location = new System.Drawing.Point(744, 125);
             this.buttonPayOrder.Name = "buttonPayOrder";
             this.buttonPayOrder.Size = new System.Drawing.Size(133, 20);
             this.buttonPayOrder.TabIndex = 3;
@@ -87,7 +87,7 @@
             // 
             // buttonOrderReady
             // 
-            this.buttonOrderReady.Location = new System.Drawing.Point(543, 95);
+            this.buttonOrderReady.Location = new System.Drawing.Point(744, 99);
             this.buttonOrderReady.Name = "buttonOrderReady";
             this.buttonOrderReady.Size = new System.Drawing.Size(133, 20);
             this.buttonOrderReady.TabIndex = 4;
@@ -97,7 +97,7 @@
             // 
             // buttonTakeOrderlnWork
             // 
-            this.buttonTakeOrderlnWork.Location = new System.Drawing.Point(543, 69);
+            this.buttonTakeOrderlnWork.Location = new System.Drawing.Point(744, 73);
             this.buttonTakeOrderlnWork.Name = "buttonTakeOrderlnWork";
             this.buttonTakeOrderlnWork.Size = new System.Drawing.Size(133, 20);
             this.buttonTakeOrderlnWork.TabIndex = 5;
@@ -112,7 +112,7 @@
             this.отчетыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(688, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(889, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -174,7 +174,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 448);
+            this.ClientSize = new System.Drawing.Size(889, 448);
             this.Controls.Add(this.buttonTakeOrderlnWork);
             this.Controls.Add(this.buttonOrderReady);
             this.Controls.Add(this.buttonPayOrder);

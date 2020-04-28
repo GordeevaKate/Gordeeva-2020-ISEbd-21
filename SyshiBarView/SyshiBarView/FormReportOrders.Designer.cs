@@ -72,21 +72,21 @@
             this.buttonMake.UseVisualStyleBackColor = true;
             this.buttonMake.Click += new System.EventHandler(this.buttonMake_Click);
             // 
-            // dataGridView1
+            // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3});
-            this.dataGridView.Location = new System.Drawing.Point(12, 51);
-            this.dataGridView.Name = "dataGridView1";
-            this.dataGridView.Size = new System.Drawing.Size(318, 294);
-            this.dataGridView.TabIndex = 21;
+            this.dataGridView.Location = new System.Drawing.Point(12, 60);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(344, 232);
+            this.dataGridView.TabIndex = 22;
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "ата";
+            this.Column1.HeaderText = "Дата";
             this.Column1.Name = "Column1";
             // 
             // Column2
@@ -96,14 +96,14 @@
             // 
             // Column3
             // 
-            this.Column3.HeaderText = "Цена";
+            this.Column3.HeaderText = "цена";
             this.Column3.Name = "Column3";
             // 
             // FormReportOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 352);
+            this.ClientSize = new System.Drawing.Size(556, 340);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.buttonMake);
             this.Controls.Add(this.dateTimePickerTo);
@@ -121,6 +121,9 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
         private System.Windows.Forms.DateTimePicker dateTimePickerTo;
         private System.Windows.Forms.Button buttonMake;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateCreateColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SushiColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SumColumn;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

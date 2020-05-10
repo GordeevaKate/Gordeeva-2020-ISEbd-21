@@ -42,6 +42,7 @@
             this.списокМорепродуктовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.компонентыПоСушиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.списокЗаказовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonDel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -170,11 +171,22 @@
             this.списокЗаказовToolStripMenuItem.Text = "список заказов";
             this.списокЗаказовToolStripMenuItem.Click += new System.EventHandler(this.OrdersToolStripMenuItem_Click);
             // 
+            // buttonDel
+            // 
+            this.buttonDel.Location = new System.Drawing.Point(746, 192);
+            this.buttonDel.Name = "buttonDel";
+            this.buttonDel.Size = new System.Drawing.Size(130, 21);
+            this.buttonDel.TabIndex = 7;
+            this.buttonDel.Text = "Del";
+            this.buttonDel.UseVisualStyleBackColor = true;
+            this.buttonDel.Click += new System.EventHandler(this.ButtonDel_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(889, 448);
+            this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.buttonTakeOrderlnWork);
             this.Controls.Add(this.buttonOrderReady);
             this.Controls.Add(this.buttonPayOrder);
@@ -210,6 +222,7 @@
         private System.Windows.Forms.ToolStripMenuItem списокМорепродуктовToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem компонентыПоСушиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem списокЗаказовToolStripMenuItem;
+        private System.Windows.Forms.Button buttonDel;
     }
 }
 

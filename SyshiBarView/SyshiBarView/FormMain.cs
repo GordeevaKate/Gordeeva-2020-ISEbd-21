@@ -50,6 +50,28 @@ namespace SyshiBarView
             var form = Container.Resolve<FormSeafoods>();
             form.ShowDialog();
         }
+        private void ButtonDel_Click(object sender, EventArgs e)
+        {
+            if (dataGridView.SelectedRows.Count == 1)
+            {
+                if (MessageBox.Show("Удалить запись", "Вопрос", MessageBoxButtons.YesNo,
+               MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int id =
+                   Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
+                    try
+                    {
+                        orderLogic.Delete(new OrderBindingModel { Id = id });
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+                       MessageBoxIcon.Error);
+                    }
+                    LoadData();
+                }
+            }
+        }
         private void SushiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormSushis>();

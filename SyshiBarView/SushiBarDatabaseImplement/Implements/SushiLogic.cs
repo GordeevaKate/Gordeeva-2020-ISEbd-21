@@ -116,7 +116,7 @@ namespace SushiBarDatabaseImplement.Implements
                     }
                     catch (Exception)
                     {
-                        throw new Exception("Элементошибочен");
+                        throw new Exception("Элемент ошибочен");
         //                transaction.Rollback();
                         throw;
                     }

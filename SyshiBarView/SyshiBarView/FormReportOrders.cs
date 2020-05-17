@@ -1,9 +1,6 @@
 ﻿using AbstractSyshiBarBusinessLogic.BindingModels;
 using AbstractSyshiBarBusinessLogic.BusinessLogics;
-using Microsoft.Reporting.WinForms;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 using Unity;
 

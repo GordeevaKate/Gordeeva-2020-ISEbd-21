@@ -14,10 +14,12 @@ namespace SyshiBarView
         public new IUnityContainer Container { get; set; }
         private readonly ISushiLogic logicP;
         private readonly MainLogic logicM;
-        public FormCreateOrder(ISushiLogic logicP, MainLogic logicM)
+        private readonly IClientLogic logicC;
+        public FormCreateOrder(IClientLogic logicC, ISushiLogic logicP, MainLogic logicM)
         {
             InitializeComponent();
             this.logicP = logicP;
+            this.logicC = logicC;
             this.logicM = logicM;
         }
 
@@ -29,6 +31,11 @@ namespace SyshiBarView
                 comboBoxSushi.DataSource = list;
                 comboBoxSushi.DisplayMember = "SushiName";
                 comboBoxSushi.ValueMember = "Id";
+                var listC = logicC.Read(null);
+                comboBoxClient.DisplayMember = "ClientFIO";
+                comboBoxClient.ValueMember = "Id";
+                comboBoxClient.DataSource = listC;
+                comboBoxClient.SelectedItem = null;
             }
             catch (Exception ex)
             {
@@ -86,6 +93,7 @@ namespace SyshiBarView
                 logicM.CreateOrder(new CreateOrderBindingModel
                 {
                     SushiId = Convert.ToInt32(comboBoxSushi.SelectedValue),
+                    ClientId = Convert.ToInt32(comboBoxClient.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text),
                     Sum = Convert.ToDecimal(textBoxSum.Text)
                 });
@@ -104,6 +112,11 @@ namespace SyshiBarView
         {
             DialogResult = DialogResult.Cancel;
             Close();
-        }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

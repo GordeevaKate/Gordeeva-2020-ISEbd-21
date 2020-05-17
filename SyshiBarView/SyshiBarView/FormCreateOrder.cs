@@ -12,12 +12,14 @@ namespace SyshiBarView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly ISushiLogic logicP;
+        private readonly ISushiLogic logicS;
         private readonly MainLogic logicM;
-        public FormCreateOrder(ISushiLogic logicP, MainLogic logicM)
+        private readonly IClientLogic logicC;
+        public FormCreateOrder(ISushiLogic logicS, IClientLogic logicC, MainLogic logicM)
         {
             InitializeComponent();
-            this.logicP = logicP;
+            this.logicS = logicS;
+            this.logicC = logicC;
             this.logicM = logicM;
         }
 
@@ -25,10 +27,15 @@ namespace SyshiBarView
         {
             try
             {
-                var list = logicP.Read(null);
+                var list = logicS.Read(null);
                 comboBoxSushi.DataSource = list;
                 comboBoxSushi.DisplayMember = "SushiName";
                 comboBoxSushi.ValueMember = "Id";
+                var listC = logicC.Read(null);
+                comboBoxClient.DisplayMember = "ClientFIO";
+                comboBoxClient.ValueMember = "Id";
+                comboBoxClient.DataSource = listC;
+                comboBoxClient.SelectedItem = null;
             }
             catch (Exception ex)
             {
@@ -44,7 +51,7 @@ namespace SyshiBarView
                 try
                 {
                     int id = Convert.ToInt32(comboBoxSushi.SelectedValue);
-                    SushiViewModel product = logicP.Read(new SushiBindingModel
+                    SushiViewModel product = logicS.Read(new SushiBindingModel
                     {
                         Id =
                     id

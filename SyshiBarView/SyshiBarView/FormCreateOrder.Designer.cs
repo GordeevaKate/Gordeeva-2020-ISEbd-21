@@ -36,11 +36,13 @@
             this.textBoxCount = new System.Windows.Forms.TextBox();
             this.comboBoxSushi = new System.Windows.Forms.ComboBox();
             this.textBoxSum = new System.Windows.Forms.TextBox();
+            this.comboBoxClient = new System.Windows.Forms.ComboBox();
+            this.labelClient = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonCansel
             // 
-            this.buttonCansel.Location = new System.Drawing.Point(203, 114);
+            this.buttonCansel.Location = new System.Drawing.Point(205, 139);
             this.buttonCansel.Name = "buttonCansel";
             this.buttonCansel.Size = new System.Drawing.Size(93, 25);
             this.buttonCansel.TabIndex = 0;
@@ -50,7 +52,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(104, 114);
+            this.buttonSave.Location = new System.Drawing.Point(102, 139);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(93, 25);
             this.buttonSave.TabIndex = 1;
@@ -61,7 +63,7 @@
             // labelСуши
             // 
             this.labelСуши.AutoSize = true;
-            this.labelСуши.Location = new System.Drawing.Point(22, 22);
+            this.labelСуши.Location = new System.Drawing.Point(39, 22);
             this.labelСуши.Name = "labelСуши";
             this.labelСуши.Size = new System.Drawing.Size(36, 13);
             this.labelСуши.TabIndex = 2;
@@ -70,7 +72,7 @@
             // labelPrice
             // 
             this.labelPrice.AutoSize = true;
-            this.labelPrice.Location = new System.Drawing.Point(22, 77);
+            this.labelPrice.Location = new System.Drawing.Point(31, 105);
             this.labelPrice.Name = "labelPrice";
             this.labelPrice.Size = new System.Drawing.Size(44, 13);
             this.labelPrice.TabIndex = 3;
@@ -79,7 +81,7 @@
             // labelCount
             // 
             this.labelCount.AutoSize = true;
-            this.labelCount.Location = new System.Drawing.Point(22, 49);
+            this.labelCount.Location = new System.Drawing.Point(0, 76);
             this.labelCount.Name = "labelCount";
             this.labelCount.Size = new System.Drawing.Size(75, 13);
             this.labelCount.TabIndex = 4;
@@ -87,7 +89,7 @@
             // 
             // textBoxCount
             // 
-            this.textBoxCount.Location = new System.Drawing.Point(102, 46);
+            this.textBoxCount.Location = new System.Drawing.Point(104, 73);
             this.textBoxCount.Name = "textBoxCount";
             this.textBoxCount.Size = new System.Drawing.Size(194, 20);
             this.textBoxCount.TabIndex = 5;
@@ -105,16 +107,35 @@
             // textBoxSum
             // 
             this.textBoxSum.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.textBoxSum.Location = new System.Drawing.Point(104, 72);
+            this.textBoxSum.Location = new System.Drawing.Point(104, 102);
             this.textBoxSum.Name = "textBoxSum";
             this.textBoxSum.Size = new System.Drawing.Size(194, 20);
             this.textBoxSum.TabIndex = 7;
+            // 
+            // comboBoxClient
+            // 
+            this.comboBoxClient.FormattingEnabled = true;
+            this.comboBoxClient.Location = new System.Drawing.Point(104, 46);
+            this.comboBoxClient.Name = "comboBoxClient";
+            this.comboBoxClient.Size = new System.Drawing.Size(194, 21);
+            this.comboBoxClient.TabIndex = 8;
+            // 
+            // labelClient
+            // 
+            this.labelClient.AutoSize = true;
+            this.labelClient.Location = new System.Drawing.Point(29, 46);
+            this.labelClient.Name = "labelClient";
+            this.labelClient.Size = new System.Drawing.Size(46, 13);
+            this.labelClient.TabIndex = 9;
+            this.labelClient.Text = "Клиент:";
             // 
             // FormCreateOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 157);
+            this.ClientSize = new System.Drawing.Size(416, 249);
+            this.Controls.Add(this.labelClient);
+            this.Controls.Add(this.comboBoxClient);
             this.Controls.Add(this.textBoxSum);
             this.Controls.Add(this.comboBoxSushi);
             this.Controls.Add(this.textBoxCount);
@@ -141,5 +162,7 @@
         private System.Windows.Forms.TextBox textBoxCount;
         private System.Windows.Forms.ComboBox comboBoxSushi;
         private System.Windows.Forms.TextBox textBoxSum;
+        private System.Windows.Forms.ComboBox comboBoxClient;
+        private System.Windows.Forms.Label labelClient;
     }
 }

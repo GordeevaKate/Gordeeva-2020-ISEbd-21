@@ -16,6 +16,7 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
             orderLogic.CreateOrUpdate(new OrderBindingModel
             {
                 SushiId = model.SushiId,
+                ClientId = model.ClientId,
                 Count = model.Count,
                 Sum = model.Sum,
                 DateCreate = DateTime.Now,
@@ -37,6 +38,7 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
             {
                 Id = order.Id,
                 SushiId = order.SushiId,
+                ClientId = order.ClientId,
                 Count = order.Count,
                 Sum = order.Sum,
                 DateCreate = order.DateCreate,
@@ -59,6 +61,7 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
             {
                 Id = order.Id,
                 SushiId = order.SushiId,
+                ClientId = order.ClientId,
                 Count = order.Count,
                 Sum = order.Sum,
                 DateCreate = order.DateCreate,
@@ -81,6 +84,7 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
             {
                 Id = order.Id,
                 SushiId = order.SushiId,
+                ClientId = order.ClientId,
                 Count = order.Count,
                 Sum = order.Sum,
                 DateCreate = order.DateCreate,

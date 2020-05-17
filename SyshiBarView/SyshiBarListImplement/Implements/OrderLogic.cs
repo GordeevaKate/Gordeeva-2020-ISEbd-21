@@ -4,8 +4,6 @@ using AbstractSyshiBarBusinessLogic.ViewModels;
 using SyshiBarListImplement.Models;
 using System;
 using System.Collections.Generic;
-using System.Text;
-
 namespace SyshiBarListImplement.Implements
 {
     public class OrderLogic : IOrderLogic
@@ -21,15 +19,15 @@ namespace SyshiBarListImplement.Implements
             {
                 Id = 1
             };
-            foreach (var Order in source.Orders)
+            foreach (var order in source.Orders)
             {
-                if (!model.Id.HasValue && Order.Id >= tempOrder.Id)
+                if (!model.Id.HasValue && order.Id >= tempOrder.Id)
                 {
-                    tempOrder.Id = Order.Id + 1;
+                    tempOrder.Id = order.Id + 1;
                 }
-                else if (model.Id.HasValue && Order.Id == model.Id)
+                else if (model.Id.HasValue && order.Id == model.Id)
                 {
-                    tempOrder = Order;
+                    tempOrder = order;
                 }
             }
             if (model.Id.HasValue)
@@ -76,23 +74,23 @@ namespace SyshiBarListImplement.Implements
             }
             return result;
         }
-        private Order CreateModel(OrderBindingModel model, Order Order)
+        private Order CreateModel(OrderBindingModel model, Order order)
         {
-            Order.SushiId = model.SushiId == 0 ? Order.SushiId : model.SushiId;
-            Order.ClientId = (int)model.ClientId;
-            Order.Count = model.Count;
-            Order.Sum = model.Sum;
-            Order.Status = model.Status;
-            Order.DateCreate = model.DateCreate;
-            Order.DateImplement = model.DateImplement;
-            return Order;
+            order.SushiId = model.SushiId == 0 ? order.SushiId : model.SushiId;
+            order.ClientId = (int)model.ClientId;
+            order.Count = model.Count;
+            order.Sum = model.Sum;
+            order.Status = model.Status;
+            order.DateCreate = model.DateCreate;
+            order.DateImplement = model.DateImplement;
+            return order;
         }
-        private OrderViewModel CreateViewModel(Order Order)
+        private OrderViewModel CreateViewModel(Order order)
         {
             string sushiName = "";
             for (int j = 0; j < source.Sushis.Count; ++j)
             {
-                if (source.Sushis[j].Id == Order.SushiId)
+                if (source.Sushis[j].Id == order.SushiId)
                 {
                     sushiName = source.Sushis[j].SushiName;
                     break;
@@ -100,14 +98,14 @@ namespace SyshiBarListImplement.Implements
             }
             return new OrderViewModel
             {
-                Id = Order.Id,
+                Id = order.Id,
                 SushiName = sushiName,
-                ClientId = Order.ClientId,
-                Count = Order.Count,
-                Sum = Order.Sum,
-                Status = Order.Status,
-                DateCreate = Order.DateCreate,
-                DateImplement = Order.DateImplement
+                ClientId = order.ClientId,
+                Count = order.Count,
+                Sum = order.Sum,
+                Status = order.Status,
+                DateCreate = order.DateCreate,
+                DateImplement = order.DateImplement
             };
         }
     }

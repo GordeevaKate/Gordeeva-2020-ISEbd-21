@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace AbstractSyshiBarBusinessLogic.ViewModels
 {
+    [DataContract]
     public class ClientViewModel
     {
         [DataMember]

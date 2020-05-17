@@ -1,5 +1,5 @@
 ﻿using AbstractSyshiBarBusinessLogic.Enums;
-using System;
+using System;
 namespace AbstractSyshiBarBusinessLogic.BindingModels
 {
     public class OrderBindingModel

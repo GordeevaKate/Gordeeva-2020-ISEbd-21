@@ -15,7 +15,7 @@ namespace SushiBarDatabaseImplement.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("SushiVersion", "3.1.2")
+                .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -67,6 +67,47 @@ namespace SushiBarDatabaseImplement.Migrations
                     b.ToTable("Seafoods");
                 });
 
+            modelBuilder.Entity("SushiBarDatabaseImplement.Models.Storage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("StorageName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Storages");
+                });
+
+            modelBuilder.Entity("SushiBarDatabaseImplement.Models.StorageSeafood", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SeafoodId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StorageId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SeafoodId");
+
+                    b.HasIndex("StorageId");
+
+                    b.ToTable("StorageSeafoods");
+                });
+
             modelBuilder.Entity("SushiBarDatabaseImplement.Models.Sushi", b =>
                 {
                     b.Property<int>("Id")
@@ -114,8 +155,23 @@ namespace SushiBarDatabaseImplement.Migrations
             modelBuilder.Entity("SushiBarDatabaseImplement.Models.Order", b =>
                 {
                     b.HasOne("SushiBarDatabaseImplement.Models.Sushi", "Sushi")
-                        .WithMany()
+                        .WithMany("Orders")
                         .HasForeignKey("SushiId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SushiBarDatabaseImplement.Models.StorageSeafood", b =>
+                {
+                    b.HasOne("SushiBarDatabaseImplement.Models.Seafood", "Seafood")
+                        .WithMany()
+                        .HasForeignKey("SeafoodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SushiBarDatabaseImplement.Models.Storage", "Storage")
+                        .WithMany("StorageSeafoods")
+                        .HasForeignKey("StorageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -7,9 +7,11 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
     public class MainLogic
     {
         private readonly IOrderLogic orderLogic;
-        public MainLogic(IOrderLogic orderLogic)
+        private readonly IStorageLogic storageLogic;
+        public MainLogic(IOrderLogic orderLogic, IStorageLogic storageLogic)
         {
             this.orderLogic = orderLogic;
+            this.storageLogic = storageLogic;
         }
         public void CreateOrder(CreateOrderBindingModel model)
         {
@@ -33,6 +35,9 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
             {
                 throw new Exception("Заказ не в статусе \"Принят\"");
             }
+            try
+            {
+            storageLogic.RemoveFromStorage(order.SushiId, order.Count);
             orderLogic.CreateOrUpdate(new OrderBindingModel
             {
                 Id = order.Id,
@@ -43,6 +48,15 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
                 DateImplement = DateTime.Now,
                 Status = OrderStatus.Выполняется
             });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void FillStorage(StorageSeafoodBindingModel model)
+        {
+            storageLogic.FillStorage(model);
         }
         public void FinishOrder(ChangeStatusBindingModel model)
         {

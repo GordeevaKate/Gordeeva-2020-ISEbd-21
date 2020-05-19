@@ -68,7 +68,8 @@ model.Id);
              {
                  Id = rec.Id,
                 SushiName = rec.Sushi.SushiName,
-                 Count = rec.Count,
+                SushiId = rec.Sushi.Id,
+                Count = rec.Count,
                  Sum = rec.Sum,
                  Status = rec.Status,
                  DateCreate = rec.DateCreate,

@@ -17,11 +17,11 @@ namespace SushiBarClientView
         {
             try
             {
-                comboBoxProduct.DisplayMember = "ProductName";
-                comboBoxProduct.ValueMember = "Id";
-                comboBoxProduct.DataSource =
-               APIClient.GetRequest<List<SushiViewModel>>("api/main/getproductlist");
-                comboBoxProduct.SelectedItem = null;
+                comboBoxSushi.DisplayMember = "SushiName";
+                comboBoxSushi.ValueMember = "Id";
+                comboBoxSushi.DataSource =
+               APIClient.GetRequest<List<SushiViewModel>>("api/main/getsushilist");
+                comboBoxSushi.SelectedItem = null;
             }
             catch (Exception ex)
             {
@@ -31,16 +31,16 @@ namespace SushiBarClientView
         }
         private void CalcSum()
         {
-            if (comboBoxProduct.SelectedValue != null &&
+            if (comboBoxSushi.SelectedValue != null &&
            !string.IsNullOrEmpty(textBoxCount.Text))
             {
                 try
                 {
-                    int id = Convert.ToInt32(comboBoxProduct.SelectedValue);
-                SushiViewModel product =
-APIClient.GetRequest<SushiViewModel>($"api/main/getproduct?productId={id}");
+                    int id = Convert.ToInt32(comboBoxSushi.SelectedValue);
+                SushiViewModel sushi =
+APIClient.GetRequest<SushiViewModel>($"api/main/getsushi?sushiId={id}");
                     int count = Convert.ToInt32(textBoxCount.Text);
-                    textBoxSum.Text = (count * product.Price).ToString();
+                    textBoxSum.Text = (count * sushi.Price).ToString();
                 }
                 catch (Exception ex)
                 {
@@ -53,7 +53,7 @@ APIClient.GetRequest<SushiViewModel>($"api/main/getproduct?productId={id}");
         {
             CalcSum();
         }
-        private void ComboBoxProduct_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBoxSushi_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalcSum();
         }
@@ -65,7 +65,7 @@ APIClient.GetRequest<SushiViewModel>($"api/main/getproduct?productId={id}");
                MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (comboBoxProduct.SelectedValue == null)
+            if (comboBoxSushi.SelectedValue == null)
             {
                 MessageBox.Show("Выберите изделие", "Ошибка", MessageBoxButtons.OK,
                MessageBoxIcon.Error);
@@ -76,7 +76,7 @@ APIClient.GetRequest<SushiViewModel>($"api/main/getproduct?productId={id}");
                 APIClient.PostRequest("api/main/createorder", new CreateOrderBindingModel
                 {
                     ClientId = Program.Client.Id,
-                    SushiId = Convert.ToInt32(comboBoxProduct.SelectedValue),
+                    SushiId = Convert.ToInt32(comboBoxSushi.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text),
                     Sum = Convert.ToDecimal(textBoxSum.Text)
                 });

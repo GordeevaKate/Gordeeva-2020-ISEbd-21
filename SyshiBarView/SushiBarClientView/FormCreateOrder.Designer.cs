@@ -18,8 +18,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelProduct = new System.Windows.Forms.Label();
-            this.comboBoxProduct = new System.Windows.Forms.ComboBox();
+            this.labelSushi = new System.Windows.Forms.Label();
+            this.comboBoxSushi = new System.Windows.Forms.ComboBox();
             this.labelCount = new System.Windows.Forms.Label();
             this.textBoxCount = new System.Windows.Forms.TextBox();
             this.labelSum = new System.Windows.Forms.Label();
@@ -29,24 +29,24 @@
             //
             // labelProduct
             //
-            this.labelProduct.AutoSize = true;
-            this.labelProduct.Location = new System.Drawing.Point(12, 9);
-            this.labelProduct.Name = "labelProduct";
-            this.labelProduct.Size = new System.Drawing.Size(54, 13);
-            this.labelProduct.TabIndex = 0;
-            this.labelProduct.Text = "Изделие:";
+            this.labelSushi.AutoSize = true;
+            this.labelSushi.Location = new System.Drawing.Point(12, 9);
+            this.labelSushi.Name = "labelSushi";
+            this.labelSushi.Size = new System.Drawing.Size(54, 13);
+            this.labelSushi.TabIndex = 0;
+            this.labelSushi.Text = "Sushi:";
             //
             // comboBoxProduct
             // 
-        this.comboBoxProduct.DropDownStyle =
+        this.comboBoxSushi.DropDownStyle =
 System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxProduct.FormattingEnabled = true;
-            this.comboBoxProduct.Location = new System.Drawing.Point(87, 6);
-            this.comboBoxProduct.Name = "comboBoxProduct";
-            this.comboBoxProduct.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxProduct.TabIndex = 1;
-            this.comboBoxProduct.SelectedIndexChanged += new
-           System.EventHandler(this.ComboBoxProduct_SelectedIndexChanged);
+            this.comboBoxSushi.FormattingEnabled = true;
+            this.comboBoxSushi.Location = new System.Drawing.Point(87, 6);
+            this.comboBoxSushi.Name = "comboBoxSushi";
+            this.comboBoxSushi.Size = new System.Drawing.Size(217, 21);
+            this.comboBoxSushi.TabIndex = 1;
+            this.comboBoxSushi.SelectedIndexChanged += new
+           System.EventHandler(this.ComboBoxSushi_SelectedIndexChanged);
             //
             // labelCount
             //
@@ -103,8 +103,8 @@ System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Controls.Add(this.labelSum);
             this.Controls.Add(this.textBoxCount);
         this.Controls.Add(this.labelCount);
-            this.Controls.Add(this.comboBoxProduct);
-            this.Controls.Add(this.labelProduct);
+            this.Controls.Add(this.comboBoxSushi);
+            this.Controls.Add(this.labelSushi);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Заказ";
             this.Load += new System.EventHandler(this.FormCreateOrder_Load);
@@ -112,8 +112,8 @@ System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PerformLayout();
         }
         #endregion
-        private System.Windows.Forms.Label labelProduct;
-        private System.Windows.Forms.ComboBox comboBoxProduct;
+        private System.Windows.Forms.Label labelSushi;
+        private System.Windows.Forms.ComboBox comboBoxSushi;
         private System.Windows.Forms.Label labelCount;
         private System.Windows.Forms.TextBox textBoxCount;
         private System.Windows.Forms.Label labelSum;

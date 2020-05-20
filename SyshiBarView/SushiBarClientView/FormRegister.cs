@@ -17,6 +17,7 @@ namespace SushiBarClientView
            !string.IsNullOrEmpty(textBoxPassword.Text) &&
            !string.IsNullOrEmpty(textBoxClientFIO.Text))
             {
+               string Pass = textBoxPassword.Text;
                 try
                 {
                     APIClient.PostRequest("api/client/register", new ClientBindingModel

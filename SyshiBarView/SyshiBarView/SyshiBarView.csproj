@@ -207,11 +207,11 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormReportushSushiSeafoods.cs">
+    <Compile Include="FormReportsSushiSeafoods.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormReportushSushiSeafoods.Designer.cs">
-      <DependentUpon>FormReportushSushiSeafoods.cs</DependentUpon>
+    <Compile Include="FormReportsSushiSeafoods.Designer.cs">
+      <DependentUpon>FormReportsSushiSeafoods.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSeafood.cs">
       <SubType>Form</SubType>
@@ -255,8 +255,8 @@
     <EmbeddedResource Include="FormReportOrders.resx">
       <DependentUpon>FormReportOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormReportushSushiSeafoods.resx">
-      <DependentUpon>FormReportushSushiSeafoods.cs</DependentUpon>
+    <EmbeddedResource Include="FormReportsSushiSeafoods.resx">
+      <DependentUpon>FormReportsSushiSeafoods.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSeafood.resx">
       <DependentUpon>FormSeafood.cs</DependentUpon>

@@ -84,7 +84,7 @@
             this.сушиToolStripMenuItem.Name = "сушиToolStripMenuItem";
             this.сушиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.сушиToolStripMenuItem.Text = "Суши";
-            this.сушиToolStripMenuItem.Click += new System.EventHandler(this.сушиToolStripMenuItem);
+            this.сушиToolStripMenuItem.Click += new System.EventHandler(this.сушиToolStripMenuItem_Click);
             // 
             // клиентыToolStripMenuItem
             // 

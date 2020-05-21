@@ -1,4 +1,5 @@
 ﻿using AbstractSyshiBarBusinessLogic.BindingModels;
+using AbstractSyshiBarBusinessLogic.Enums;
 using AbstractSyshiBarBusinessLogic.Interfaces;
 using AbstractSyshiBarBusinessLogic.ViewModels;
 using SushiBarFileImplement.Models;
@@ -35,6 +36,7 @@ namespace SushiBarFileImplement.Implements
                 }
                 element.SushiId = model.SushiId == 0 ? element.SushiId : model.SushiId;
             element.ClientId = model.ClientId == null ? element.ClientId : (int)model.ClientId;
+            element.ImplementerId = model.ImplementerId;
             element.Count = model.Count;
                 element.Sum = model.Sum;
                 element.Status = model.Status;
@@ -56,14 +58,18 @@ namespace SushiBarFileImplement.Implements
             }
             public List<OrderViewModel> Read(OrderBindingModel model)
             {
-                return source.Orders.Where(rec => model == null || rec.Id == model.Id || (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo)
-            || model.ClientId.HasValue && rec.ClientId == model.ClientId)
-            .Select(rec => new OrderViewModel
-            {
+            return source.Orders
+       .Where(rec => model == null || rec.Id == model.Id || (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo)
+       || (model.ClientId.HasValue && rec.ClientId == model.ClientId)
+       || model.FreeOrders.HasValue && model.FreeOrders.Value && !rec.ImplementerId.HasValue
+       || model.ImplementerId.HasValue && rec.ImplementerId == model.ImplementerId && rec.Status == OrderStatus.Выполняется)
+       .Select(rec => new OrderViewModel
+       {
                     Id = rec.Id,
                     SushiName = GetSushiName(rec.SushiId),
                 ClientId = rec.ClientId,
                 ClientFIO = source.Clients.FirstOrDefault(recC => recC.Id == rec.ClientId)?.ClientFIO,
+                ImplementerFIO = source.Implementers.FirstOrDefault(recC => recC.Id == rec.ImplementerId)?.ImplementerFIO,
                 Count = rec.Count,
                     Sum = rec.Sum,
                     Status = rec.Status,

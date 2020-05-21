@@ -63,29 +63,52 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
                     CellToName = "E1"
                 });
                 uint rowIndex = 2;
-                foreach (var date in info.Orders)
+                if (info.Orders != null)
                 {
-                    decimal sum = 0;
-                    InsertCellInWorksheet(new ExcelCellParameters
+                    foreach (var date in info.Orders)
                     {
-                        Worksheet = worksheetPart.Worksheet,
-                        ShareStringPart = shareStringPart,
-                        ColumnName = "A",
-                        RowIndex = rowIndex,
-                        Text = date.Key.ToShortDateString(),
-                        StyleIndex = 0U
-                    });
-                    rowIndex++;
-                    foreach (var order in date)
-                    {
+                        decimal sum = 0;
                         InsertCellInWorksheet(new ExcelCellParameters
                         {
                             Worksheet = worksheetPart.Worksheet,
                             ShareStringPart = shareStringPart,
-                            ColumnName = "B",
+                            ColumnName = "A",
                             RowIndex = rowIndex,
-                            Text = order.SushiName,
-                            StyleIndex = 1U
+                            Text = date.Key.ToShortDateString(),
+                            StyleIndex = 0U
+                        });
+                        rowIndex++;
+                        foreach (var order in date)
+                        {
+                            InsertCellInWorksheet(new ExcelCellParameters
+                            {
+                                Worksheet = worksheetPart.Worksheet,
+                                ShareStringPart = shareStringPart,
+                                ColumnName = "B",
+                                RowIndex = rowIndex,
+                                Text = order.SushiName,
+                                StyleIndex = 1U
+                            });
+                            InsertCellInWorksheet(new ExcelCellParameters
+                            {
+                                Worksheet = worksheetPart.Worksheet,
+                                ShareStringPart = shareStringPart,
+                                ColumnName = "C",
+                                RowIndex = rowIndex,
+                                Text = order.Sum.ToString(),
+                                StyleIndex = 1U
+                            });
+                            sum += order.Sum;
+                            rowIndex++;
+                        }
+                        InsertCellInWorksheet(new ExcelCellParameters
+                        {
+                            Worksheet = worksheetPart.Worksheet,
+                            ShareStringPart = shareStringPart,
+                            ColumnName = "A",
+                            RowIndex = rowIndex,
+                            Text = "Итого",
+                            StyleIndex = 0U
                         });
                         InsertCellInWorksheet(new ExcelCellParameters
                         {
@@ -93,32 +116,76 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
                             ShareStringPart = shareStringPart,
                             ColumnName = "C",
                             RowIndex = rowIndex,
-                            Text = order.Sum.ToString(),
-                            StyleIndex = 1U
+                            Text = sum.ToString(),
+                            StyleIndex = 0U
                         });
-                        sum += order.Sum;
+
                         rowIndex++;
                     }
+                    workbookpart.Workbook.Save();
+                }
+          
+            else
+            {
+          foreach (var storage in info.Storages)
+                {
+                  int seafoodsSum = 0;
+                  InsertCellInWorksheet(new ExcelCellParameters
+
+                  {
+                   Worksheet = worksheetPart.Worksheet,
+                  ShareStringPart = shareStringPart,
+                  ColumnName = "A",
+                  RowIndex = rowIndex,
+                  Text = storage.StorageName,
+                  StyleIndex = 0U
+                  });
+                rowIndex++;
+                foreach (var seafoods in storage.StorageSeafoods)
+                {
                     InsertCellInWorksheet(new ExcelCellParameters
                     {
                         Worksheet = worksheetPart.Worksheet,
                         ShareStringPart = shareStringPart,
-                        ColumnName = "A",
+                        ColumnName = "B",
                         RowIndex = rowIndex,
-                        Text = "Итого",
-                        StyleIndex = 0U
+                        Text = seafoods.SeafoodName,
+                        StyleIndex = 1U
                     });
+
                     InsertCellInWorksheet(new ExcelCellParameters
                     {
                         Worksheet = worksheetPart.Worksheet,
                         ShareStringPart = shareStringPart,
                         ColumnName = "C",
                         RowIndex = rowIndex,
-                        Text = sum.ToString(),
-                        StyleIndex = 0U
+                        Text = seafoods.Count.ToString(),
+                        StyleIndex = 1U
                     });
+                    seafoodsSum += seafoods.Count;
                     rowIndex++;
                 }
+                InsertCellInWorksheet(new ExcelCellParameters
+                {
+                    Worksheet = worksheetPart.Worksheet,
+                    ShareStringPart = shareStringPart,
+                    ColumnName = "A",
+                    RowIndex = rowIndex,
+                    Text = "Итого",
+                    StyleIndex = 0U
+                });
+                InsertCellInWorksheet(new ExcelCellParameters
+                {
+                    Worksheet = worksheetPart.Worksheet,
+                    ShareStringPart = shareStringPart,
+                    ColumnName = "C",
+                    RowIndex = rowIndex,
+                    Text = seafoodsSum.ToString(),
+                    StyleIndex = 0U
+                });
+                rowIndex++;
+            }
+        }
                 workbookpart.Workbook.Save();
             }
         }

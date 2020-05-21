@@ -12,14 +12,64 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
         private readonly ISeafoodLogic SeafoodLogic;
         private readonly ISushiLogic SushiLogic;
         private readonly IOrderLogic orderLogic;
-        public ReportLogic(ISushiLogic SushiLogic, ISeafoodLogic SeafoodLogic,
+        private readonly IStorageLogic storageLogic;
+        public ReportLogic(IStorageLogic storageLogic,ISushiLogic SushiLogic, ISeafoodLogic SeafoodLogic,
        IOrderLogic orderLogic)
         {
             this.SushiLogic = SushiLogic;
             this.SeafoodLogic = SeafoodLogic;
             this.orderLogic = orderLogic;
+            this.storageLogic = storageLogic;
         }
-        public List<ReportSushiSeafoodViewModel> GetSushiSeafood()
+        public List<ReportStorageSeafoodViewModel> GetStorageSeafoods()
+        {
+            var list = new List<ReportStorageSeafoodViewModel>();
+            var storages = storageLogic.GetList();
+            foreach (var storage in storages)
+            {
+                foreach (var sf in storage.StorageSeafoods)
+                {
+                    var record = new ReportStorageSeafoodViewModel
+                    {
+                        StorageName = storage.StorageName,
+                        SeafoodName = sf.SeafoodName,
+                        Count = sf.Count
+                    };
+                    list.Add(record);
+                }
+            }
+            return list;
+        }
+        public void SaveStoragesToWordFile(ReportBindingModel model)
+        {
+            SaveToWord.CreateDoc(new WordInfo
+            {
+                FileName = model.FileName,
+                Title = "Список складов",
+                Storages = storageLogic.GetList()
+            });
+        }
+        public void SaveStorageSeafoodsToExcelFile(ReportBindingModel model)
+        {
+            SaveToExcel.CreateDoc(new ExcelInfo
+            {
+                FileName = model.FileName,
+                Title = "Список продуктов в складах",
+                Storages = storageLogic.GetList()
+            });
+        }
+        public void SaveStorageSeafoodsToPdfFile(ReportBindingModel model)
+        {
+            SaveToPdf.CreateDoc(new PdfInfo
+            {
+                FileName = model.FileName,
+                Title = "Список продуктов",
+                StorageSeafoods = GetStorageSeafoods()
+            });
+        }
+
+
+public List<ReportSushiSeafoodViewModel> GetSushiSeafood()
         {
             var Seafoods = SeafoodLogic.Read(null);
             var Sushis = SushiLogic.Read(null);

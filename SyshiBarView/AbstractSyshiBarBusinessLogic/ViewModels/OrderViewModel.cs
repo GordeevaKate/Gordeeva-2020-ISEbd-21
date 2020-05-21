@@ -12,11 +12,17 @@ namespace AbstractSyshiBarBusinessLogic.ViewModels
         [DataMember]
         public int ClientId { get; set; }
         [DataMember]
+        public int? ImplementerId { get; set; }
+        [DataMember]
         public int SushiId { get; set; }
         [DataMember]
         [DisplayName("Клиент")]
         public string ClientFIO { get; set; }
         [DataMember]
+        [DisplayName("Исполнитель")]
+        public string ImplementerFIO { get; set; }
+        [DataMember] 
+     
         [DisplayName("Суши")]
         public string SushiName { get; set; }
         [DataMember]

@@ -1,6 +1,7 @@
 ﻿using AbstractSyshiBarBusinessLogic.BindingModels;
 using AbstractSyshiBarBusinessLogic.Interfaces;
 using AbstractSyshiBarBusinessLogic.ViewModels;
+using AbstractSyshiBarBusinessLogic.Enums;
 using SyshiBarListImplement.Models;
 using System;
 using System.Collections.Generic;
@@ -67,7 +68,9 @@ namespace SyshiBarListImplement.Implements
                     if (order.Id == model.Id ||
                         (model.DateFrom.HasValue && model.DateTo.HasValue &&
                         order.DateCreate >= model.DateFrom && order.DateCreate <=
-                        model.DateTo) || model.ClientId.HasValue && order.ClientId == model.ClientId)
+                        model.DateTo) || model.ClientId.HasValue && order.ClientId == model.ClientId
+                        || model.FreeOrders.HasValue && model.FreeOrders.Value
+                    || model.ImplementerId.HasValue && order.ImplementerId == model.ImplementerId && order.Status == OrderStatus.Выполняется)
                     {
                         result.Add(CreateViewModel(order));
                         break;
@@ -82,6 +85,7 @@ namespace SyshiBarListImplement.Implements
         {
             order.SushiId = model.SushiId == 0 ? order.SushiId : model.SushiId;
             order.Count = model.Count;
+            order.ImplementerId = model.ImplementerId;
             order.Sum = model.Sum;
             order.Status = model.Status;
             order.DateCreate = model.DateCreate;

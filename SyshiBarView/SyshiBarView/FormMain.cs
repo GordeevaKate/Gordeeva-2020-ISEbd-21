@@ -138,7 +138,7 @@ namespace SyshiBarView
         }
         private void SeafoodSushisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormReportushSushiSeafoods>();
+            var form = Container.Resolve<FormReportsSushiSeafoods>();
             form.ShowDialog();
         }
         private void OrdersToolStripMenuItem_Click(object sender, EventArgs e)

@@ -7,7 +7,6 @@ namespace AbstractSyshiBarBusinessLogic.BindingModels
         public int? Id { get; set; }
         public int? ClientId { get; set; }
         public int SushiId { get; set; }
-        public int? ImplementerId { get; set; }
         public int Count { get; set; }
         public decimal Sum { get; set; }
         public OrderStatus Status { get; set; }
@@ -16,5 +15,6 @@ namespace AbstractSyshiBarBusinessLogic.BindingModels
         public DateTime? DateFrom { get; set; }
         public DateTime? DateTo { get; set; }
         public bool? FreeOrders { get; set; }
+        public int? ImplementerId { get; set; }
     }
 }

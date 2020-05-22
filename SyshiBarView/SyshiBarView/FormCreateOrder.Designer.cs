@@ -38,7 +38,6 @@
             this.textBoxSum = new System.Windows.Forms.TextBox();
             this.comboBoxClient = new System.Windows.Forms.ComboBox();
             this.labelClient = new System.Windows.Forms.Label();
-            this.textBoxClient = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonCansel
@@ -130,20 +129,11 @@
             this.labelClient.TabIndex = 9;
             this.labelClient.Text = "Клиент:";
             // 
-            // textBoxClient
-            // 
-            this.textBoxClient.Location = new System.Drawing.Point(437, 49);
-            this.textBoxClient.Name = "textBoxClient";
-            this.textBoxClient.Size = new System.Drawing.Size(194, 20);
-            this.textBoxClient.TabIndex = 10;
-            this.textBoxClient.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // FormCreateOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 315);
-            this.Controls.Add(this.textBoxClient);
             this.Controls.Add(this.labelClient);
             this.Controls.Add(this.comboBoxClient);
             this.Controls.Add(this.textBoxSum);
@@ -174,6 +164,5 @@
         private System.Windows.Forms.TextBox textBoxSum;
         private System.Windows.Forms.ComboBox comboBoxClient;
         private System.Windows.Forms.Label labelClient;
-        private System.Windows.Forms.TextBox textBoxClient;
     }
 }

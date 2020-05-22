@@ -28,7 +28,10 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
         {
             lock (locker)
             {
-                var order = orderLogic.Read(new OrderBindingModel { Id = model.OrderId })?[0];
+                var order = orderLogic.Read(new OrderBindingModel
+                {
+                    Id = model.OrderId
+                })?[0];
                 if (order == null)
                 {
                     throw new Exception("Не найден заказ");
@@ -37,10 +40,15 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
                 {
                     throw new Exception("Заказ не в статусе \"Принят\"");
                 }
+                if (order.ImplementerId.HasValue)
+                {
+                    throw new Exception("У заказа уже есть исполнитель");
+                }
                 orderLogic.CreateOrUpdate(new OrderBindingModel
                 {
                     Id = order.Id,
                     ClientId = order.ClientId,
+                    ImplementerId = model.ImplementerId,
                     SushiId = order.SushiId,
                     Count = order.Count,
                     Sum = order.Sum,

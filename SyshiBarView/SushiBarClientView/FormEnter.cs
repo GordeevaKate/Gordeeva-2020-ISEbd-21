@@ -1,7 +1,6 @@
 ﻿using System;
 using AbstractSyshiBarBusinessLogic.ViewModels;
 using System.Windows.Forms;
-
 namespace SushiBarClientView
 {
     public partial class FormEnter : Form
@@ -23,6 +22,7 @@ namespace SushiBarClientView
             {
                 try
                 {
+                    Console.WriteLine($"{textBoxPassword.Text}");
                     Program.Client =APIClient.GetRequest<ClientViewModel>($"api/client/login?login={textBoxEmail.Text}&password={textBoxPassword.Text}");
                 Close();
                 }

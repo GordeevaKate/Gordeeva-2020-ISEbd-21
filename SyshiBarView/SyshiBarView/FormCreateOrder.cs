@@ -83,6 +83,10 @@ namespace SyshiBarView
             }
             try
             {
+               int SushiId = Convert.ToInt32(comboBoxSushi.SelectedValue);
+                int    Count = Convert.ToInt32(textBoxCount.Text);
+                   decimal Sum = Convert.ToDecimal(textBoxSum.Text);
+
                 logicM.CreateOrder(new CreateOrderBindingModel
                 {
                     SushiId = Convert.ToInt32(comboBoxSushi.SelectedValue),

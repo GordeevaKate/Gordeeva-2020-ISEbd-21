@@ -5,6 +5,7 @@ using System.Linq;
 using AbstractSyshiBarBusinessLogic.Interfaces;
 using AbstractSyshiBarBusinessLogic.ViewModels;
 using AbstractSyshiBarBusinessLogic.BindingModels;
+using SushiBarFileImplement.Models;
 
 namespace SushiBarFileImplement.Implements
 {

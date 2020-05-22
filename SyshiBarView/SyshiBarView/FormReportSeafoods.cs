@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AbstractSyshiBarBusinessLogic.BindingModels;
 using AbstractSyshiBarBusinessLogic.BusinessLogics;
 using Microsoft.Reporting.WinForms;
 using Unity;
-u
+
 namespace SyshiBarView
 {
     public partial class FormReportSeafoods : Form
@@ -46,7 +47,7 @@ namespace SyshiBarView
                 {
                     try
                     {
-                        logic.SaveStorageFoodsToPdfFile(new ReportBindingModel
+                        logic.SaveStorageSeafoodsToPdfFile(new ReportBindingModel
                         {
                             FileName = dialog.FileName,
                         });

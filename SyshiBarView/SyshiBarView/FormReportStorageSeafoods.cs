@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AbstractSyshiBarBusinessLogic.BindingModels;
 using AbstractSyshiBarBusinessLogic.BusinessLogics;
 using AbstractSyshiBarBusinessLogic.Interfaces;
 using Unity;
@@ -60,7 +61,7 @@ namespace SyshiBarView
                 {
                     try
                     {
-                        logic.SaveStorageFoodsToExcelFile(new ReportBindingModel { FileName = dialog.FileName });
+                        logic.SaveStorageSeafoodsToExcelFile(new ReportBindingModel { FileName = dialog.FileName });
                         MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     }

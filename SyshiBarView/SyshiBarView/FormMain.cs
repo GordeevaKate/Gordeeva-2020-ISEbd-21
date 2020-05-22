@@ -111,7 +111,7 @@ namespace SyshiBarView
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    report.SaveStoragesToWordFile(new ReportBindingModel { FileName = dialog.FileName });
+         ///           report.SaveStoragesToWordFile(new ReportBindingModel { FileName = dialog.FileName });
                     MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }

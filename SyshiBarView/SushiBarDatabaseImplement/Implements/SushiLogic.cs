@@ -22,6 +22,7 @@ namespace SushiBarDatabaseImplement.Implements
                     {
                         Sushi element = context.Sushis.FirstOrDefault(rec =>
                        rec.SushiName == model.SushiName && rec.Id != model.Id);
+                       
                         if (element != null)
                         {
                             throw new Exception("Уже есть изделие с таким названием");
@@ -48,12 +49,9 @@ namespace SushiBarDatabaseImplement.Implements
                         {
                             var sushiSeafoods = context.SushiSeafoods.Where(rec
                            => rec.SushiId == model.Id.Value).ToList();
-                            // удалили те, которых нет в модели
-
                             context.SushiSeafoods.RemoveRange(sushiSeafoods.Where(rec =>
                             !model.SushiSeafoods.ContainsKey(rec.SeafoodId)).ToList());
                             context.SaveChanges();
-                            // обновили количество у существующих записей
                             foreach (var updateSeafood in sushiSeafoods)
                             {
                                 updateSeafood.Count =
@@ -63,21 +61,25 @@ namespace SushiBarDatabaseImplement.Implements
                             }
                             context.SaveChanges();
                         }
-                        // добавили новые
-                        foreach (var pc in model.SushiSeafoods)
+                             foreach (var pc in model.SushiSeafoods)
                         {
                             context.SushiSeafoods.Add(new SushiSeafood
                             {
+                               
                                 SushiId = element.Id,
                                 SeafoodId = pc.Key,
                                 Count = pc.Value.Item2
-                            });
+                            }) ;
                             context.SaveChanges();
+                          
                         }
                         transaction.Commit();
                     }
-                    catch (Exception)
+                    catch (Exception mx)
                     {
+                       
+                        if (mx.InnerException != null)
+                            Console.WriteLine("Inner exception: {0}", mx.InnerException);
                         transaction.Rollback();
                         throw;
                     }
@@ -92,7 +94,6 @@ namespace SushiBarDatabaseImplement.Implements
                 {
                     try
                     {
-                        // удаяем записи по компонентам при удалении изделия
                         context.SushiSeafoods.RemoveRange(context.SushiSeafoods.Where(rec =>
                         rec.SushiId == model.Id));
                         Sushi element = context.Sushis.FirstOrDefault(rec => rec.Id                  
@@ -110,9 +111,9 @@ namespace SushiBarDatabaseImplement.Implements
                     }
                     catch (Exception)
                     {
-                        transaction.Rollback();
+                        throw new Exception("Элементошибочен");
                         throw;
-                    }
+                     }
                 }
             }
         }

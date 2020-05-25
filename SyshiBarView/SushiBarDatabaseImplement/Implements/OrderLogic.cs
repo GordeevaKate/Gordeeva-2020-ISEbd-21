@@ -61,22 +61,21 @@ model.Id);
         {
             using (var context = new SushiBarDatabase())
             {
-                return context.Orders
-            .Include(rec => rec.Sushi)
-            .Where(rec => model == null || rec.Id == model.Id)
-            .Select(rec => new OrderViewModel
-             {
-                 Id = rec.Id,
-                SushiName = rec.Sushi.SushiName,
-                 Count = rec.Count,
-                 Sum = rec.Sum,
-                 Status = rec.Status,
-                 DateCreate = rec.DateCreate,
-                 DateImplement = rec.DateImplement
-             })
-            .ToList();
+                return context.Orders.Where(rec => model == null || (rec.Id == model.Id && model.Id.HasValue)
+                || (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo))
+                .Select(rec => new OrderViewModel
+                {
+                    Id = rec.Id,
+                    SushiId = rec.SushiId,
+                    DateCreate = rec.DateCreate,
+                    DateImplement = rec.DateImplement,
+                    Status = rec.Status,
+                    Count = rec.Count,
+                    Sum = rec.Sum,
+                    SushiName = rec.Sushi.SushiName
+                })
+                .ToList();
             }
         }
     }
-}
 }

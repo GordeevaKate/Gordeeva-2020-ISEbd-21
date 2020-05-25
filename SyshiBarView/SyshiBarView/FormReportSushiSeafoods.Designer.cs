@@ -71,7 +71,7 @@
             this.Controls.Add(this.buttonMake);
             this.Controls.Add(this.buttonSaveToPdf);
             this.Name = "FormReportushSushiSeafoods";
-            this.Text = "FormReportushSushiSeafoods";
+            this.Text = "Отчет по суши с морепродуктами";
             this.ResumeLayout(false);
 
         }

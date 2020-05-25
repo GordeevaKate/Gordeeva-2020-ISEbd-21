@@ -21,26 +21,23 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
         }
         public List<ReportSushiSeafoodViewModel> GetSushiSeafood()
         {
-            var Seafoods = SeafoodLogic.Read(null);
             var Sushis = SushiLogic.Read(null);
             var list = new List<ReportSushiSeafoodViewModel>();
-            foreach (var seafood in Seafoods)
+            foreach (var sushi in Sushis)
             {
-                foreach (var sushi in Sushis)
+                foreach (var sf in sushi.SushiSeafoods)
                 {
-                    if (sushi.SushiSeafoods.ContainsKey(seafood.Id))
+
+                    var record = new ReportSushiSeafoodViewModel
                     {
-                        var record = new ReportSushiSeafoodViewModel
-                        {
-                            SushiName = sushi.SushiName,
-                            SeafoodName = seafood.SeafoodName,
-                            Count = sushi.SushiSeafoods[seafood.Id].Item2
-                        };
-                        Console.WriteLine(record);
-                        list.Add(record);
-                    }
+                        SushiName = sushi.SushiName,
+                        SeafoodName = sf.Value.Item1,
+                        Count = sf.Value.Item2
+                    };
+                    list.Add(record);
                 }
             }
+
             return list;
         }
         public List<IGrouping<DateTime, OrderViewModel>> GetOrders(ReportBindingModel model)

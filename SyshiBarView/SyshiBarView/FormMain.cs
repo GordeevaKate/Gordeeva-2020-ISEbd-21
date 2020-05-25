@@ -39,7 +39,8 @@ namespace SyshiBarView
                     dataGridView.Columns[1].Visible = false;
                     dataGridView.Columns[2].Visible = false;
                     dataGridView.Columns[5].Visible = false;
-                    dataGridView.Columns[5].AutoSizeMode =
+                    dataGridView.Columns[6].Visible = false;
+                    dataGridView.Columns[6].AutoSizeMode =
                    DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
@@ -132,20 +133,24 @@ namespace SyshiBarView
         {
             if (dataGridView.SelectedRows.Count == 1)
             {
-                if (MessageBox.Show("Удалить запись", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Удалить запись", "Вопрос", MessageBoxButtons.YesNo,
+               MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
+                    int id =
+                   Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
                     try
                     {
-                        logic.Delete(new Щ { Id = id });
+                        orderLogic.Delete(new OrderBindingModel { Id = id });
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+                       MessageBoxIcon.Error);
                     }
                     LoadData();
                 }
             }
         }
+
     }
 }

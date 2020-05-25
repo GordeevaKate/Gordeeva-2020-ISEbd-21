@@ -158,7 +158,6 @@ namespace SyshiBarListImplement.Implements
         }
         public bool CheckSeafoodsAvailability(int SushiId, int SushisCount)
         {
-            bool result = true;
             var SushiSeafoods = source.SushiSeafoods.Where(x => x.SushiId == SushiId);
             if (SushiSeafoods.Count() == 0) return false;
             foreach (var elem in SushiSeafoods)

@@ -158,7 +158,7 @@ namespace SyshiBarListImplement.Implements
         }
         public bool CheckFoodsAvailability(int SushiId, int SushisCount)
         {
-            bool result = true;
+      
             var SushiSeafoods = source.SushiSeafoods.Where(x => x.SushiId == SushiId);
             if (SushiSeafoods.Count() == 0) return false;
             foreach (var elem in SushiSeafoods)
@@ -168,7 +168,7 @@ namespace SyshiBarListImplement.Implements
                 if (count < elem.Count * SushisCount)
                     return false;
             }
-            return result;
+            return true;
         }
         public void RemoveFromStorage(int SushiId, int SushisCount)
         {

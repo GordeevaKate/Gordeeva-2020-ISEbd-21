@@ -169,7 +169,7 @@ namespace SyshiBarListImplement.Implements
                 if (count < elem.Count * SushisCount)
                     return false;
             }
-            return result;
+            return true;
         }
         public void RemoveFromStorage(int SushiId, int SushisCount)
         {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;using AbstractSyshiBarBusinessLogic.BindingModels;
+using System.Linq;
+using AbstractSyshiBarBusinessLogic.BindingModels;
 using AbstractSyshiBarBusinessLogic.HelperModels;
 using AbstractSyshiBarBusinessLogic.Interfaces;
-using AbstractSyshiBarBusinessLogic.ViewModels;using AbstractSyshiBarBusinessLogic.Enums;using DocumentFormat.OpenXml.Office2010.ExcelAc;
-
+using AbstractSyshiBarBusinessLogic.ViewModels;
 namespace AbstractSyshiBarBusinessLogic.BusinessLogics
 {
     public class ReportLogic
@@ -18,6 +18,7 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
             this.SushiLogic = SushiLogic;
             this.SeafoodLogic = SeafoodLogic;
             this.orderLogic = orderLogic;
+
         }
         public List<ReportSushiSeafoodViewModel> GetSushiSeafood()
         {

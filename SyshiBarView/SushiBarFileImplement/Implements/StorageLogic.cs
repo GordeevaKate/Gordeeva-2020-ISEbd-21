@@ -57,10 +57,8 @@ namespace SushiBarFileImplement.Implements
                 };
             }
         }
-
         public void AddElement(StorageBindingModel model)
         {
-
             var elem = source.Storages.FirstOrDefault(x => x.StorageName == model.StorageName);
             if (elem != null)
             {
@@ -139,7 +137,6 @@ namespace SushiBarFileImplement.Implements
             }
             return true;
         }
-
         public void RemoveFromStorage(int SushiId, int SushisCount)
         {
             var SushiSeafoods = source.SushiSeafoods.Where(x => x.SushiId == SushiId);

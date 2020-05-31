@@ -15,8 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AbstractSyshiBarBusinessLogic\AbstractSyshiBarBusinessLogic.csproj" />
-    <ProjectReference Include="..\SushiBarFileImplement\SushiBarFileImplement.csproj" />
-    <ProjectReference Include="..\SyshiBarListImplement\SyshiBarListImplement.csproj" />
   </ItemGroup>
 
 </Project>

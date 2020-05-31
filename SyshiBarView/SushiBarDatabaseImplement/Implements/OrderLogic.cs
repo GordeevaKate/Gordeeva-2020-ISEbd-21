@@ -32,6 +32,7 @@ namespace SushiBarDatabaseImplement.Implements
                     context.Orders.Add(element);
                 }
                 element.SushiId = model.SushiId == 0 ? element.SushiId : model.SushiId;
+                element.ClientId = model.ClientId == null ? element.ClientId : (int)model.ClientId;
                 element.Count = model.Count;
                 element.Sum = model.Sum;
                 element.Status = model.Status;
@@ -62,19 +63,24 @@ model.Id);
             using (var context = new SushiBarDatabase())
             {
                 return context.Orders.Where(rec => model == null || (rec.Id == model.Id && model.Id.HasValue)
-                || (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo))
-                .Select(rec => new OrderViewModel
-                {
-                    Id = rec.Id,
-                    SushiId = rec.SushiId,
-                    DateCreate = rec.DateCreate,
-                    DateImplement = rec.DateImplement,
-                    Status = rec.Status,
-                    Count = rec.Count,
-                    Sum = rec.Sum,
-                    SushiName = rec.Sushi.SushiName
-                })
-                .ToList();
+||
+(model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate >=
+model.DateFrom && rec.DateCreate <= model.DateTo) ||
+(model.ClientId.HasValue && rec.ClientId == model.ClientId))
+.Select(rec => new OrderViewModel
+{
+    Id = rec.Id,
+    SushiId = rec.SushiId,
+    ClientId = rec.ClientId,
+    DateCreate = rec.DateCreate,
+    DateImplement = rec.DateImplement,
+    Status = rec.Status,
+    Count = rec.Count,
+    Sum = rec.Sum,
+    ClientFIO = rec.Client.ClientFIO,
+    SushiName = rec.Sushi.SushiName,
+})
+.ToList();
             }
         }
     }

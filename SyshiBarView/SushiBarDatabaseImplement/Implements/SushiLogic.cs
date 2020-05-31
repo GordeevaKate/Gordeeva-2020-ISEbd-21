@@ -49,10 +49,10 @@ namespace SushiBarDatabaseImplement.Implements
                         {
                             var sushiSeafoods = context.SushiSeafoods.Where(rec
                            => rec.SushiId == model.Id.Value).ToList();
-                            context.SushiSeafoods.RemoveRange(sushiSeafoods.Where(rec =>
+                             context.SushiSeafoods.RemoveRange(sushiSeafoods.Where(rec =>
                             !model.SushiSeafoods.ContainsKey(rec.SeafoodId)).ToList());
                             context.SaveChanges();
-                            foreach (var updateSeafood in sushiSeafoods)
+                             foreach (var updateSeafood in sushiSeafoods)
                             {
                                 updateSeafood.Count =
                                model.SushiSeafoods[updateSeafood.SeafoodId].Item2;
@@ -61,7 +61,7 @@ namespace SushiBarDatabaseImplement.Implements
                             }
                             context.SaveChanges();
                         }
-                             foreach (var pc in model.SushiSeafoods)
+                        foreach (var pc in model.SushiSeafoods)
                         {
                             context.SushiSeafoods.Add(new SushiSeafood
                             {
@@ -94,7 +94,7 @@ namespace SushiBarDatabaseImplement.Implements
                 {
                     try
                     {
-                        context.SushiSeafoods.RemoveRange(context.SushiSeafoods.Where(rec =>
+                         context.SushiSeafoods.RemoveRange(context.SushiSeafoods.Where(rec =>
                         rec.SushiId == model.Id));
                         Sushi element = context.Sushis.FirstOrDefault(rec => rec.Id                  
                        == model.Id);
@@ -111,9 +111,9 @@ namespace SushiBarDatabaseImplement.Implements
                     }
                     catch (Exception)
                     {
-                        throw new Exception("Элементошибочен");
-                        throw;
-                     }
+                        throw new Exception("Элемент ошибочен");
+                         throw;
+                    }
                 }
             }
         }

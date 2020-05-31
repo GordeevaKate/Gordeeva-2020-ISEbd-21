@@ -43,6 +43,7 @@
             this.компонентыПоСушиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.списокЗаказовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonDel = new System.Windows.Forms.Button();
+            this.клиентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -121,7 +122,8 @@
             // 
             this.справочникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.морепродуктыToolStripMenuItem,
-            this.сушиToolStripMenuItem});
+            this.сушиToolStripMenuItem,
+            this.клиентыToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.справочникиToolStripMenuItem.Text = "Справочники";
@@ -129,14 +131,14 @@
             // морепродуктыToolStripMenuItem
             // 
             this.морепродуктыToolStripMenuItem.Name = "морепродуктыToolStripMenuItem";
-            this.морепродуктыToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.морепродуктыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.морепродуктыToolStripMenuItem.Text = "Морепродукты";
             this.морепродуктыToolStripMenuItem.Click += new System.EventHandler(this.SeafoodToolStripMenuItem_Click);
             // 
             // сушиToolStripMenuItem
             // 
             this.сушиToolStripMenuItem.Name = "сушиToolStripMenuItem";
-            this.сушиToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.сушиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.сушиToolStripMenuItem.Text = "Суши";
             this.сушиToolStripMenuItem.Click += new System.EventHandler(this.SushiToolStripMenuItem_Click);
             // 
@@ -173,13 +175,20 @@
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(746, 192);
+            this.buttonDel.Location = new System.Drawing.Point(747, 188);
             this.buttonDel.Name = "buttonDel";
-            this.buttonDel.Size = new System.Drawing.Size(130, 21);
+            this.buttonDel.Size = new System.Drawing.Size(129, 27);
             this.buttonDel.TabIndex = 7;
-            this.buttonDel.Text = "Del";
+            this.buttonDel.Text = "buttonDel";
             this.buttonDel.UseVisualStyleBackColor = true;
-            this.buttonDel.Click += new System.EventHandler(this.ButtonDel_Click);
+            this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
+            // 
+            // клиентыToolStripMenuItem
+            // 
+            this.клиентыToolStripMenuItem.Name = "клиентыToolStripMenuItem";
+            this.клиентыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.клиентыToolStripMenuItem.Text = "Клиенты";
+            this.клиентыToolStripMenuItem.Click += new System.EventHandler(this.клиентыToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -223,6 +232,7 @@
         private System.Windows.Forms.ToolStripMenuItem компонентыПоСушиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem списокЗаказовToolStripMenuItem;
         private System.Windows.Forms.Button buttonDel;
+        private System.Windows.Forms.ToolStripMenuItem клиентыToolStripMenuItem;
     }
 }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;using AbstractSyshiBarBusinessLogic.BindingModels;
+using System.Linq;
+using AbstractSyshiBarBusinessLogic.BindingModels;
 using AbstractSyshiBarBusinessLogic.HelperModels;
 using AbstractSyshiBarBusinessLogic.Interfaces;
 using AbstractSyshiBarBusinessLogic.ViewModels;
@@ -20,25 +21,25 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
 
         }
         public List<ReportSushiSeafoodViewModel> GetSushiSeafood()
-      {
+        {
             var Sushis = SushiLogic.Read(null);
             var list = new List<ReportSushiSeafoodViewModel>();
             foreach (var sushi in Sushis)
-                {
+            {
                 foreach (var sf in sushi.SushiSeafoods)
                 {
 
                     var record = new ReportSushiSeafoodViewModel
-                        {
-                            SushiName = sushi.SushiName,
-                            SeafoodName = sf.Value.Item1,
+                    {
+                        SushiName = sushi.SushiName,
+                        SeafoodName = sf.Value.Item1,
                         Count = sf.Value.Item2
                     };
                     list.Add(record);
                 }
-                }
-          
-            return list;          
+            }
+
+            return list;
         }
         public List<IGrouping<DateTime, OrderViewModel>> GetOrders(ReportBindingModel model)
         {

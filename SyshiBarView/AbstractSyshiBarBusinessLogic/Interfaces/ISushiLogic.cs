@@ -8,6 +8,5 @@ namespace AbstractSyshiBarBusinessLogic.Interfaces
         List<SushiViewModel> Read(SushiBindingModel model);
         void CreateOrUpdate(SushiBindingModel model);
         void Delete(SushiBindingModel model);
-
-    }
+    }
 }

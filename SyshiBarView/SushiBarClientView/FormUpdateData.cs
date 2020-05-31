@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using AbstractSyshiBarBusinessLogic.ViewModels;
 using System.Windows.Forms;
+using AbstractSyshiBarBusinessLogic.BindingModels;
 
 namespace SushiBarClientView
 {
@@ -26,7 +27,13 @@ namespace SushiBarClientView
             {
                 try
                 {
-                    //прописать запрос;
+                    APIClient.PostRequest("api/client/updatedata", new ClientBindingModel
+                    {
+                        Id = Program.Client.Id,
+                        ClientFIO = textBoxClientFIO.Text,
+                        Email = textBoxEmail.Text,
+                        Password = textBoxPassword.Text
+                    });
                     MessageBox.Show("Обновление прошло успешно", "Сообщение",
                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Program.Client.ClientFIO = textBoxClientFIO.Text;

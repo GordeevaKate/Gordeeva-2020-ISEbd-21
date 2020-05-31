@@ -125,8 +125,7 @@ namespace SushiBarFileImplement.Implements
         }
 
         public bool CheckFoodsAvailability(int SushiId, int SushisCount)
-        {
-           
+        { 
             var SushiSeafoods = source.SushiSeafoods.Where(x => x.SushiId == SushiId);
             if (SushiSeafoods.Count() == 0) return false;
             foreach (var elem in SushiSeafoods)

@@ -39,8 +39,7 @@ namespace SyshiBarView
                     dataGridView.Columns[1].Visible = false;
                     dataGridView.Columns[2].Visible = false;
                     dataGridView.Columns[5].Visible = false;
-                    dataGridView.Columns[6].Visible = false;
-                    dataGridView.Columns[6].AutoSizeMode =
+                    dataGridView.Columns[5].AutoSizeMode =
                    DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
@@ -129,7 +128,7 @@ namespace SyshiBarView
             form.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonУдалить_Click(object sender, EventArgs e)
         {
             if (dataGridView.SelectedRows.Count == 1)
             {

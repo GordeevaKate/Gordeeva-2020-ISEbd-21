@@ -42,7 +42,7 @@
             // 
             // buttonCansel
             // 
-            this.buttonCansel.Location = new System.Drawing.Point(203, 114);
+            this.buttonCansel.Location = new System.Drawing.Point(203, 165);
             this.buttonCansel.Name = "buttonCansel";
             this.buttonCansel.Size = new System.Drawing.Size(93, 25);
             this.buttonCansel.TabIndex = 0;
@@ -52,7 +52,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(104, 114);
+            this.buttonSave.Location = new System.Drawing.Point(102, 165);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(93, 25);
             this.buttonSave.TabIndex = 1;
@@ -115,7 +115,7 @@
             // comboBoxClient
             // 
             this.comboBoxClient.FormattingEnabled = true;
-            this.comboBoxClient.Location = new System.Drawing.Point(437, 19);
+            this.comboBoxClient.Location = new System.Drawing.Point(102, 98);
             this.comboBoxClient.Name = "comboBoxClient";
             this.comboBoxClient.Size = new System.Drawing.Size(194, 21);
             this.comboBoxClient.TabIndex = 8;
@@ -123,7 +123,7 @@
             // labelClient
             // 
             this.labelClient.AutoSize = true;
-            this.labelClient.Location = new System.Drawing.Point(357, 27);
+            this.labelClient.Location = new System.Drawing.Point(22, 101);
             this.labelClient.Name = "labelClient";
             this.labelClient.Size = new System.Drawing.Size(46, 13);
             this.labelClient.TabIndex = 9;
@@ -133,7 +133,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(901, 315);
+            this.ClientSize = new System.Drawing.Size(338, 202);
             this.Controls.Add(this.labelClient);
             this.Controls.Add(this.comboBoxClient);
             this.Controls.Add(this.textBoxSum);

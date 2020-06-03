@@ -43,10 +43,8 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
 
             foreach (var order in runOrders)
             {
-       
                 Thread.Sleep(implementer.WorkingTime * rnd.Next(1, 5) * order.Count);
                 mainLogic.FinishOrder(new ChangeStatusBindingModel { OrderId = order.Id });
-
                 Thread.Sleep(implementer.PauseTime);
             }
             await Task.Run(() =>
@@ -55,13 +53,9 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
                 {
                     try
                     {
-                        mainLogic.TakeOrderInWork(new ChangeStatusBindingModel { OrderId = order.Id, ImplementerId = implementer.Id });
-
-      
+                        mainLogic.TakeOrderInWork(new ChangeStatusBindingModel { OrderId = order.Id, ImplementerId = implementer.Id });  
                         Thread.Sleep(implementer.WorkingTime * rnd.Next(1, 5) * order.Count);
                         mainLogic.FinishOrder(new ChangeStatusBindingModel { OrderId = order.Id });
-
-                 
                         Thread.Sleep(implementer.PauseTime);
                     }
                     catch (Exception) { }

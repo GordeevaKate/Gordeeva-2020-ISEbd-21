@@ -98,8 +98,7 @@ namespace SushiBarDatabaseImplement.Implements
                 {
                     try
                     {
-                        // удаяем записи по компонентам при удалении изделия
-                        context.SushiSeafoods.RemoveRange(context.SushiSeafoods.Where(rec =>
+                         context.SushiSeafoods.RemoveRange(context.SushiSeafoods.Where(rec =>
                         rec.SushiId == model.Id));
                         Sushi element = context.Sushis.FirstOrDefault(rec => rec.Id                  
                        == model.Id);
@@ -117,7 +116,7 @@ namespace SushiBarDatabaseImplement.Implements
                     catch (Exception)
                     {
                         throw new Exception("Элемент ошибочен");
-        //                transaction.Rollback();
+                        transaction.Rollback();
                         throw;
                     }
                 }

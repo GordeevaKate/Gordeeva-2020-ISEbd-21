@@ -26,8 +26,9 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
         }
         public void TakeOrderInWork(ChangeStatusBindingModel model)
         {
-         //   lock (locker)
-        //    {
+           
+            lock (locker)
+           {
                 var order = orderLogic.Read(new OrderBindingModel
                 {
                     Id = model.OrderId
@@ -56,7 +57,7 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
                     DateImplement = DateTime.Now,
                     Status = OrderStatus.Выполняется
                 });
-          //  }
+           }
         }
         public void FinishOrder(ChangeStatusBindingModel model)
         {

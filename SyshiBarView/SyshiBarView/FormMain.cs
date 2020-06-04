@@ -127,7 +127,12 @@ namespace SyshiBarView
             var form = Container.Resolve<FormClients>();
             form.ShowDialog();
         }
+        private void сообщенияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormMessages>();
+            form.ShowDialog();
 
+        }
         private void buttonУдалить_Click(object sender, EventArgs e)
         {
             if (dataGridView.SelectedRows.Count == 1)

@@ -9,7 +9,6 @@ using Unity;
 using Unity.Lifetime;
 using System.Threading;
 using System.Configuration;
-using SyshiBarListImplement.Implements;
 
 namespace SyshiBarView
 {

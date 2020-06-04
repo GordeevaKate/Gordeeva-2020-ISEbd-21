@@ -3,14 +3,13 @@ using AbstractSyshiBarBusinessLogic.BusinessLogics;
 using AbstractSyshiBarBusinessLogic.Interfaces;
 using AbstractSyshiBarBusinessLogic.HelperModels;
 using SushiBarDatabaseImplement.Implements;
-using Microsoft.IdentityModel.Protocols;
 using System;
 using System.Windows.Forms;
 using Unity;
 using Unity.Lifetime;
-using System.Configuration;
 using System.Threading;
-using AbstractSyshiBarBusinessLogic.HelperModels;
+using System.Configuration;
+using SyshiBarListImplement.Implements;
 
 namespace SyshiBarView
 {
@@ -59,6 +58,10 @@ HierarchicalLifetimeManager());
             currentContainer.RegisterType<ReportLogic>(new
            HierarchicalLifetimeManager());
             return currentContainer;
+        }
+        private static void MailCheck(object obj)
+        {
+            MailLogic.MailCheck((MailCheckInfo)obj);
         }
     }
 }

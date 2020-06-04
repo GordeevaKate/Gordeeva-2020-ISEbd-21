@@ -143,7 +143,7 @@
             // 
             // dataGridView
             // 
-            
+
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(16, 32);
@@ -247,5 +247,6 @@
         private System.Windows.Forms.ToolStripMenuItem исполнителиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem запускРаботToolStripMenuItem;
         private System.Windows.Forms.Button buttonУдалить;
-    private System.Windows.Forms.ToolStripMenuItem сообщенияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сообщенияToolStripMenuItem;
+    }
 }

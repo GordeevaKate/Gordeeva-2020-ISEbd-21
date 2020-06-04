@@ -49,7 +49,12 @@ namespace SushiBarClientView
                 LoadList();
                 }
             }
-            private void RefreshOrderListToolStripMenuItem_Click(object sender, EventArgs e)
+        private void сообщенияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new FormMessages();
+            form.ShowDialog();
+        }
+        private void RefreshOrderListToolStripMenuItem_Click(object sender, EventArgs e)
             {
                 LoadList();
             }

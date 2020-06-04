@@ -80,14 +80,15 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
             {
                 return;
             }
-            using (var client = new Pop3Client())
+          using (var client = new Pop3Client())
             {
                 await Task.Run(() =>
                 {
                     client.Connect(info.PopHost, info.PopPort,
                   SecureSocketOptions.SslOnConnect);
+                    
                     client.Authenticate(mailLogin, mailPassword);
-                    for (int i = 0; i < client.Count; i++)
+                    for (int i = 0; i < 1; i++)
                     {
                         var message = client.GetMessage(i);
                         foreach (var mail in message.From.Mailboxes)

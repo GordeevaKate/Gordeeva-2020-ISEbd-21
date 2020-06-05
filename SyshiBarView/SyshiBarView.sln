@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SushiBarDatabaseImplement",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SushiBarRestApi", "SushiBarRestApi\SushiBarRestApi.csproj", "{8537DE84-017C-4669-9125-971264E95667}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SushiBarClientView", "SushiBarClientView\SushiBarClientView.csproj", "{E92958B1-9DB5-49B3-B4B6-B3FC1305C4B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SushiBarClientView", "SushiBarClientView\SushiBarClientView.csproj", "{E92958B1-9DB5-49B3-B4B6-B3FC1305C4B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

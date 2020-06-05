@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Runtime.Serialization;
-using AbstractSyshiBarBusinessLogic.Attributes
+using AbstractSyshiBarBusinessLogic.Attributes;
 namespace AbstractSyshiBarBusinessLogic.ViewModels
 {
     [DataContract]

@@ -12,8 +12,7 @@ namespace SyshiBarView
         [Dependency]
         public new IUnityContainer Container { get; set; }
         private readonly ReportLogic logic;
-  
-        public FormReportushSushiSeafoods(ReportLogic logic)
+        public FormReportSushiSeafoods(ReportLogic logic)
         {
             InitializeComponent();
             this.logic = logic;

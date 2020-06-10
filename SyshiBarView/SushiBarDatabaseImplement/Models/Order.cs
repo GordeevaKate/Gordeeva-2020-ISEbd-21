@@ -10,6 +10,7 @@ namespace SushiBarDatabaseImplement.Models
     {
         public int Id { get; set; }
         public int ClientId { get; set; }
+        public int? ImplementerId { get; set; }
         public int SushiId { get; set; }
         [Required]
         public int Count { get; set; }
@@ -22,5 +23,6 @@ namespace SushiBarDatabaseImplement.Models
         public DateTime? DateImplement { get; set; }
         public virtual Sushi Sushi { get; set; }
         public Client Client { get; set; }
+        public Implementer Implementer { get; set; }
     }
 }

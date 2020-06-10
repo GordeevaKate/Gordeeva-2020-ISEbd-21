@@ -9,6 +9,8 @@ namespace SyshiBarListImplement
         public List<Seafood> Seafoods { get; set; }
         public List<Order> Orders { get; set; }
         public List<Sushi> Sushis { get; set; }
+        public List<Storage> Storages { get; set; }
+        public List<StorageSeafood> StorageSeafoods { get; set; }
         public List<SushiSeafood> SushiSeafoods { get; set; }
         private DataListSingleton()
         {
@@ -17,6 +19,8 @@ namespace SyshiBarListImplement
             Orders = new List<Order>();
             Sushis = new List<Sushi>();
             SushiSeafoods = new List<SushiSeafood>();
+            Storages = new List<Storage>();
+            StorageSeafoods = new List<StorageSeafood>();
         }
         public static DataListSingleton GetInstance()
         {

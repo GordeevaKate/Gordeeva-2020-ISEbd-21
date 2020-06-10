@@ -12,7 +12,7 @@ namespace SushiBarDatabaseImplement.Models
         public string SushiName { get; set; }
         [Required]
         public decimal Price { get; set; }
-        [ForeignKey("SushiId")]
         public virtual List<SushiSeafood> SushiSeafoods { get; set; }
+        public virtual List<Order> Orders { get; set; }
     }
 }

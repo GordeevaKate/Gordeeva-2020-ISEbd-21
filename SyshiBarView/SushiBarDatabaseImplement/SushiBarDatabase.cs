@@ -12,7 +12,7 @@ namespace SushiBarDatabaseImplement
         {
             if (optionsBuilder.IsConfigured == false)
             {
-                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-G18CFSK\SQLEXPRESS;Initial Catalog=AbstractShopDatabase;Integrated Security=True;MultipleActiveResultSets=True;");
+                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-G18CFSK\SQLEXPRESS;Initial Catalog=SushiBarHomeworkDatabase;Integrated Security=True;MultipleActiveResultSets=True;");
             }
             base.OnConfiguring(optionsBuilder);
         }
@@ -20,5 +20,7 @@ namespace SushiBarDatabaseImplement
         public virtual DbSet<Sushi> Sushis { set; get; }
         public virtual DbSet<SushiSeafood> SushiSeafoods { set; get; }
         public virtual DbSet<Order> Orders { set; get; }
+        public virtual DbSet<Storage> Storages { set; get; }
+        public virtual DbSet<StorageSeafood> StorageSeafoods { set; get; }
     }
 }

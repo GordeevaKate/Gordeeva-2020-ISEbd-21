@@ -21,6 +21,19 @@ namespace SushiBarDatabaseImplement.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Storages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StorageName = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Storages", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Sushis",
                 columns: table => new
                 {
@@ -32,6 +45,33 @@ namespace SushiBarDatabaseImplement.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Sushis", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "StorageSeafoods",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StorageId = table.Column<int>(nullable: false),
+                    SeafoodId = table.Column<int>(nullable: false),
+                    Count = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StorageSeafoods", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_StorageSeafoods_Seafoods_SeafoodId",
+                        column: x => x.SeafoodId,
+                        principalTable: "Seafoods",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_StorageSeafoods_Storages_StorageId",
+                        column: x => x.StorageId,
+                        principalTable: "Storages",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -59,7 +99,7 @@ namespace SushiBarDatabaseImplement.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductSeafoods",
+                name: "SushiSeafoods",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -70,15 +110,15 @@ namespace SushiBarDatabaseImplement.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductSeafoods", x => x.Id);
+                    table.PrimaryKey("PK_SushiSeafoods", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProductSeafoods_Seafoods_SeafoodId",
+                        name: "FK_SushiSeafoods_Seafoods_SeafoodId",
                         column: x => x.SeafoodId,
                         principalTable: "Seafoods",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProductSeafoods_Sushis_SushiId",
+                        name: "FK_SushiSeafoods_Sushis_SushiId",
                         column: x => x.SushiId,
                         principalTable: "Sushis",
                         principalColumn: "Id",
@@ -91,13 +131,23 @@ namespace SushiBarDatabaseImplement.Migrations
                 column: "SushiId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductSeafoods_SeafoodId",
-                table: "ProductSeafoods",
+                name: "IX_StorageSeafoods_SeafoodId",
+                table: "StorageSeafoods",
                 column: "SeafoodId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductSeafoods_SushiId",
-                table: "ProductSeafoods",
+                name: "IX_StorageSeafoods_StorageId",
+                table: "StorageSeafoods",
+                column: "StorageId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SushiSeafoods_SeafoodId",
+                table: "SushiSeafoods",
+                column: "SeafoodId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SushiSeafoods_SushiId",
+                table: "SushiSeafoods",
                 column: "SushiId");
         }
 
@@ -107,7 +157,13 @@ namespace SushiBarDatabaseImplement.Migrations
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "ProductSeafoods");
+                name: "StorageSeafoods");
+
+            migrationBuilder.DropTable(
+                name: "SushiSeafoods");
+
+            migrationBuilder.DropTable(
+                name: "Storages");
 
             migrationBuilder.DropTable(
                 name: "Seafoods");

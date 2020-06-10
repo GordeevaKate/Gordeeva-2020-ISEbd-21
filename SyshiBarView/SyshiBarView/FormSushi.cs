@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Unity;
+using Unity.Lifetime;
 namespace SyshiBarView
 {
     public partial class FormSushi : Form
@@ -147,15 +148,21 @@ MessageBoxIcon.Error);
                MessageBoxIcon.Error);
                 return;
             }
+           
             try
             {
                 logic.CreateOrUpdate(new SushiBindingModel
                 {
-                    Id = id,
+                  
+                Id = id,
+
                     SushiName = textBoxName.Text,
+
                     Price = Convert.ToDecimal(textBoxPrice.Text),
+
                     SushiSeafoods = sushiSeafoods
-                });
+                }
+                );
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
@@ -163,7 +170,7 @@ MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+                MessageBox.Show(ex.Message, "ОшибкаsushiSeafoods ", MessageBoxButtons.OK,
                MessageBoxIcon.Error);
             }
         }

@@ -186,7 +186,7 @@
             this.Controls.Add(this.labelPrice);
             this.Controls.Add(this.labelName);
             this.Name = "FormSushi";
-            this.Text = "FormProduct";
+            this.Text = "суши";
             this.Load += new System.EventHandler(this.FormProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);

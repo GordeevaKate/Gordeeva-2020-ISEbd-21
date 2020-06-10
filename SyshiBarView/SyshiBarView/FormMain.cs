@@ -118,6 +118,15 @@ namespace SyshiBarView
             LoadData();
         }
 
-       
+        private void пополнитьСкладыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormFillStorage>();
+            form.ShowDialog();
+        }
+        private void складыToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormStorages>();
+            form.ShowDialog();
+        }
     }
 }

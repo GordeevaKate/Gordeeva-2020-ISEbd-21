@@ -49,7 +49,6 @@ namespace SushiBarDatabaseImplement.Implements
                         {
                             var sushiSeafoods = context.SushiSeafoods.Where(rec
                            => rec.SushiId == model.Id.Value).ToList();
-
                             context.SushiSeafoods.RemoveRange(sushiSeafoods.Where(rec =>
                             !model.SushiSeafoods.ContainsKey(rec.SeafoodId)).ToList());
                             context.SaveChanges();
@@ -113,7 +112,7 @@ namespace SushiBarDatabaseImplement.Implements
                     {
                         throw new Exception("Элементошибочен");
                         throw;
-                    }
+                     }
                 }
             }
         }

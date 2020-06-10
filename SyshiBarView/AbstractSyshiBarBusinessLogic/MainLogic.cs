@@ -51,7 +51,7 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw;
             }
         }
         public void FillStorage(StorageSeafoodBindingModel model)

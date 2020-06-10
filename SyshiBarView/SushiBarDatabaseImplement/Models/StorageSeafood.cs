@@ -13,5 +13,7 @@ namespace SushiBarDatabaseImplement.Models
         public int Count { get; set; }
         public virtual Seafood Seafood { get; set; }
         public virtual Storage Storage { get; set; }
+        public virtual StorageSeafood storageSeafood { get; set; }
+
     }
 }

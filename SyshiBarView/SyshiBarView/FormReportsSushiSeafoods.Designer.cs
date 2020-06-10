@@ -1,6 +1,6 @@
 ﻿namespace SyshiBarView
 {
-    partial class FormReportSushiSeafoods
+    partial class FormReportsSushiSeafoods
     {
         /// <summary>
         /// Required designer variable.
@@ -62,7 +62,7 @@
             this.reportViewer.Size = new System.Drawing.Size(654, 401);
             this.reportViewer.TabIndex = 3;
             // 
-            // FormReportSushiSeafoods
+            // FormReportsSushiSeafoods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -70,8 +70,8 @@
             this.Controls.Add(this.reportViewer);
             this.Controls.Add(this.buttonMake);
             this.Controls.Add(this.buttonSaveToPdf);
-            this.Name = "FormReportSushiSeafoods";
-            this.Text = "Отчет по суши и морепродуктам";
+            this.Name = "FormReportsSushiSeafoods";
+            this.Text = "Отчет суши по морепродуктам";
             this.ResumeLayout(false);
 
         }

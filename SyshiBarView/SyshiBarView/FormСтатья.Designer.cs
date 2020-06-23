@@ -1,4 +1,4 @@
-﻿namespace SyshiBarView
+﻿namespace View
 {
     partial class FormСтатья
     {

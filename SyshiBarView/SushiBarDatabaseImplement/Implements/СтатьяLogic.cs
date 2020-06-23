@@ -70,7 +70,7 @@ namespace DatabaseImplement.Implements
                     Id = rec.Id,
                     Name = rec.Name,
                     DateCreate = rec.DateCreate,
-                    Name = rec.Name
+                    Tema = rec.Tema
                 })
                 .ToList();
             }

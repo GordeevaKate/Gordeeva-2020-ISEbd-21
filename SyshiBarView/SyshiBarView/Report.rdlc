@@ -18,29 +18,37 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataЭкзамен">
+    <DataSet Name="DataSetSeafood">
       <Query>
         <DataSourceName>ЭкзаменBusinessLogicViewModels1</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="Count">
-          <DataField>Count</DataField>
+        <Field Name="DateR">
+          <DataField>DateR</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="SeafoodName">
-          <DataField>SeafoodName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="DateCreate">
+          <DataField>DateCreate</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="Name">
           <DataField>Name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Rabota">
+          <DataField>Rabota</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FIO">
+          <DataField>FIO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ЭкзаменBusinessLogic.ViewModels</rd:DataSetName>
-        <rd:TableName>ReportSushiSeafoodViewModel</rd:TableName>
-        <rd:ObjectDataSourceType>ЭкзаменBusinessLogic.ViewModels.ReportSushiSeafoodViewModel, ЭкзаменBusinessLogic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>ReportViewModel</rd:TableName>
+        <rd:ObjectDataSourceType>ЭкзаменBusinessLogic.ViewModels.ReportViewModel, ЭкзаменBusinessLogic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -141,7 +149,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>дата создания</Value>
+                                  <Value>Дата создания</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -201,7 +209,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>место работы</Value>
+                                  <Value>Место работы</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -231,7 +239,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>дата рождения</Value>
+                                  <Value>Дата рождения</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -259,7 +267,7 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="SushiName">
+                        <Textbox Name="Name">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -273,7 +281,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>SushiName</rd:DefaultName>
+                          <rd:DefaultName>Name</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -297,7 +305,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!DateCreate.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <Format>d</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -319,7 +329,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="SeafoodName">
+                        <Textbox Name="FIO">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -327,13 +337,15 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!FIO.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <Format>0.00;(0.00)</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>SeafoodName</rd:DefaultName>
+                          <rd:DefaultName>FIO</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -349,7 +361,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox5">
+                        <Textbox Name="Rabota">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -363,7 +375,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                          <rd:DefaultName>Rabota</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>

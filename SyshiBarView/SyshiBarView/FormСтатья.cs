@@ -3,7 +3,7 @@ using ЭкзаменBusinessLogic.Interfaces;
 using System;
 using System.Windows.Forms;
 using Unity;
-namespace SyshiBarView
+namespace View
 {
     public partial class FormСтатья : Form
     {

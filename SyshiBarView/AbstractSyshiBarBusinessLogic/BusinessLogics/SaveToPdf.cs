@@ -30,20 +30,22 @@ namespace ЭкзаменBusinessLogic.BusinessLogics
     CreateRow(new PdfRowParameters
             {
                 Table = table,
-                Texts = new List<string> { "", "Мореродукт", "Количество" },
+                Texts = new List<string> { "Название статьи", "Дата создания", "ФИО", "Место работы", "Дата рождения" },
                 Style = "NormalTitle",
                 ParagraphAlignment = ParagraphAlignment.Center
             });
-            foreach (var sf in info.SushiSeafoods)
+            foreach (var sf in info.AvtorStatias)
             {
                 CreateRow(new PdfRowParameters
                 {
                     Table = table,
                     Texts = new List<string>
                     {
-                        sf.SushiName,
-                        sf.SeafoodName,
-                        sf.Count.ToString()
+                        sf.Name,
+                        sf.DateCreate.ToString(),
+                        sf.FIO,
+                         sf.Rabota,
+                        sf.DateR.ToString()
                     },
                     Style = "Normal",
                     ParagraphAlignment = ParagraphAlignment.Left

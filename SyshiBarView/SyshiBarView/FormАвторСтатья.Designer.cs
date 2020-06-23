@@ -80,7 +80,7 @@
             this.Controls.Add(this.labelSeafood);
             this.Controls.Add(this.buttonCansel);
             this.Controls.Add(this.buttonSave);
-            this.Name = "FormАвторСтатья";
+            
             this.Text = "Морепродукты в суши";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -17,9 +17,9 @@ namespace View
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly IСтатьиLogic logic;
+        private readonly IСтатьяLogic logic;
 
-        public FormСтатьи(IСтатьиLogic logic)
+        public FormСтатьи(IСтатьяLogic logic)
 
         {
             InitializeComponent();

@@ -99,15 +99,9 @@
             this.сушиПоМорепродуктамToolStripMenuItem.Name = "сушиПоМорепродуктамToolStripMenuItem";
             this.сушиПоМорепродуктамToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.сушиПоМорепродуктамToolStripMenuItem.Text = "Суши по морепродуктам";
-            this.сушиПоМорепродуктамToolStripMenuItem.Click += new System.EventHandler(this.сушиПоМорепродуктамToolStripMenuItem_Click);
-            // 
+             // 
             // создатьБэкапToolStripMenuItem
-            // 
-            this.создатьБэкапToolStripMenuItem.Name = "создатьБэкапToolStripMenuItem";
-            this.создатьБэкапToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
-            this.создатьБэкапToolStripMenuItem.Text = "Создать бэкап";
-            this.создатьБэкапToolStripMenuItem.Click += new System.EventHandler(this.создатьБэкапToolStripMenuItem_Click);
-            // 
+              // 
             // dataGridView
             // 
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;

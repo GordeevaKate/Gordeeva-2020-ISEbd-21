@@ -1,6 +1,6 @@
-﻿using AbstractSyshiBarBusinessLogic.BindingModels;
-using AbstractSyshiBarBusinessLogic.BusinessLogics;
-using AbstractSyshiBarBusinessLogic.Interfaces;
+﻿using Экзамен.BindingModels;
+using ЭкзаменBusinessLogic.BusinessLogics;
+using ЭкзаменBusinessLogic.Interfaces;
 using System;
 using System.Windows.Forms;
 using Unity;
@@ -11,16 +11,13 @@ namespace View
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-
-        private readonly WorkModeling work;
-        private readonly ReportLogic report;
-        private readonly BackUpAbstractLogic backUpAbstractLogic;
-        public FormMain( WorkModeling work, ReportLogic report, BackUpAbstractLogic backUpAbstractLogic)
+ private readonly ReportLogic report;
+   
+        public FormMain( ReportLogic report)
         {
             InitializeComponent();
             this.report = report;
-            this.work = work;
-            this.backUpAbstractLogic = backUpAbstractLogic;
+         
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
@@ -39,50 +36,15 @@ namespace View
         }
 
 
-        private void списокАвторовToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
-            {
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    report.SaveSushisToWordFile(new ReportBindingModel
-                    {
-                        FileName =
-                   dialog.FileName
-                    });
-                    MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
-                   MessageBoxIcon.Information);
-                }
-            }
-        }
+
  
         private void АвторыиСтатьиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormReportАвторыСтатьи>();
+            var form = Container.Resolve<FormАвторСтатья>();
             form.ShowDialog();
         }
 
 
-        private void создатьБэкапToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (backUpAbstractLogic != null)
-                {
-                    var fbd = new FolderBrowserDialog();
-                    if (fbd.ShowDialog() == DialogResult.OK)
-                    {
-                        backUpAbstractLogic.CreateArchive(fbd.SelectedPath);
-                        MessageBox.Show("Бекап создан", "Сообщение",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
-               MessageBoxIcon.Error);
-            }
-        }
+      
     }
 }

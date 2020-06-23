@@ -52,7 +52,7 @@ namespace ЭкзаменBusinessLogic.BusinessLogics
             {
                 FileName = model.FileName,
                 Title = "Список авторов статей",
-                SushiSeafoods = GetSushiSeafood(),
+                AvtorStatias = GetSushiSeafood(),
             });
         }
     }

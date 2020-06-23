@@ -8,7 +8,7 @@ using Unity;
 using Unity.Lifetime;
 using System.Text.RegularExpressions;
 
-namespace SyshiBarView
+namespace View
 {
     public partial class FormАвтор : Form
     {
@@ -18,7 +18,7 @@ namespace SyshiBarView
         public int Id { set { id = value; } }
         private readonly IАвторLogic logic;
         private int? id;
-        private Dictionary<int, (string, int)> sushiSeafoods;
+        private Dictionary<int, string> sushiSeafoods;
         public FormАвтор(IАвторLogic service)
         {
             InitializeComponent();
@@ -53,7 +53,7 @@ namespace SyshiBarView
             }
             else
             {
-                sushiSeafoods = new Dictionary<int, (string, int)>();
+                sushiSeafoods = new Dictionary<int, string>();
             }
         }
         private void LoadData()
@@ -65,8 +65,7 @@ namespace SyshiBarView
                     dataGridView.Rows.Clear();
                     foreach (var pc in sushiSeafoods)
                     {
-                        dataGridView.Rows.Add(new object[] { pc.Key, pc.Value.Item1,
-pc.Value.Item2 });
+                        dataGridView.Rows.Add(new object[] { pc.Key});
                     }
                 }
             }
@@ -78,16 +77,16 @@ MessageBoxIcon.Error);
         }
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormАвторСтатья>();
+            var form = Container.Resolve<View.FormАвторСтатья>();
             if (form.ShowDialog() == DialogResult.OK)
             {
                 if (sushiSeafoods.ContainsKey(form.Id))
                 {
-                    sushiSeafoods[form.Id] = (form.Name, form.Count);
+                    sushiSeafoods[form.Id] = (form.Name);
                 }
                 else
                 {
-                    sushiSeafoods.Add(form.Id, (form.Name, form.Count));
+                    sushiSeafoods.Add(form.Id, (form.Name));
                 }
                 LoadData();
             }
@@ -96,13 +95,13 @@ MessageBoxIcon.Error);
         {
             if (dataGridView.SelectedRows.Count == 1)
             {
-                var form = Container.Resolve<FormSushiSeafood>();
+                var form = Container.Resolve<View.FormАвторСтатья>();
                 int id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
                 form.Id = id;
-                form.Count = sushiSeafoods[id].Item2;
+                
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    sushiSeafoods[form.Id] = (form.Name, form.Count);
+                    sushiSeafoods[form.Id] = (form.Name);
                     LoadData();
                 }
             }

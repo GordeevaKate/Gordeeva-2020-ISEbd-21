@@ -1,4 +1,4 @@
-﻿using ЭкзаменBusinessLogic.BindingModels;
+﻿using Экзамен.BindingModels;
 using ЭкзаменBusinessLogic.ViewModels;
 using System.Collections.Generic;
 using Экзамен.BindingModels;

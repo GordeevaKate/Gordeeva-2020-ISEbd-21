@@ -1,6 +1,6 @@
 ﻿namespace SyshiBarView
 {
-    partial class FormReportsSushiSeafoods
+    partial class FormReportSeafoods
     {
         /// <summary>
         /// Required designer variable.
@@ -28,58 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonSaveToPdf = new System.Windows.Forms.Button();
+            this.buttonToPdf = new System.Windows.Forms.Button();
             this.buttonMake = new System.Windows.Forms.Button();
             this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
-            // buttonSaveToPdf
+            // buttonToPdf
             // 
-            this.buttonSaveToPdf.Location = new System.Drawing.Point(406, 12);
-            this.buttonSaveToPdf.Name = "buttonSaveToPdf";
-            this.buttonSaveToPdf.Size = new System.Drawing.Size(112, 28);
-            this.buttonSaveToPdf.TabIndex = 0;
-            this.buttonSaveToPdf.Text = "Сохранить в Pdf";
-            this.buttonSaveToPdf.UseVisualStyleBackColor = true;
-            this.buttonSaveToPdf.Click += new System.EventHandler(this.ButtonToPdf_Click);
+            this.buttonToPdf.Location = new System.Drawing.Point(151, 8);
+            this.buttonToPdf.Name = "buttonToPdf";
+            this.buttonToPdf.Size = new System.Drawing.Size(144, 20);
+            this.buttonToPdf.TabIndex = 8;
+            this.buttonToPdf.Text = "в Pdf";
+            this.buttonToPdf.UseVisualStyleBackColor = true;
+            this.buttonToPdf.Click += new System.EventHandler(this.ButtonToPdf_Click);
             // 
             // buttonMake
             // 
-            this.buttonMake.Location = new System.Drawing.Point(524, 12);
+            this.buttonMake.Location = new System.Drawing.Point(12, 8);
             this.buttonMake.Name = "buttonMake";
-            this.buttonMake.Size = new System.Drawing.Size(125, 28);
-            this.buttonMake.TabIndex = 2;
-            this.buttonMake.Text = "сформировать";
+            this.buttonMake.Size = new System.Drawing.Size(117, 20);
+            this.buttonMake.TabIndex = 7;
+            this.buttonMake.Text = "Сформировать";
             this.buttonMake.UseVisualStyleBackColor = true;
             this.buttonMake.Click += new System.EventHandler(this.ButtonMake_Click);
             // 
             // reportViewer
             // 
-            this.reportViewer.LocalReport.ReportEmbeddedResource = "SyshiBarView.Report.rdlc";
-            this.reportViewer.Location = new System.Drawing.Point(12, 46);
+            this.reportViewer.LocalReport.ReportEmbeddedResource = "Diner.ReportStorageFood.rdlc";
+            this.reportViewer.Location = new System.Drawing.Point(12, 34);
             this.reportViewer.Name = "reportViewer";
             this.reportViewer.ServerReport.BearerToken = null;
-            this.reportViewer.Size = new System.Drawing.Size(654, 401);
-            this.reportViewer.TabIndex = 3;
+            this.reportViewer.Size = new System.Drawing.Size(656, 305);
+            this.reportViewer.TabIndex = 6;
             // 
-            // FormReportsSushiSeafoods
+            // FormReportFoods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 450);
+            this.ClientSize = new System.Drawing.Size(683, 349);
             this.Controls.Add(this.reportViewer);
+            this.Controls.Add(this.buttonToPdf);
             this.Controls.Add(this.buttonMake);
-            this.Controls.Add(this.buttonSaveToPdf);
-            this.Name = "FormReportsSushiSeafoods";
-            this.Text = "Отчет по суши с морепродуктами";
+            this.Name = "FormReportSeafoods";
+            this.Text = "Отчет по морепродуктам со складами";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonSaveToPdf;
-        private System.Windows.Forms.Button buttonMake;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer;
+        private System.Windows.Forms.Button buttonToPdf;
+        private System.Windows.Forms.Button buttonMake;
     }
 }

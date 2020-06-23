@@ -61,11 +61,10 @@ namespace SushiBarDatabaseImplement.Implements
                             }
                             context.SaveChanges();
                         }
-                             foreach (var pc in model.SushiSeafoods)
+                        foreach (var pc in model.SushiSeafoods)
                         {
                             context.SushiSeafoods.Add(new SushiSeafood
-                            {
-                               
+                            {                            
                                 SushiId = element.Id,
                                 SeafoodId = pc.Key,
                                 Count = pc.Value.Item2
@@ -94,7 +93,7 @@ namespace SushiBarDatabaseImplement.Implements
                 {
                     try
                     {
-                        context.SushiSeafoods.RemoveRange(context.SushiSeafoods.Where(rec =>
+                         context.SushiSeafoods.RemoveRange(context.SushiSeafoods.Where(rec =>
                         rec.SushiId == model.Id));
                         Sushi element = context.Sushis.FirstOrDefault(rec => rec.Id                  
                        == model.Id);

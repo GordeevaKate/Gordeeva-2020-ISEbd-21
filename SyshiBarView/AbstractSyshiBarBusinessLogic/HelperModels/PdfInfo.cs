@@ -8,5 +8,6 @@ namespace AbstractSyshiBarBusinessLogic.HelperModels
         public string FileName { get; set; }
         public string Title { get; set; }
         public List<ReportSushiSeafoodViewModel> SushiSeafoods { get; set; }
+        public List<ReportStorageSeafoodViewModel> StorageSeafoods { get; set; }
     }
 }

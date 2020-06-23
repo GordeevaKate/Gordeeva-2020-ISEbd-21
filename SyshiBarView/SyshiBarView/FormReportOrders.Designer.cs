@@ -110,7 +110,7 @@
             this.Controls.Add(this.dateTimePickerFrom);
             this.Controls.Add(this.buttonSaveToExcel);
             this.Name = "FormReportOrders";
-            this.Text = "Отчет по заказам";
+            this.Text = "Отчет по заказам в Exel";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 

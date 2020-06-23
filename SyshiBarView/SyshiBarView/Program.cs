@@ -28,7 +28,6 @@ namespace SyshiBarView
                 MailLogin = ConfigurationManager.AppSettings["MailLogin"],
                 MailPassword = ConfigurationManager.AppSettings["MailPassword"],
             });
-            // создаем таймер
             var timer = new System.Threading.Timer(new TimerCallback(MailCheck), new
            MailCheckInfo
             {
@@ -71,16 +70,16 @@ HierarchicalLifetimeManager());
             var type = typeof(T);
             if (type.BaseType == typeof(BaseViewModel))
             {
-                // создаем объект от типа
+        
                 object obj = Activator.CreateInstance(type);
-                // вытаскиваем метод получения списка заголовков
+            
                 var method = type.GetMethod("Properties");
-                // вызываем метод
+
                 var config = (List<string>)method.Invoke(obj, null);
                 grid.Columns.Clear();
                 foreach (var conf in config)
                 {
-                    // вытаскиваем нужное свойство из класса
+
                     var prop = type.GetProperty(conf);
                     if (prop != null)
                     {
@@ -91,7 +90,6 @@ HierarchicalLifetimeManager());
                         {
                             foreach (var attr in attributes)
                             {
-                                // ищем нужный нам атрибут
                                 if (attr is ColumnAttribute columnAttr)
                                 {
                                     var column = new DataGridViewTextBoxColumn
@@ -115,7 +113,6 @@ HierarchicalLifetimeManager());
                         }
                     }
                 }
-                // добавляем строки
                 foreach (var elem in data)
                 {
                     List<object> objs = new List<object>();

@@ -21,6 +21,7 @@ namespace SyshiBarFileImplement.Implements
         {
             Implementer element = source.Implementers.FirstOrDefault(rec =>
                    rec.ImplementerFIO == model.ImplementerFIO && rec.Id != model.Id);
+
             if (element != null)
             {
                 throw new Exception("Такой исполнитель уже существует");

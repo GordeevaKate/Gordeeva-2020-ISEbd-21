@@ -6,13 +6,14 @@ using System.Windows.Forms;
 using Unity;
 namespace SyshiBarView
 {
-    public partial class FormReportSushiSeafoods : Form
+    public partial class FormReportsSushiSeafoods : Form
     {
    
         [Dependency]
         public new IUnityContainer Container { get; set; }
         private readonly ReportLogic logic;
-        public FormReportSushiSeafoods(ReportLogic logic)
+  
+        public FormReportsSushiSeafoods(ReportLogic logic)
         {
             InitializeComponent();
             this.logic = logic;

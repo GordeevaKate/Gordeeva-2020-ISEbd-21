@@ -1,7 +1,6 @@
 ﻿using System;
 using AbstractSyshiBarBusinessLogic.ViewModels;
 using System.Windows.Forms;
-
 namespace SushiBarClientView
 {
     public partial class FormEnter : Form

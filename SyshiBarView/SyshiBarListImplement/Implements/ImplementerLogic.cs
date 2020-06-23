@@ -5,7 +5,6 @@ using SyshiBarListImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
-
 namespace SyshiBarListImplement.Implements
 {
     public class ImplementerLogic : IImplementerLogic

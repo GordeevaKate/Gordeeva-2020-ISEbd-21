@@ -61,7 +61,7 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip.Size = new System.Drawing.Size(918, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1121, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -159,12 +159,12 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowTemplate.Height = 28;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(759, 294);
+            this.dataGridView.Size = new System.Drawing.Size(959, 372);
             this.dataGridView.TabIndex = 1;
             // 
             // buttonCreateOrder
             // 
-            this.buttonCreateOrder.Location = new System.Drawing.Point(779, 32);
+            this.buttonCreateOrder.Location = new System.Drawing.Point(989, 30);
             this.buttonCreateOrder.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCreateOrder.Name = "buttonCreateOrder";
             this.buttonCreateOrder.Size = new System.Drawing.Size(132, 25);
@@ -175,7 +175,7 @@
             // 
             // buttonPayOrder
             // 
-            this.buttonPayOrder.Location = new System.Drawing.Point(779, 61);
+            this.buttonPayOrder.Location = new System.Drawing.Point(989, 59);
             this.buttonPayOrder.Margin = new System.Windows.Forms.Padding(2);
             this.buttonPayOrder.Name = "buttonPayOrder";
             this.buttonPayOrder.Size = new System.Drawing.Size(132, 26);
@@ -186,7 +186,7 @@
             // 
             // buttonRef
             // 
-            this.buttonRef.Location = new System.Drawing.Point(779, 91);
+            this.buttonRef.Location = new System.Drawing.Point(989, 89);
             this.buttonRef.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRef.Name = "buttonRef";
             this.buttonRef.Size = new System.Drawing.Size(132, 27);
@@ -197,7 +197,7 @@
             // 
             // buttonУдалить
             // 
-            this.buttonУдалить.Location = new System.Drawing.Point(779, 122);
+            this.buttonУдалить.Location = new System.Drawing.Point(989, 120);
             this.buttonУдалить.Margin = new System.Windows.Forms.Padding(2);
             this.buttonУдалить.Name = "buttonУдалить";
             this.buttonУдалить.Size = new System.Drawing.Size(132, 27);
@@ -217,7 +217,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(918, 337);
+            this.ClientSize = new System.Drawing.Size(1121, 415);
             this.Controls.Add(this.buttonУдалить);
             this.Controls.Add(this.buttonRef);
             this.Controls.Add(this.buttonPayOrder);

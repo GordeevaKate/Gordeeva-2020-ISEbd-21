@@ -1,11 +1,11 @@
 ﻿
-using AbstractSyshiBarBusinessLogic.HelperModels;
+using ЭкзаменBusinessLogic.HelperModels;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.Rendering;
 using System.Collections.Generic;
 
-namespace AbstractSyshiBarBusinessLogic.BusinessLogics
+namespace ЭкзаменBusinessLogic.BusinessLogics
 {
     class SaveToPdf
     {
@@ -30,7 +30,7 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
     CreateRow(new PdfRowParameters
             {
                 Table = table,
-                Texts = new List<string> { "Суши", "Мореродукт", "Количество" },
+                Texts = new List<string> { "", "Мореродукт", "Количество" },
                 Style = "NormalTitle",
                 ParagraphAlignment = ParagraphAlignment.Center
             });

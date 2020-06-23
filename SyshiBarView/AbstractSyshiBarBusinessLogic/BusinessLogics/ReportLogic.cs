@@ -1,40 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;using AbstractSyshiBarBusinessLogic.BindingModels;
-using AbstractSyshiBarBusinessLogic.HelperModels;
-using AbstractSyshiBarBusinessLogic.Interfaces;
-using AbstractSyshiBarBusinessLogic.ViewModels;using AbstractSyshiBarBusinessLogic.Enums;using DocumentFormat.OpenXml.Office2010.ExcelAc;
+using System.Linq;using Экзамен.BindingModels;
+using ЭкзаменBusinessLogic.HelperModels;
+using ЭкзаменBusinessLogic.Interfaces;
+using ЭкзаменBusinessLogic.ViewModels;using DocumentFormat.OpenXml.Office2010.ExcelAc;
 
-namespace AbstractSyshiBarBusinessLogic.BusinessLogics
+namespace ЭкзаменBusinessLogic.BusinessLogics
 {
     public class ReportLogic
     {
-        private readonly ISeafoodLogic SeafoodLogic;
-        private readonly ISushiLogic SushiLogic;
-        private readonly IOrderLogic orderLogic;
-        public ReportLogic(ISushiLogic SushiLogic, ISeafoodLogic SeafoodLogic,
-       IOrderLogic orderLogic)
+        private readonly IСтатьяLogic SeafoodLogic;
+        private readonly IАвторLogic SushiLogic;
+
+        public ReportLogic(IАвторLogic SushiLogic, IСтатьяLogic SeafoodLogic)
         {
             this.SushiLogic = SushiLogic;
             this.SeafoodLogic = SeafoodLogic;
-            this.orderLogic = orderLogic;
+           
         }
-        public List<ReportSushiSeafoodViewModel> GetSushiSeafood()
+        public List<ReportViewModel> GetSushiSeafood()
         {
             var Seafoods = SeafoodLogic.Read(null);
             var Sushis = SushiLogic.Read(null);
-            var list = new List<ReportSushiSeafoodViewModel>();
+            var list = new List<ReportViewModel>();
             foreach (var seafood in Seafoods)
             {
                 foreach (var sushi in Sushis)
                 {
-                    if (sushi.SushiSeafoods.ContainsKey(seafood.Id))
+                    if (sushi.AvtorStatias.ContainsKey(seafood.Id))
                     {
-                        var record = new ReportSushiSeafoodViewModel
+                        var record = new ReportViewModel
                         {
-                            SushiName = sushi.SushiName,
-                            SeafoodName = seafood.SeafoodName,
-                            Count = sushi.SushiSeafoods[seafood.Id].Item2
+                            FIO = sushi.FIO,
+                            Name = seafood.Name,
+                            DateCreate = seafood.DateCreate,
+                            DateR = sushi.DateR,
+                            Rabota = sushi.Rabota
                         };
                         Console.WriteLine(record);
                         list.Add(record);
@@ -43,46 +44,14 @@ namespace AbstractSyshiBarBusinessLogic.BusinessLogics
             }
             return list;
         }
-        public List<IGrouping<DateTime, OrderViewModel>> GetOrders(ReportBindingModel model)
-        {
-            var list = orderLogic
-              .Read(new OrderBindingModel
-              {
-                  DateFrom = model.DateFrom,
-                  DateTo = model.DateTo
-              })
-              .GroupBy(rec => rec.DateCreate.Date)
-              .OrderBy(recG => recG.Key)
-              .ToList();
      
-            return list;
-        }
 
-        public void SaveSushisToWordFile(ReportBindingModel model)
-        {
-            SaveToWord.CreateDoc(new WordInfo
-            {
-                FileName = model.FileName,
-                Title = "Список суши",
-                Sushis = SushiLogic.Read(null)
-            });
-        }
-
-        public void SaveOrdersToExcelFile(ReportBindingModel model)
-        {
-            SaveToExcel.CreateDoc(new ExcelInfo
-            {
-                FileName = model.FileName,
-                Title = "Список заказов",
-                Orders = GetOrders(model)
-            });
-        }
         public void SaveSushisToPdfFile(ReportBindingModel model)
         {
             SaveToPdf.CreateDoc(new PdfInfo
             {
                 FileName = model.FileName,
-                Title = "Список закусок по продуктам",
+                Title = "Список авторов статей",
                 SushiSeafoods = GetSushiSeafood(),
             });
         }

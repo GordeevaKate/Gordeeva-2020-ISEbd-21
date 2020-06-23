@@ -1,5 +1,5 @@
 ﻿using System;
-namespace AbstractSyshiBarBusinessLogic.BindingModels
+namespace Экзамен.BindingModels
 {
     public class ReportBindingModel
     {

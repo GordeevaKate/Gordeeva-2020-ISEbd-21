@@ -13,7 +13,7 @@ namespace SyshiBarListImplement.Implements
         {
             source = DataListSingleton.GetInstance();
         }
-        public void CreateOrUpdate(SeafoodBindingModel model)
+        public void CreateOrUpdate(СтатьяBindingModel model)
         {
             Seafood tempSeafood = model.Id.HasValue ? null : new Seafood
             {
@@ -49,7 +49,7 @@ namespace SyshiBarListImplement.Implements
                 source.Seafoods.Add(CreateModel(model, tempSeafood));
             }
         }
-        public void Delete(SeafoodBindingModel model)
+        public void Delete(СтатьяBindingModel model)
         {
             for (int i = 0; i < source.Seafoods.Count; ++i)
             {
@@ -61,7 +61,7 @@ namespace SyshiBarListImplement.Implements
             }
             throw new Exception("Элемент не найден");
         }
-        public List<SeafoodViewModel> Read(SeafoodBindingModel model)
+        public List<SeafoodViewModel> Read(СтатьяBindingModel model)
         {
             List<SeafoodViewModel> result = new List<SeafoodViewModel>();
             foreach (var seafood in source.Seafoods)
@@ -79,7 +79,7 @@ namespace SyshiBarListImplement.Implements
             }
             return result;
         }
-        private Seafood CreateModel(SeafoodBindingModel model, Seafood seafood)
+        private Seafood CreateModel(СтатьяBindingModel model, Seafood seafood)
         {
             seafood.SeafoodName = model.SeafoodName;
             return seafood;

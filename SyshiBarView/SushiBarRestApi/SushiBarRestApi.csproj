@@ -1,12 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AbstractSyshiBarBusinessLogic\AbstractSyshiBarBusinessLogic.csproj" />
-    <ProjectReference Include="..\SushiBarDatabaseImplement\SushiBarDatabaseImplement.csproj" />
+    <ProjectReference Include="..\AbstractSyshiBarBusinessLogic\ЭкзаменBusinessLogic.csproj" />
+    <ProjectReference Include="..\SushiBarDatabaseImplement\DatabaseImplement.csproj" />
   </ItemGroup>
 
 

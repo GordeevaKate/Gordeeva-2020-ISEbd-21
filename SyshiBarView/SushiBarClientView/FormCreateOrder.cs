@@ -20,7 +20,7 @@ namespace SushiBarClientView
                 comboBoxSushi.DisplayMember = "SushiName";
                 comboBoxSushi.ValueMember = "Id";
                 comboBoxSushi.DataSource =
-               APIClient.GetRequest<List<SushiViewModel>>("api/main/getsushilist");
+               APIClient.GetRequest<List<АвторViewModel>>("api/main/getsushilist");
                 comboBoxSushi.SelectedItem = null;
             }
             catch (Exception ex)
@@ -37,8 +37,8 @@ namespace SushiBarClientView
                 try
                 {
                     int id = Convert.ToInt32(comboBoxSushi.SelectedValue);
-                SushiViewModel sushi =
-APIClient.GetRequest<SushiViewModel>($"api/main/getsushi?sushiId={id}");
+                АвторViewModel sushi =
+APIClient.GetRequest<АвторViewModel>($"api/main/getsushi?sushiId={id}");
                     int count = Convert.ToInt32(textBoxCount.Text);
                     textBoxSum.Text = (count * sushi.Price).ToString();
                 }

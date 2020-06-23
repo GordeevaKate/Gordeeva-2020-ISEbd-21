@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AbstractSyshiBarBusinessLogic\AbstractSyshiBarBusinessLogic.csproj" />
+    <ProjectReference Include="..\AbstractSyshiBarBusinessLogic\ЭкзаменBusinessLogic.csproj" />
   </ItemGroup>
 
 </Project>

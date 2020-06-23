@@ -8,7 +8,7 @@ using SushiBarDatabaseImplement;
 
 namespace SushiBarDatabaseImplement.Migrations
 {
-    [DbContext(typeof(SushiBarDatabase))]
+    [DbContext(typeof(Database))]
     partial class SushiBarDatabaseModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

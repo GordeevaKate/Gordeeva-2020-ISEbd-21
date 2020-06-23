@@ -17,9 +17,9 @@ namespace SushiBarRestApi.Controllers
     public class MainController : ControllerBase
     {
         private readonly IOrderLogic _order;
-        private readonly ISushiLogic _sushi;
+        private readonly IАвторLogic _sushi;
         private readonly MainLogic _main;
-        public MainController(IOrderLogic order, ISushiLogic sushi, MainLogic main)
+        public MainController(IOrderLogic order, IАвторLogic sushi, MainLogic main)
         {
             _order = order;
             _sushi = sushi;
@@ -30,7 +30,7 @@ namespace SushiBarRestApi.Controllers
       Convert(rec)).ToList();
         [HttpGet]
         public SushiModel GetSushi(int SushiId) => Convert(_sushi.Read(new
-       SushiBindingModel
+       СтатьяBindingModel
         { Id = SushiId })?[0]);
         [HttpGet]
         public List<OrderViewModel> GetOrders(int clientId) => _order.Read(new
@@ -39,7 +39,7 @@ namespace SushiBarRestApi.Controllers
         [HttpPost]
         public void CreateOrder(CreateOrderBindingModel model) =>
        _main.CreateOrder(model);
-        private SushiModel Convert(SushiViewModel model)
+        private SushiModel Convert(АвторViewModel model)
         {
             if (model == null) return null;
             return new SushiModel

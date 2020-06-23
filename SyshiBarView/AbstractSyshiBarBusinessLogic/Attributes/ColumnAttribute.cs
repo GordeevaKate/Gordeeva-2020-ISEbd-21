@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AbstractSyshiBarBusinessLogic.Attributes
+namespace ЭкзаменBusinessLogic.Attributes
 {
     public class ColumnAttribute : Attribute
     {

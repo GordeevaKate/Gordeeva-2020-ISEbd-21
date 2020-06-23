@@ -9,10 +9,12 @@ using Unity;
 using Unity.Lifetime;
 using System.Threading;
 using System.Configuration;
-using AbstractSyshiBarBusinessLogic.Attributes;
-using AbstractSyshiBarBusinessLogic.ViewModels;
+using ЭкзаменBusinessLogic.Attributes;
+using ЭкзаменBusinessLogic.ViewModels;
 using System.Collections.Generic;
-namespace SyshiBarView
+using View;
+
+namespace View
 {
     static class Program
     {
@@ -33,7 +35,7 @@ namespace SyshiBarView
             {
                 PopHost = ConfigurationManager.AppSettings["PopHost"],
                 PopPort = Convert.ToInt32(ConfigurationManager.AppSettings["PopPort"]),
-                Logic = container.Resolve<IMessageInfoLogic>()
+               
             }, 0, 100000);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -42,21 +44,13 @@ namespace SyshiBarView
         private static IUnityContainer BuildUnityContainer()
         {
             var currentContainer = new UnityContainer();
-            currentContainer.RegisterType<ISeafoodLogic, SeafoodLogic>(new
+            currentContainer.RegisterType<IСтатьяLogic, СтатьяLogic>(new
            HierarchicalLifetimeManager());
-            currentContainer.RegisterType<ISushiLogic, SushiLogic>(new
+            currentContainer.RegisterType<IАвторLogic, АвторLogic>(new
            HierarchicalLifetimeManager());
-            currentContainer.RegisterType<IOrderLogic, OrderLogic>(new
-           HierarchicalLifetimeManager());
-            currentContainer.RegisterType<IClientLogic, ClientLogic>(new
-         HierarchicalLifetimeManager());
-            currentContainer.RegisterType<IImplementerLogic, ImplementerLogic>(new
-                 HierarchicalLifetimeManager());
+     
             currentContainer.RegisterType<BackUpAbstractLogic, BackUpLogic>(new
                 HierarchicalLifetimeManager());
-            currentContainer.RegisterType<IMessageInfoLogic, MessageInfoLogic>(new
-HierarchicalLifetimeManager());
-            currentContainer.RegisterType<MainLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<ReportLogic>(new
            HierarchicalLifetimeManager());
             return currentContainer;

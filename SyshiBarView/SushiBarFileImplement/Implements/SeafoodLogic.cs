@@ -16,7 +16,7 @@ namespace SushiBarFileImplement.Implements
         {
             source = FileDataListSingleton.GetInstance();
         }
-        public void CreateOrUpdate(SeafoodBindingModel model)
+        public void CreateOrUpdate(СтатьяBindingModel model)
         {
             Seafood element = source.Seafoods.FirstOrDefault(rec => rec.SeafoodName
            == model.SeafoodName && rec.Id != model.Id);
@@ -41,7 +41,7 @@ namespace SushiBarFileImplement.Implements
             }
             element.SeafoodName = model.SeafoodName;
         }
-        public void Delete(SeafoodBindingModel model)
+        public void Delete(СтатьяBindingModel model)
         {
             Seafood element = source.Seafoods.FirstOrDefault(rec => rec.Id ==
            model.Id);
@@ -52,7 +52,7 @@ namespace SushiBarFileImplement.Implements
             else
             { }
         }
-        public List<SeafoodViewModel> Read(SeafoodBindingModel model)
+        public List<SeafoodViewModel> Read(СтатьяBindingModel model)
         {
             return source.Seafoods
             .Where(rec => model == null || rec.Id == model.Id)

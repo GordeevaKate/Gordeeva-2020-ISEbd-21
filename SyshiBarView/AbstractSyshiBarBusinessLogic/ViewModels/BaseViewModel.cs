@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Runtime.Serialization;
-using AbstractSyshiBarBusinessLogic.Attributes;
-namespace AbstractSyshiBarBusinessLogic.ViewModels
+using ЭкзаменBusinessLogic.Attributes;
+namespace ЭкзаменBusinessLogic.ViewModels
 {
     [DataContract]
     public abstract class BaseViewModel

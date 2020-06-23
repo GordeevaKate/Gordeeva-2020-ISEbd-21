@@ -15,7 +15,7 @@ namespace SyshiBarListImplement.Implements
         {
             source = DataListSingleton.GetInstance();
         }
-        public void CreateOrUpdate(SushiBindingModel model)
+        public void CreateOrUpdate(СтатьяBindingModel model)
         {
             Sushi tempSushi = model.Id.HasValue ? null : new Sushi { Id = 1 };
             foreach (var sushi in source.Sushis)
@@ -46,7 +46,7 @@ namespace SyshiBarListImplement.Implements
                 source.Sushis.Add(CreateModel(model, tempSushi));
             }
         }
-        public void Delete(SushiBindingModel model)
+        public void Delete(СтатьяBindingModel model)
         {
             for (int i = 0; i < source.SushiSeafoods.Count; ++i)
             {
@@ -65,7 +65,7 @@ namespace SyshiBarListImplement.Implements
             }
             throw new Exception("Элемент не найден");
         }
-        private Sushi CreateModel(SushiBindingModel model, Sushi sushi)
+        private Sushi CreateModel(СтатьяBindingModel model, Sushi sushi)
         {
             sushi.SushiName = model.SushiName;
             sushi.Price = model.Price;
@@ -103,7 +103,7 @@ namespace SyshiBarListImplement.Implements
             }
             return sushi;
         }
-        public List<SushiViewModel> Read(SushiBindingModel model)
+        public List<SushiViewModel> Read(СтатьяBindingModel model)
         {
             List<SushiViewModel> result = new List<SushiViewModel>();
             foreach (var seafood in source.Sushis)

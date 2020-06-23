@@ -5,90 +5,41 @@ using System;
 using System.Windows.Forms;
 using Unity;
 
-namespace SyshiBarView
+namespace View
 {
     public partial class FormMain : Form
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly MainLogic logic;
-        private readonly IOrderLogic orderLogic;
+
         private readonly WorkModeling work;
         private readonly ReportLogic report;
         private readonly BackUpAbstractLogic backUpAbstractLogic;
-        public FormMain(MainLogic logic, IOrderLogic orderLogic, WorkModeling work, ReportLogic report, BackUpAbstractLogic backUpAbstractLogic)
+        public FormMain( WorkModeling work, ReportLogic report, BackUpAbstractLogic backUpAbstractLogic)
         {
             InitializeComponent();
-            this.logic = logic;
             this.report = report;
             this.work = work;
-            this.orderLogic = orderLogic;
             this.backUpAbstractLogic = backUpAbstractLogic;
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
-            LoadData();
+           
         }
-        private void LoadData()
+
+        private void статьиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Program.ConfigGrid(orderLogic.Read(null), dataGridView);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
-               MessageBoxIcon.Error);
-            }
-        }
-        private void морепродуктыToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormSeafoods>();
+            var form = Container.Resolve<FormСтатьи>();
             form.ShowDialog();
         }
-        private void сушиToolStripMenuItem_Click(object sender, EventArgs e)
+        private void авторыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormSushis>();
+            var form = Container.Resolve<FormАвторы>();
             form.ShowDialog();
         }
-        private void исполнителиToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormImplementers>();
-            form.ShowDialog();
-        }
-        private void запускРаботToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            work.DoWork();
-            LoadData();
-        }
-        private void ButtonCreateOrder_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormCreateOrder>();
-            form.ShowDialog();
-            LoadData();
-        }
-        private void ButtonPayOrder_Click(object sender, EventArgs e)
-        {
-            if (dataGridView.SelectedRows.Count == 1)
-            {
-                int id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
-                try
-                {
-                    logic.PayOrder(new ChangeStatusBindingModel { OrderId = id });
-                    LoadData();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
-                }
-            }
-        }
-        private void ButtonRef_Click(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-        private void списокМорепродуктовToolStripMenuItem_Click(object sender, EventArgs e)
+
+
+        private void списокАвторовToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
             {
@@ -104,49 +55,13 @@ namespace SyshiBarView
                 }
             }
         }
-        private void списокЗаказовToolStripMenuItem_Click(object sender, EventArgs e)
+ 
+        private void АвторыиСтатьиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormReportOrders>();
+            var form = Container.Resolve<FormReportАвторыСтатьи>();
             form.ShowDialog();
         }
-        private void сушиПоМорепродуктамToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormReportSushiSeafoods>();
-            form.ShowDialog();
-        }
-        private void клиентыToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormClients>();
-            form.ShowDialog();
-        }
-        private void сообщенияToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormMessages>();
-            form.ShowDialog();
 
-        }
-        private void buttonУдалить_Click(object sender, EventArgs e)
-        {
-            if (dataGridView.SelectedRows.Count == 1)
-            {
-                if (MessageBox.Show("Удалить запись", "Вопрос", MessageBoxButtons.YesNo,
-               MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    int id =
-                   Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
-                    try
-                    {
-                        orderLogic.Delete(new OrderBindingModel { Id = id });
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
-                       MessageBoxIcon.Error);
-                    }
-                    LoadData();
-                }
-            }
-        }
 
         private void создатьБэкапToolStripMenuItem_Click(object sender, EventArgs e)
         {

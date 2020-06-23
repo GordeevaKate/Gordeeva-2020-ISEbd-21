@@ -30,7 +30,7 @@ namespace SushiBarRestApi
         {
             services.AddTransient<IClientLogic, ClientLogic>();
             services.AddTransient<IOrderLogic, OrderLogic>();
-            services.AddTransient<ISushiLogic, SushiLogic>();
+            services.AddTransient<IÀâòîðLogic, ÀâòîðLogic>();
             services.AddTransient<IMessageInfoLogic, MessageInfoLogic>();
             services.AddTransient<MainLogic>();
             services.AddControllers();

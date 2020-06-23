@@ -3,19 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyshiBarView", "SyshiBarView\SyshiBarView.csproj", "{D3AFFD52-B784-4207-990F-0ED91EB1E8D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "SyshiBarView\View.csproj", "{D3AFFD52-B784-4207-990F-0ED91EB1E8D8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractSyshiBarBusinessLogic", "AbstractSyshiBarBusinessLogic\AbstractSyshiBarBusinessLogic.csproj", "{51E28D04-3A36-4398-9C91-5C13DDEEDCCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ЭкзаменBusinessLogic", "AbstractSyshiBarBusinessLogic\ЭкзаменBusinessLogic.csproj", "{51E28D04-3A36-4398-9C91-5C13DDEEDCCB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SyshiBarListImplement", "SyshiBarListImplement\SyshiBarListImplement.csproj", "{361D67D7-BB03-4A1A-9BAD-54C28A1B7EFF}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SushiBarFileImplement", "SushiBarFileImplement\SushiBarFileImplement.csproj", "{15099E2E-C349-4D7C-A236-2F7C3C5EF4DB}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SushiBarDatabaseImplement", "SushiBarDatabaseImplement\SushiBarDatabaseImplement.csproj", "{07ABFB88-1095-457E-8A2A-7F00D6AAF2D8}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SushiBarRestApi", "SushiBarRestApi\SushiBarRestApi.csproj", "{8537DE84-017C-4669-9125-971264E95667}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SushiBarClientView", "SushiBarClientView\SushiBarClientView.csproj", "{E92958B1-9DB5-49B3-B4B6-B3FC1305C4B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseImplement", "SushiBarDatabaseImplement\DatabaseImplement.csproj", "{07ABFB88-1095-457E-8A2A-7F00D6AAF2D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,26 +23,10 @@ Global
 		{51E28D04-3A36-4398-9C91-5C13DDEEDCCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51E28D04-3A36-4398-9C91-5C13DDEEDCCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51E28D04-3A36-4398-9C91-5C13DDEEDCCB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{361D67D7-BB03-4A1A-9BAD-54C28A1B7EFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{361D67D7-BB03-4A1A-9BAD-54C28A1B7EFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{361D67D7-BB03-4A1A-9BAD-54C28A1B7EFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{361D67D7-BB03-4A1A-9BAD-54C28A1B7EFF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{15099E2E-C349-4D7C-A236-2F7C3C5EF4DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15099E2E-C349-4D7C-A236-2F7C3C5EF4DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15099E2E-C349-4D7C-A236-2F7C3C5EF4DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15099E2E-C349-4D7C-A236-2F7C3C5EF4DB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{07ABFB88-1095-457E-8A2A-7F00D6AAF2D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{07ABFB88-1095-457E-8A2A-7F00D6AAF2D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07ABFB88-1095-457E-8A2A-7F00D6AAF2D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07ABFB88-1095-457E-8A2A-7F00D6AAF2D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8537DE84-017C-4669-9125-971264E95667}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8537DE84-017C-4669-9125-971264E95667}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8537DE84-017C-4669-9125-971264E95667}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8537DE84-017C-4669-9125-971264E95667}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E92958B1-9DB5-49B3-B4B6-B3FC1305C4B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E92958B1-9DB5-49B3-B4B6-B3FC1305C4B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E92958B1-9DB5-49B3-B4B6-B3FC1305C4B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E92958B1-9DB5-49B3-B4B6-B3FC1305C4B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

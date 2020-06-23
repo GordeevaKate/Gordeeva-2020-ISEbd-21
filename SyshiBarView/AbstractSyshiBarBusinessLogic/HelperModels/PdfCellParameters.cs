@@ -1,6 +1,6 @@
 ﻿using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Tables;
-namespace AbstractSyshiBarBusinessLogic.HelperModels
+namespace ЭкзаменBusinessLogic.HelperModels
 {
     class PdfCellParameters
     {

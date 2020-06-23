@@ -9,7 +9,7 @@ using SushiBarDatabaseImplement;
 
 namespace SushiBarDatabaseImplement.Migrations
 {
-    [DbContext(typeof(SushiBarDatabase))]
+    [DbContext(typeof(Database))]
     [Migration("20200604124542_InitialCreate")]
     partial class InitialCreate
     {

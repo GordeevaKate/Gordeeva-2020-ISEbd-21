@@ -51,7 +51,7 @@ namespace DatabaseImplement.Implements
                         {
                             var sushiSeafoods = context.AvtorStatias.Where(rec
                            => rec.AId == model.Id.Value).ToList();
-                            // удалили те, которых нет в модели
+                          
 
                             context.AvtorStatias.RemoveRange(sushiSeafoods.Where(rec =>
                             !model.AvtorStatias.ContainsKey(rec.AId)).ToList());
@@ -75,7 +75,7 @@ namespace DatabaseImplement.Implements
                                 SId = pc.Key,
                              
                             }) ;
-                            context.SaveChanges();
+                   //         context.SaveChanges();
                           
                         }
                         transaction.Commit();
@@ -123,29 +123,30 @@ namespace DatabaseImplement.Implements
                 }
             }
         }
-        public List<АвторViewModel> Read(АвторBindingModel model)
-        {
-            using (var context = new Database())
+  
+            public List<АвторViewModel> Read(АвторBindingModel model)
             {
-                return context.Авторы
-                .Where(rec => model == null || rec.Id == model.Id)
-                .ToList()
-               .Select(rec => new АвторViewModel
-               {
-                   Id = rec.Id,
-                   FIO = rec.FIO,
-                  Email = rec.Email,
-               DateR = rec.DateR,
-               Rabota = rec.Rabota,
+                using (var context = new Database())
+                {
+                    return context.Авторы
+                    .Where(rec => model == null || rec.Id == model.Id)
+                    .ToList()
+                   .Select(rec => new АвторViewModel
+                   {
+                       Id = rec.Id,
+                       FIO = rec.FIO,
+                      Email = rec.Email,
+                   DateR = rec.DateR,
+                   Rabota = rec.Rabota,
 
-                   AvtorStatias = context.AvtorStatias
-                .Include(recPC => recPC.Статья)
-               .Where(recPC => recPC.AId == rec.Id)
-               .ToDictionary(recPC => recPC.SId, recPC =>
-                (recPC.Статья?.Name))
-               })
-               .ToList();
+                       AvtorStatias = context.AvtorStatias
+                    .Include(recPC => recPC.Статья)
+                   .Where(recPC => recPC.AId == rec.Id)
+                   .ToDictionary(recPC => recPC.SId, recPC =>
+                    (recPC.Статья?.Name))
+                   })
+                   .ToList();
+                }
             }
-        }
     }
 }

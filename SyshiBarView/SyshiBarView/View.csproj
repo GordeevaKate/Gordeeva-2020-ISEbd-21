@@ -234,6 +234,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReport.Designer.cs">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormАвтор.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +282,9 @@
     <EmbeddedResource Include="FormАвторСтатья.resx">
       <DependentUpon>FormАвторСтатья.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormСтатьи.resx">
+      <DependentUpon>FormСтатьи.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormСтатья.resx">
       <DependentUpon>FormСтатья.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,13 +298,24 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Report.rdlc" />
-    <EmbeddedResource Include="Report1.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\AbstractSyshiBarBusinessLogic.ViewModels.ReportOrdersViewModel.datasource" />
     <None Include="Properties\DataSources\AbstractSyshiBarBusinessLogic.ViewModels.ReportSushiSeafoodViewModel.datasource" />
     <None Include="Properties\DataSources\SqlServerTypes.Utilities.datasource" />
     <None Include="Properties\DataSources\SyshiBarView.Properties.Resources.datasource" />
     <None Include="Properties\DataSources\SyshiBarView.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\Экзамен.BindingModels.ReportBindingModel.datasource" />
+    <None Include="Properties\DataSources\Экзамен.BindingModels.АвторBindingModel.datasource" />
+    <None Include="Properties\DataSources\Экзамен.BindingModels.СтатьяBindingModel.datasource" />
+    <None Include="Properties\DataSources\ЭкзаменBusinessLogic.Attributes.ColumnAttribute.datasource" />
+    <None Include="Properties\DataSources\ЭкзаменBusinessLogic.BusinessLogics.ReportLogic.datasource" />
+    <None Include="Properties\DataSources\ЭкзаменBusinessLogic.Interfaces.IАвторLogic.datasource" />
+    <None Include="Properties\DataSources\ЭкзаменBusinessLogic.Interfaces.IСтатьяLogic.datasource" />
+    <None Include="Properties\DataSources\ЭкзаменBusinessLogic.ViewModels.BaseViewModel.datasource" />
+    <None Include="Properties\DataSources\ЭкзаменBusinessLogic.ViewModels.ReportViewModel.datasource" />
+    <None Include="Properties\DataSources\ЭкзаменBusinessLogic.ViewModels.АвторViewModel.datasource" />
+    <None Include="Properties\DataSources\ЭкзаменBusinessLogic.ViewModels.АвторСтатьяViewModel.datasource" />
+    <None Include="Properties\DataSources\ЭкзаменBusinessLogic.ViewModels.СтатьяViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

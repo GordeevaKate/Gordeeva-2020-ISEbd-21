@@ -4,6 +4,7 @@ using System.Linq;using Экзамен.BindingModels;
 using ЭкзаменBusinessLogic.HelperModels;
 using ЭкзаменBusinessLogic.Interfaces;
 using ЭкзаменBusinessLogic.ViewModels;using DocumentFormat.OpenXml.Office2010.ExcelAc;
+using System.Threading.Tasks;
 
 namespace ЭкзаменBusinessLogic.BusinessLogics
 {
@@ -11,49 +12,54 @@ namespace ЭкзаменBusinessLogic.BusinessLogics
     {
         private readonly IСтатьяLogic SeafoodLogic;
         private readonly IАвторLogic SushiLogic;
-
         public ReportLogic(IАвторLogic SushiLogic, IСтатьяLogic SeafoodLogic)
         {
             this.SushiLogic = SushiLogic;
             this.SeafoodLogic = SeafoodLogic;
            
         }
-        public List<ReportViewModel> GetSushiSeafood()
+        public async Task <List<ReportViewModel>> GetSushiSeafood()
         {
-            var Seafoods = SeafoodLogic.Read(null);
-            var Sushis = SushiLogic.Read(null);
-            var list = new List<ReportViewModel>();
-            foreach (var seafood in Seafoods)
-            {
-                foreach (var sushi in Sushis)
+           
+                var Seafoods = SeafoodLogic.Read(null);
+                var Sushis = SushiLogic.Read(null);
+                var list = new List<ReportViewModel>();
+                foreach (var seafood in Seafoods)
                 {
-                    if (sushi.AvtorStatias.ContainsKey(seafood.Id))
+                    foreach (var sushi in Sushis)
                     {
-                        var record = new ReportViewModel
+                    var record=new ReportViewModel { };
+                        if (sushi.AvtorStatias.ContainsKey(seafood.Id))
                         {
-                            FIO = sushi.FIO,
-                            Name = seafood.Name,
-                            DateCreate = seafood.DateCreate,
-                            DateR = sushi.DateR,
-                            Rabota = sushi.Rabota
-                        };
-                        Console.WriteLine(record);
-                        list.Add(record);
+
+                        await Task.Run(() =>  record = new ReportViewModel
+                            {
+                                FIO = sushi.FIO,
+                                Name = seafood.Name,
+                                DateCreate = seafood.DateCreate,
+                                DateR = sushi.DateR,
+                                Rabota = sushi.Rabota
+                            });
+                     await Task.Run(()=> list.Add(record));
+                         list.Add(record);
+                        }
                     }
                 }
-            }
-            return list;
+                return list;
+            
         }
      
 
-        public void SaveSushisToPdfFile(ReportBindingModel model)
+        public async  void SaveSushisToPdfFile(ReportBindingModel model)
         {
-            SaveToPdf.CreateDoc(new PdfInfo
+            await Task.Run(async () => SaveToPdf.CreateDoc(new PdfInfo
             {
                 FileName = model.FileName,
                 Title = "Список авторов статей",
-                AvtorStatias = GetSushiSeafood(),
-            });
+                AvtorStatias = await GetSushiSeafood(),
+
+            }));
+            
         }
     }
 }

@@ -34,7 +34,6 @@
             this.сушиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.списокМорепродуктовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сушиПоМорепродуктамToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.создатьБэкапToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip.SuspendLayout();
@@ -69,20 +68,19 @@
             this.морепродуктыToolStripMenuItem.Name = "морепродуктыToolStripMenuItem";
             this.морепродуктыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.морепродуктыToolStripMenuItem.Text = "Статьи";
-
+            this.морепродуктыToolStripMenuItem.Click += new System.EventHandler(this.статьиToolStripMenuItem_Click);
             // 
             // сушиToolStripMenuItem
             // 
             this.сушиToolStripMenuItem.Name = "сушиToolStripMenuItem";
             this.сушиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.сушиToolStripMenuItem.Text = "Авторы";
-
+            this.сушиToolStripMenuItem.Click += new System.EventHandler(this.авторыToolStripMenuItem_Click);
             // 
             // отчетыToolStripMenuItem
             // 
             this.отчетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.списокМорепродуктовToolStripMenuItem,
-            this.сушиПоМорепродуктамToolStripMenuItem});
+            this.списокМорепродуктовToolStripMenuItem});
             this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
             this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(60, 22);
             this.отчетыToolStripMenuItem.Text = "Отчеты";
@@ -90,18 +88,15 @@
             // списокМорепродуктовToolStripMenuItem
             // 
             this.списокМорепродуктовToolStripMenuItem.Name = "списокМорепродуктовToolStripMenuItem";
-            this.списокМорепродуктовToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.списокМорепродуктовToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.списокМорепродуктовToolStripMenuItem.Text = "Список Авторы";
-      
+            this.списокМорепродуктовToolStripMenuItem.Click += new System.EventHandler(this.АвторыиСтатьиToolStripMenuItem_Click);
             // 
-            // сушиПоМорепродуктамToolStripMenuItem
-            // 
-            this.сушиПоМорепродуктамToolStripMenuItem.Name = "сушиПоМорепродуктамToolStripMenuItem";
-            this.сушиПоМорепродуктамToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.сушиПоМорепродуктамToolStripMenuItem.Text = "Суши по морепродуктам";
-             // 
             // создатьБэкапToolStripMenuItem
-              // 
+            // 
+            this.создатьБэкапToolStripMenuItem.Name = "создатьБэкапToolStripMenuItem";
+            this.создатьБэкапToolStripMenuItem.Size = new System.Drawing.Size(12, 22);
+            // 
             // dataGridView
             // 
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -143,7 +138,6 @@
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem списокМорепродуктовToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem сушиПоМорепродуктамToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem создатьБэкапToolStripMenuItem;
     }
 }

@@ -33,6 +33,10 @@
             this.buttonDel = new System.Windows.Forms.Button();
             this.buttonRef = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateCreate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tema = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +48,7 @@
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.Text = "добавить";
             this.buttonAdd.UseVisualStyleBackColor = true;
-
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // buttonUpd
             // 
@@ -54,7 +58,7 @@
             this.buttonUpd.TabIndex = 1;
             this.buttonUpd.Text = "Изменить";
             this.buttonUpd.UseVisualStyleBackColor = true;
-
+            this.buttonUpd.Click += new System.EventHandler(this.ButtonUpd_Click);
             // 
             // buttonDel
             // 
@@ -64,7 +68,7 @@
             this.buttonDel.TabIndex = 2;
             this.buttonDel.Text = "Удалить";
             this.buttonDel.UseVisualStyleBackColor = true;
-
+            this.buttonDel.Click += new System.EventHandler(this.ButtonDel_Click);
             // 
             // buttonRef
             // 
@@ -74,18 +78,42 @@
             this.buttonRef.TabIndex = 3;
             this.buttonRef.Text = "Обновить";
             this.buttonRef.UseVisualStyleBackColor = true;
-
             // 
             // dataGridView
             // 
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.DateCreate,
+            this.Name,
+            this.Tema});
             this.dataGridView.Location = new System.Drawing.Point(12, 12);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(401, 343);
             this.dataGridView.TabIndex = 4;
             // 
-            // FormComponents
+            // Id
+            // 
+            this.Id.HeaderText = "Column1";
+            this.Id.Name = "Id";
+            // 
+            // DateCreate
+            // 
+            this.DateCreate.HeaderText = "Column1";
+            this.DateCreate.Name = "DateCreate";
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Column1";
+            this.Name.Name = "Name";
+            // 
+            // Tema
+            // 
+            this.Tema.HeaderText = "Column1";
+            this.Tema.Name = "Tema";
+            // 
+            // FormСтатьи
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -95,7 +123,7 @@
             this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.buttonUpd);
             this.Controls.Add(this.buttonAdd);
-            this.Name = "FormComponents";
+        
             this.Text = "Компоненты";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -109,5 +137,9 @@
         private System.Windows.Forms.Button buttonDel;
         private System.Windows.Forms.Button buttonRef;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateCreate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tema;
     }
 }

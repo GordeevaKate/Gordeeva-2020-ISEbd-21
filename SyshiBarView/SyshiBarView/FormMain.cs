@@ -40,7 +40,7 @@ namespace View
  
         private void АвторыиСтатьиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormАвторСтатья>();
+            var form = Container.Resolve<FormReport>();
             form.ShowDialog();
         }
 

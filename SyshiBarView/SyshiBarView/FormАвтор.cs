@@ -176,6 +176,7 @@ MessageBoxIcon.Error);
                     DateR= dateTimePicker1.Value,
                     AvtorStatias = sushiSeafoods
                 }
+
                 );
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
                MessageBoxButtons.OK, MessageBoxIcon.Information);

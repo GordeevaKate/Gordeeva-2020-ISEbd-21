@@ -4,12 +4,13 @@ using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.Rendering;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ЭкзаменBusinessLogic.BusinessLogics
 {
     class SaveToPdf
     {
-        public static void CreateDoc(PdfInfo info)
+        public static async Task  CreateDoc(PdfInfo info)
         {
 
             Document document = new Document();
@@ -56,7 +57,7 @@ namespace ЭкзаменBusinessLogic.BusinessLogics
                 Document = document
             };
 renderer.RenderDocument();
-            renderer.PdfDocument.Save(info.FileName);
+            await Task.Run(() => renderer.PdfDocument.Save(info.FileName));
         }
         private static void DefineStyles(Document document)
 {

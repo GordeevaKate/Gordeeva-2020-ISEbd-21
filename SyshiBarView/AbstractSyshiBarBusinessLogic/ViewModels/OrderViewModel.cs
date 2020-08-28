@@ -1,45 +1,55 @@
 ﻿using AbstractSyshiBarBusinessLogic.Enums;
 using System;
 using System.ComponentModel;
-using System.Runtime.Serialization;
+using System.Runtime.Serialization;using AbstractSyshiBarBusinessLogic.Attributes;
+using AbstractSyshiBarBusinessLogic.Enums;
+using System.Collections.Generic;
 namespace AbstractSyshiBarBusinessLogic.ViewModels
 {
     [DataContract]
-    public class OrderViewModel
+    public class OrderViewModel : BaseViewModel
     {
-        [DataMember]
-        public int Id { get; set; }
         [DataMember]
         public int ClientId { get; set; }
         [DataMember]
-        public int? ImplementerId { get; set; }
-        [DataMember]
         public int SushiId { get; set; }
         [DataMember]
-        [DisplayName("Клиент")]
+        public int? ImplementerId { get; set; }
+        [Column(title: "Клиент", width: 150)]
+        [DataMember]
         public string ClientFIO { get; set; }
+        [Column(title: "Суши", width: 100)]
         [DataMember]
-        [DisplayName("Исполнитель")]
-        public string ImplementerFIO { get; set; }
-        [DataMember] 
-     
-        [DisplayName("Суши")]
         public string SushiName { get; set; }
+        [Column(title: "Исполнитель", width: 100)]
         [DataMember]
-        [DisplayName("Количество")]
+        public string ImplementerFIO { get; set; }
+        [Column(title: "Количество", width: 100)]
+        [DataMember]
         public int Count { get; set; }
+        [Column(title: "Сумма", width: 50)]
         [DataMember]
-        [DisplayName("Сумма")]
-
         public decimal Sum { get; set; }
+        [Column(title: "Статус", width: 100)]
         [DataMember]
-        [DisplayName("Статус")]
         public OrderStatus Status { get; set; }
+        [Column(title: "Дата создания", width: 100)]
         [DataMember]
-        [DisplayName("Дата создания")]
         public DateTime DateCreate { get; set; }
+        [Column(title: "Дата выполнения", width: 100)]
         [DataMember]
-        [DisplayName("Дата выполнения")]
         public DateTime? DateImplement { get; set; }
+        public override List<string> Properties() => new List<string>
+        {
+            "Id",
+            "ClientFIO",
+            "SushiName",
+            "ImplementerFIO",
+            "Count",
+            "Sum",
+            "Status",
+            "DateCreate",
+            "DateImplement"
+        };
     }
 }

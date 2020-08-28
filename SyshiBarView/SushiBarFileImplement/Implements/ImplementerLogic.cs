@@ -20,7 +20,7 @@ namespace SyshiBarFileImplement.Implements
         public void CreateOrUpdate(ImplementerBindingModel model)
         {
             Implementer element = source.Implementers.FirstOrDefault(rec =>
-            rec.ImplementerFIO == model.ImplementerFIO && rec.Id != model.Id);
+                   rec.ImplementerFIO == model.ImplementerFIO && rec.Id != model.Id);
 
             if (element != null)
             {

@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 using System.Text;
-
+using AbstractSyshiBarBusinessLogic.Attributes;
 namespace AbstractSyshiBarBusinessLogic.ViewModels
 {
     [DataContract]
-    public class ClientViewModel
+    public class ClientViewModel : BaseViewModel
     {
+        [Column(title: "ФИО клиента", gridViewAutoSize: GridViewAutoSize.Fill)]
         [DataMember]
-        public int Id { get; set; }
-        [DataMember]
-        [DisplayName("ФИО")]
         public string ClientFIO { get; set; }
+        [Column(title: "Почта", width: 150)]
         [DataMember]
-        [DisplayName("Логин")]
         public string Email { get; set; }
         [DataMember]
-        [DisplayName("Пароль")]
         public string Password { get; set; }
+        public override List<string> Properties() => new List<string>
+        {
+            "Id",
+            "ClientFIO",
+            "Email"
+        };
     }
 }
